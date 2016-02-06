@@ -1,14 +1,14 @@
 
 .titlebar {
-    background-image: url('/dashboard_common/seasonal_customizations/easter/bg.png') !important;
-    background-color: rgb(157, 198, 216) !important; /* FAAFBE */    
+    background-image: url('bg.png') !important;
+    background-color: rgb(157, 198, 216) !important; /* FAAFBE */
     color: black !important;
 }
 
 .weather_heading {
     color: black;
-    border: 0; 
-    border-bottom: 1px solid black; 
+    border: 0;
+    border-bottom: 1px solid black;
     font-size: 10pt;
 }
 
@@ -36,16 +36,16 @@
 }
 
 #current_time {
-    color: black;   
+    color: black;
 }
 
 #time_second {
     color: black !important;
 }
 
-/* 
+/*
  Positions:
-    left    top     
+    left    top
     1055    90      Bunny's head
 
 */

@@ -1,6 +1,6 @@
 
 .titlebar {
-    background-image: url('/dashboard_common/seasonal_customizations/Valentines/heart_bg.png') !important;
+    background-image: url('heart_bg.png') !important;
     background-color: #FFD1DC !important; /* FAAFBE */
     color: black;
 }
@@ -32,7 +32,7 @@
 .blue{
 }
 
-#spare_tile {           
+#spare_tile {
 }
 
 @keyframes ghost {

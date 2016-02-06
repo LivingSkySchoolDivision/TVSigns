@@ -4,8 +4,8 @@
 
 
 .titlebar {
-    background-image: url('/dashboard_common/seasonal_customizations/halloween/bg.png') !important;
-    background-color: rgb(0,0,0) !important; /* FAAFBE */    
+    background-image: url('bg.png') !important;
+    background-color: rgb(0,0,0) !important; /* FAAFBE */
     color: white !important;
 }
 
@@ -27,8 +27,8 @@
 
 .weather_heading {
     color: white;
-    border: 0; 
-    border-bottom: 1px solid white; 
+    border: 0;
+    border-bottom: 1px solid white;
     font-size: 10pt;
 }
 
@@ -56,7 +56,7 @@
 }
 
 #current_time {
-    color: white; 
+    color: white;
 }
 
 #time_second {
@@ -64,25 +64,25 @@
 }
 
 #lync_tile {
-    background-image: url(/dashboard_common/seasonal_customizations/halloween/cobweb_right.png);     
-    background-repeat: no-repeat;             
-    background-position: top right;    
+    background-image: url('cobweb_right.png');
+    background-repeat: no-repeat;
+    background-position: top right;
 }
 
 .cobweb_right {
-    background-image: url(/dashboard_common/seasonal_customizations/halloween/cobweb_right.png);     
-    background-repeat: no-repeat;             
-    background-position: top right;    
+    background-image: url('cobweb_right.png');
+    background-repeat: no-repeat;
+    background-position: top right;
 }
 
 .cobweb {
-    background-image: url(/dashboard_common/seasonal_customizations/halloween/cobweb.png);     
-    background-repeat: no-repeat;             
+    background-image: url('cobweb.png');
+    background-repeat: no-repeat;
 }
 
 .pumpkin_tile {
-    background-image: url(/dashboard_common/seasonal_customizations/halloween/jackolantern_trans.png);     
-    background-repeat: no-repeat;                 
+    background-image: url('jackolantern_trans.png');
+    background-repeat: no-repeat;
     background-position: center;
 }
 

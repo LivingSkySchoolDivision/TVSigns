@@ -1,9 +1,9 @@
-body {  
-    background-image: url('/dashboard_common/seasonal_customizations/xmas/forest_2.jpg') !important; /**/
+body {
+    background-image: url('forest_2.jpg') !important; /**/
 
 }
 
-.titlebar {   
+.titlebar {
     color: white !important;
 }
 
@@ -21,13 +21,13 @@ body {
 
 .weather_heading {
     color: black;
-    border: 0; 
-    border-bottom: 1px solid white; 
+    border: 0;
+    border-bottom: 1px solid white;
     font-size: 10pt;
 }
 
 #spare_tile {
-  background-image: url('/dashboard_common/seasonal_customizations/winter/fireplace.gif');
+  background-image: url('fireplace.gif');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -40,10 +40,6 @@ body {
 
 }
 
-#weather_temp {
-  color:;
-}
-
 #weather_detail {
 
 }
@@ -51,7 +47,7 @@ body {
 .blue{
 }
 
-#spare_tile {           
+#spare_tile {
 }
 
 #xmas2 {
