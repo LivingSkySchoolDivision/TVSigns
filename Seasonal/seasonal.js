@@ -24,6 +24,7 @@ var currentYear = currentDate.getYear();
 // Valentines
 if (currentMonth == 2) {
     if ((currentDay >= 1) && (currentDay <= 14)) {
+        console.log("Loading valentines day stylesheets");
         LoadCSSFile("../Seasonal/Valentines/seasonal.css");
     }
 }
