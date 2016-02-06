@@ -1,0 +1,100 @@
+body {  
+    background-image: url('/dashboard_common/seasonal_customizations/xmas/forest_2.jpg') !important; /**/
+
+}
+
+.titlebar {   
+    color: white !important;
+}
+
+#weather_table {
+}
+
+#titlebar_1 {
+}
+
+#titlebar_2 {
+}
+
+#weather_tile {
+}
+
+.weather_heading {
+    color: black;
+    border: 0; 
+    border-bottom: 1px solid white; 
+    font-size: 10pt;
+}
+
+#spare_tile {
+  background-image: url('/dashboard_common/seasonal_customizations/winter/fireplace.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+#current_date {
+}
+
+#current_time {
+
+}
+
+#weather_temp {
+  color:;
+}
+
+#weather_detail {
+
+}
+
+.blue{
+}
+
+#spare_tile {           
+}
+
+#xmas2 {
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    width: 120px;
+    height: 120px;
+    animation: ghost 10s infinite linear;
+}
+
+#xmas1 {
+    position: absolute;
+    bottom: 10px; /* 20px */
+    right: -10px; /* 1040px */
+    width: 200px;
+    height: 200px;
+}
+
+@keyframes ghost {
+  10%  {
+    transform:scale(1) rotate(-2deg);
+    }
+
+  50%  {
+    transform:scale(1.1) rotate(6deg);
+    }
+
+  90%  {
+    transform:scale(1) rotate(-2deg);
+    }
+}
+
+@keyframes ghost2 {
+  10%  {
+    transform:scale(1) rotate(-7deg);
+    }
+
+  50%  {
+    transform:scale(1.2) rotate(3deg);
+    }
+
+  90%  {
+    transform:scale(1) rotate(-3deg);
+    }
+}

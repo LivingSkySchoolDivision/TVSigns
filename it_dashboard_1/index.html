@@ -1,0 +1,250 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="../Stylesheets/common.css"/>
+    <link rel="stylesheet" href="../Stylesheets/colors.css"/>
+    <link rel="stylesheet" href="../Stylesheets/lync.css"/>
+    <link rel="stylesheet" href="../Stylesheets/animations.css"/>
+
+    <link rel="stylesheet" href="../Seasonal/seasonal.css"/>
+
+    <!-- Common javascript -->
+    <script type="text/javascript" src="../CommonJavascript/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/helpers.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/emoticons.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/weather.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/speedometer.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/piecharts.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/it_watchdog.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/dateandtimehandlers.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/seasonal.js"></script>
+
+
+    <!-- Javascript for this dashboard specifically -->
+    <script type="text/javascript" src="it_dashboard_1_common.js"></script>
+    <script type="text/javascript" src="scripts_lync.js"></script>
+    <script type="text/javascript" src="scripts_autostart.js"></script>
+
+    <title>Living Sky IT Dashboard #1</title>
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META NAME="ROBOTS" CONTENT="NONE">
+</head>
+<body>
+    <div style="background-color: rgba(255,255,0,0.5); width: 1920px; height: 1080px; position: absolute; top: 0; left: 0;display: none;"></div>
+    <div class="page_container">
+    <table align="center" border=0 cellpadding=0 cellspacing=7 class="tile_table">
+        <tr>
+            <td class="tile tileheight_half blue titlebar" id="titlebar_1" colspan=3>
+                <div class="large_text centered">
+                    <div id="current_date"><div class="loading blink">LOADING</div></div>
+                </div>
+            </td>
+            <td class="tile tileheight_half blue titlebar" id="titlebar_2">
+                <div class="large_text">
+                    <div id="current_time"><div class="loading blink">LOADING</div></div>
+                </div>
+            </td>
+            <td id="weather_tile" class="tile tileheight_half blue titlebar" id="titlebar_3">
+
+                <table width="260" border=0 cellpadding=0 cellspacing=3 align="Center" id="weather_table">
+
+                    <tr>
+                        <td width="50%" align="center">
+                            <div class="large_text" id="weather_temp"></div>
+                        </td>
+                        <td width="50%" align="center" valign="top" id="weather_detail">
+                            <div id="weather_detail_icon"></div>
+                            <div id="weather_detail_description"></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="left">                            
+                            <div class="weather_detail"><b>Feels like: </b><div style="display: inline;" id="weather_temp_feelslike"></div></div>
+                        </td> 
+
+                        <td align="left">                            
+                            <div class="weather_detail"><b>Humid: </b><div style="display: inline;" id="weather_temp_humid"></div></div>
+                        </td>                       
+                    </tr>
+
+                    <tr>
+                        <td align="left">                            
+                            <div class="weather_detail"><b>Wind: </b><div style="display: inline;" id="weather_wind"></div></div>
+                        </td>    
+
+                        <td align="left">                            
+                            <div class="weather_detail"><b>Precip: </b><div style="display: inline;" id="weather_temp_precip"></div></div>
+                        </td>                       
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td class="tile tilewidth_1 tileheight_2 gray" rowspan=2 id="left_side_tile" style="vertical-align: top;">
+                <table id="leftside_table" style="width: 100%">
+                    <tbody></tbody>
+                </table>
+            </td>
+
+            <td class="tile tilewidth_1 tileheight_1 gray">
+                <div class="tile_title">Tickets Today</div>
+                <canvas id="Chart_TicketsToday"></canvas>
+            </td>
+
+            <td class="tile tilewidth_1 tileheight_1 gray" style="vertical-align: top;">
+                <div class="tile_content_container">
+                    <div class="tile_title">Internet Traffic</div>
+                    <div class="tile_subtext">Through Division Firewall</div>
+                    <br>
+                    <canvas id="bandwidth_meter" />
+                </div>
+            </td>
+
+            <td class="tile tilewidth_2 tileheight_1 gray" colspan=2 style="vertical-align: top;" id="lync_tile">
+                <div class="tile_content_container">
+                    <table id="lync_table_1" cellpadding=0 width="100%" border="0">
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <table id="lync_table_2" cellpadding=0 width="100%" border="0">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+
+
+            <!--
+            <td class="tile tilewidth_1 tileheight_1 gray">
+                <div class="tile_content_container">
+                </div>
+            </td>
+            -->
+
+
+        </tr>
+
+        <tr>
+            <!-- style="background-image: url(lunch.png);" -->
+            <!-- style="background-image: url(/dashboard_common/seasonal_customizations/xmas/fireplace.gif.png);" -->
+            <!--   -->
+
+            <td class="tile tilewidth_1 tileheight_1 gray">                
+                <div class="tile_title">Tickets last 7 days</div>                                
+                <canvas id="Chart_TicketsLast7Days"></canvas>                 
+            </td>
+
+            <td class="tile tilewidth_1 tileheight_1 gray">
+                <div class="tile_content_container">
+                    <div class="tile_title">Wireless Clients</div>
+                    <div class="tile_number" id="wireless_client_count"><div class="loading blink">LOADING</div></div>
+                    <div class="tile_subtext" id="wireless_client_last_updated">...</div>
+                    <div class="tile_subtext">(Updates hourly)</div>
+                </div>
+            </td>
+
+            <td class="tile tilewidth_1 tileheight_1 gray pumpkin_tile">
+                <div class="tile_content_container">
+                    <br/>
+                    <table border=0 cellpadding=0 cellspacing=0 width="100%">
+                        <tr>
+                            <td colspan=2><div class="watchdog_temp_title" id="wd_dc_swi_title"></div></td>
+                        </tr>
+                        <tr>
+                            <td width="50%"><div class="watchdog_temp" id="wd_dc_swi_temp">--</div></td>
+                            <td width="50%"><div class="watchdog_temp" id="wd_dc_swi_humid">--</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="watchdog_temp_subtitle">Temperature</div></td>
+                            <td><div class="watchdog_temp_subtitle">Humidity</div></td>
+                        </tr>
+                    </table>
+                    <br/><br>
+                    <table border=0 cellpadding=0 cellspacing=0 width="100%">
+                        <tr>
+                            <td><div class="watchdog_temp_title" id="wd_dc_vmw_title"></div></td>
+                        </tr>
+                        <tr>
+                            <td width="50%"><div class="watchdog_temp" id="wd_dc_vmw_temp">--</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="watchdog_temp_subtitle">Temperature</div></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+
+            
+            <td class="tile tilewidth_1 tileheight_1 gray pumpkin_tile">
+                <div class="tile_content_container">
+                    <br/>
+                    <table border=0 cellpadding=0 cellspacing=0 width="100%">
+                        <tr>
+                            <td colspan=2><div class="watchdog_temp_title" id="wd_do_swi_title"></div></td>
+                        </tr>
+                        <tr>
+                            <td width="50%"><div class="watchdog_temp" id="wd_do_swi_temp">--</div></td>
+                            <td width="50%"><div class="watchdog_temp" id="wd_do_swi_humid">--</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="watchdog_temp_subtitle">Temperature</div></td>
+                            <td><div class="watchdog_temp_subtitle">Humidity</div></td>
+                        </tr>
+                    </table>
+                    <br/><br>
+                    <table border=0 cellpadding=0 cellspacing=0 width="100%">
+                        <tr>
+                            <td><div class="watchdog_temp_title" id="wd_do_vmw_title"></div></td>
+                        </tr>
+                        <tr>
+                            <td width="50%"><div class="watchdog_temp" id="wd_do_vmw_temp">--&deg;</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="watchdog_temp_subtitle">Temperature</div></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        
+
+
+
+
+        </tr>
+
+        <tr>
+            <td class="tile tileheight_quarter gray" colspan=5>
+                <div id="ticker"></div>
+            </td>
+
+
+            <!--
+            <td class="tile tileheight_quarter gray">
+                <div class="tile_content_container">
+                    <div style="font-size: 20pt;" id="trivia"></div>
+                </div>
+            </td>
+            -->
+
+
+        </tr>
+
+
+    </table>
+
+    <!-- Hidden stuff for caching purposes -->
+    <img id="easter_egg" src="seasonal_customizations/easter/egg.png">
+    <img id="ghost" src="/dashboard_common/seasonal_customizations/halloween/ghost.png">
+    <img id="ghost2" src="/dashboard_common/seasonal_customizations/halloween/ghost2.png">
+    <img id="guyfawkes" src="/dashboard_common/seasonal_customizations/nov5/ghost2.png">
+    <img id="poppy" src="/dashboard_common/seasonal_customizations/Nov11/poppy.png">
+    <img id="xmas1" src="/dashboard_common/seasonal_customizations/xmas/xmas_floatie_1.png">
+    <img id="xmas2" src="/dashboard_common/seasonal_customizations/xmas/xmas_floatie_3.png">
+    
+</body>
+</html>
