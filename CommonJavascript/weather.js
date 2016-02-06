@@ -5,13 +5,11 @@ function convertKToCelcius(K) {
 }
 
 function convertHTTPtoHTTPS(thisHTTPURL) {
-    return str.replace("http","https")
+    return thisHTTPURL.replace("http","https")
 }
 
 function updateWeather(JSONPath) {
     /* Weather underground API key: bb5a09f62da58b68 */
-
-
     /* Use this section for wunderground */
     $.ajax({
         url : dashboardDataCollectorRoot + "/Proxy/JSON.aspx?url=https://api.wunderground.com/api/bb5a09f62da58b68/geolookup/conditions/q/North_Battleford.json",
