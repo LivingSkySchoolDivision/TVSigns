@@ -1,7 +1,7 @@
 //var pie_chart_overlay_image = '/dashboard_common/seasonal_customizations/Halloween/jackolantern.png'; // Halloween: jackolantern.png
 var pie_chart_overlay_image = '/dashboard_common/sphere.png'; // Halloween: jackolantern.png
 
-function add_pie_image(context) {    
+function add_pie_image(context) {
     // Add a cool graphic overtop of the pie chart
     // Image should be the same size as the canvas
     /*
@@ -13,3 +13,8 @@ function add_pie_image(context) {
 
     // Leave this line here */
 }
+
+
+// Check the date, and if there is a special occasion, apply the stylesheet for it
+
+LoadCSSFile("../Seasonal/Halloween/seasonal.css");
