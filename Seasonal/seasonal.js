@@ -19,7 +19,7 @@ function add_pie_image(context) {
 var currentDate = new Date();
 var currentDay = currentDate.getDate();
 var currentMonth = currentDate.getMonth() + 1; // this is zero indexed for some reason? add 1  to it to make it match up with reality.
-var currentYear = currentDate.getYear();
+var currentYear = currentDate.getFullYear();
 
 console.log("Current year is: " + currentYear);
 console.log("Current month is: " + currentMonth);
