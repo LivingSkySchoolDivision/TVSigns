@@ -13,3 +13,5 @@ var strendinMonitorRoot = "/strendinmonitor";
 // Keep in mind that JQuery won't allow ajax requests from other domains
 var dashboardDataCollectorRoot = "/LSKYDashboardDataCollector";
 
+
+var LyncJSONPath = "/DashboardPresence/JSON/";

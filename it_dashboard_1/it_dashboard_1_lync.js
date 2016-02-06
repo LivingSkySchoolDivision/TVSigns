@@ -53,11 +53,7 @@ function initializeLyncTable_StudentServices() {
 
 function updateLyncWidgets()
 {
-    // Load the data into an array
-    //var JSONPath = "http://dashboard.lskysd.ca/LSKYDashboardDataCollector/Proxy/JSON.aspx?skipcache=yes&url=http://localhost:8455/";
-    var JSONPath = "/DashboardPresence/JSON/";
-
-    $.getJSON(JSONPath, function(data) {
+    $.getJSON(LyncJSONPath, function(data) {
         //console.log("Got JSON data back")
         $.each(data, function(i, lyncuser) {
             //console.log("found lync user " + lyncuser.DisplayName)
