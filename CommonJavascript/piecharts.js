@@ -8,16 +8,6 @@ Christmas:      990021, 006d4c
 var pie_chart_color_1 = '#6CA870';
 var pie_chart_color_2 = '#2966B8';
 
-// Seasonal things
-var show_pie_chart_overlay_image = true;
-var pie_chart_overlay_image = ''; // Halloween: jackolantern.png
-
-function updateTicketGraphs() {
-    d = new Date();
-    $('#ticketGraph_7').attr('src','/SysAidReports/Graphs/ticketsByHour.aspx?hours=168&interval=24&graphstyle=line&date=' + d.getTime());
-    $('#ticketGraph_30').attr('src','/SysAidReports/Graphs/ticketsByHour.aspx?hours=720&interval=24&graphstyle=bar&date=' + d.getTime());
-}
-
 function drawTicketsPieChart(opened, closed, canvasid) {
     canvas = document.getElementById(canvasid);
     context = canvas.getContext('2d');
@@ -135,28 +125,4 @@ function drawTicketsPieChart(opened, closed, canvasid) {
 
     // Add cool seasonal pictures to the pie charts
     add_pie_image(context);
-}
-
-var newTicketsToday = -1;
-var closedTicketsToday = -1;
-function updateTicketCounts() {
-    var JSONPath = "/LSKYDashboardDataCollector/SysAid/JSONTicketCounts.aspx";
-    $.getJSON(JSONPath, function(data) {
-
-        if (
-            (newTicketsToday != data.Stats.ServiceRequests.Recent.Today.Created) ||
-            (closedTicketsToday != data.Stats.ServiceRequests.Recent.Today.Closed)
-            )
-        {
-
-            newTicketsToday = data.Stats.ServiceRequests.Recent.Today.Created;
-            closedTicketsToday = data.Stats.ServiceRequests.Recent.Today.Closed;
-            drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Today.Created  ,data.Stats.ServiceRequests.Recent.Today.Closed ,"Chart_TicketsToday");
-            drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Last7Days.Created  ,data.Stats.ServiceRequests.Recent.Last7Days.Closed ,"Chart_TicketsLast7Days");
-        }
-
-        //drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Last30Days.Created  ,data.Stats.ServiceRequests.Recent.Last30Days.Closed ,"Chart_TicketsLast30Days");
-
-    });
-
 }

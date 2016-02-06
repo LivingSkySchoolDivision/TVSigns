@@ -1,19 +1,17 @@
-
-
 function UpdateTicketsPerSchool() {
     var JSONPath = "/lskydashboarddatacollector/Jira/TicketsByFacility.aspx";
 
    $.getJSON(JSONPath, function(data) {
         $('#leftside_table').empty();
         $('#leftside_table').append("<tbody></tbody>");
-        
+
         $.each(data.Facilities, function(categoryIndex, thisSchool) {
             if (
                 (thisSchool.Facility != "Lakeview Colony") &&
                 (thisSchool.Facility != "Hillsvale Colony") &&
                 (thisSchool.Facility != "Scott Colony") &&
                 (thisSchool.Facility != "Meadow Lake Christian Academy")
-                ) 
+                )
             {
                 var facilityCount = thisSchool.Unresolved;
                 if (thisSchool.Unresolved == 0) {
@@ -50,23 +48,6 @@ function updateWirelessCount(JSONPath) {
     });
 }
 
-function updateBandwidthUsers(JSONPath) {
-    var maxEntries = 7;
-    $.getJSON(JSONPath, function(data) {
-        /* Clear the existing table rows */
-        $('#bandwidth_users_table').empty();
-        $('#bandwidth_users_table').append("<tbody></tbody>");
-
-        var numEntries = 0;
-        $.each(data.TopBandwidthUsers, function(NotUsed, thisEntry) {
-            numEntries++;
-            if (numEntries <= maxEntries) {
-                $('#bandwidth_users_table > tbody:last').append("<tr><td style=\"text-align: left; border-bottom: 1px dashed rgba(255,255,255,0.1); font-size: 14pt;\">"+thisEntry.Name+"</td><td style=\"text-align: right; border-bottom: 1px dashed rgba(255,255,255,0.1); font-size: 12pt;\">"+thisEntry.Bytes+" kbps</td></tr>");
-            }
-        });
-    });
-}
-
 var tickerIndex = -1;
 function updateTicker() {
     var JSONPath = "/lskydashboarddatacollector/Jira/NewestTickets.aspx";
@@ -85,4 +66,26 @@ function updateTicker() {
             $('#ticker').html("<b class=\"total_count\">" + data.Tickets[tickerIndex].timesince + ":</b> " + data.Tickets[tickerIndex].title + " <i>(" + data.Tickets[tickerIndex].requested_by + " - " + data.Tickets[tickerIndex].location + ")</i>").fadeIn('500');
         });
     });
+}
+
+var newTicketsToday = -1;
+var closedTicketsToday = -1;
+function updateTicketCounts() {
+    var JSONPath = "/LSKYDashboardDataCollector/SysAid/JSONTicketCounts.aspx";
+    $.getJSON(JSONPath, function(data) {
+
+        if (
+            (newTicketsToday != data.Stats.ServiceRequests.Recent.Today.Created) ||
+            (closedTicketsToday != data.Stats.ServiceRequests.Recent.Today.Closed)
+        )
+        {
+
+            newTicketsToday = data.Stats.ServiceRequests.Recent.Today.Created;
+            closedTicketsToday = data.Stats.ServiceRequests.Recent.Today.Closed;
+            drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Today.Created  ,data.Stats.ServiceRequests.Recent.Today.Closed ,"Chart_TicketsToday");
+            drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Last7Days.Created  ,data.Stats.ServiceRequests.Recent.Last7Days.Closed ,"Chart_TicketsLast7Days");
+        }
+
+    });
+
 }

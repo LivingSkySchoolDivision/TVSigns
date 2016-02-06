@@ -42,11 +42,6 @@ setInterval(function() {
     updateBandwidthGauge();
 }, 600000);
 
-/* Update ticket counts */
-setInterval(function() {
-    updateTicketGraphs();
-}, 600000);
-
 /* Update ticket graphs */
 setInterval(function() {
     updateTicketCounts();
