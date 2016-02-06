@@ -140,7 +140,7 @@ function drawTicketsPieChart(opened, closed, canvasid) {
 var newTicketsToday = -1;
 var closedTicketsToday = -1;
 function updateTicketCounts() {
-    var JSONPath = "/LSKYDashboardDataCollector/SysAid/JSONTicketCounts.aspx"
+    var JSONPath = "/LSKYDashboardDataCollector/SysAid/JSONTicketCounts.aspx";
     $.getJSON(JSONPath, function(data) {
 
         if (
@@ -150,7 +150,7 @@ function updateTicketCounts() {
         {
 
             newTicketsToday = data.Stats.ServiceRequests.Recent.Today.Created;
-            closedTicketsToday = data.Stats.ServiceRequests.Recent.Today.Closed
+            closedTicketsToday = data.Stats.ServiceRequests.Recent.Today.Closed;
             drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Today.Created  ,data.Stats.ServiceRequests.Recent.Today.Closed ,"Chart_TicketsToday");
             drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Last7Days.Created  ,data.Stats.ServiceRequests.Recent.Last7Days.Closed ,"Chart_TicketsLast7Days");
         }

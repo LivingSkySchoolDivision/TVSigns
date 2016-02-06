@@ -258,7 +258,7 @@ function drawBandwidthGauge(value_large, peak_large, peakdate_large, maxvalue_la
 }
 
 function updateBandwidthGauge() {
-    var JSONPath = "/StrendinMonitor/JSON/ByHost.aspx?hostid=1"
+    var JSONPath = "/StrendinMonitor/JSON/ByHost.aspx?hostid=1";
     // Internet traffic currently comes in via two sensors
     // Figure out which one has the higher value, and display that one
 

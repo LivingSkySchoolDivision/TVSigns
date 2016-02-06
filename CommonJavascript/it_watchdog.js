@@ -1,6 +1,6 @@
 function getWatchdogTemp() {
-    var XMLPath_DO = "/LSKYDashboardDataCollector/Proxy/XML.aspx?SKIPCACHE=yes&url=http://10.177.54.129/data.xml"
-    var XMLPath_NBCHS = "/LSKYDashboardDataCollector/Proxy/XML.aspx?SKIPCACHE=yes&url=http://10.177.200.129/data.xml"
+    var XMLPath_DO = "/LSKYDashboardDataCollector/Proxy/XML.aspx?SKIPCACHE=yes&url=http://10.177.54.129/data.xml";
+    var XMLPath_NBCHS = "/LSKYDashboardDataCollector/Proxy/XML.aspx?SKIPCACHE=yes&url=http://10.177.200.129/data.xml";
     // Warning temperatures
     var warnHigh = 28;
     var warnLow = 5;

@@ -1,7 +1,7 @@
 
 
 function UpdateTicketsPerSchool() {
-    var JSONPath = "/lskydashboarddatacollector/Jira/TicketsByFacility.aspx"
+    var JSONPath = "/lskydashboarddatacollector/Jira/TicketsByFacility.aspx";
 
    $.getJSON(JSONPath, function(data) {
         $('#leftside_table').empty();
@@ -36,7 +36,7 @@ function UpdateTicketsPerSchool() {
 
 
 function updateWirelessCount(JSONPath) {
-    var JSONPath = "/LSKYDashboardDataCollector/CiscoWireless/WirelessClients.aspx"
+    var JSONPath = "/LSKYDashboardDataCollector/CiscoWireless/WirelessClients.aspx";
 
     $.getJSON(JSONPath, function(data) {
         var wifiClients = data["Wireless"]["Authenticated"];
@@ -69,7 +69,7 @@ function updateBandwidthUsers(JSONPath) {
 
 var tickerIndex = -1;
 function updateTicker() {
-    var JSONPath = "/lskydashboarddatacollector/Jira/NewestTickets.aspx"
+    var JSONPath = "/lskydashboarddatacollector/Jira/NewestTickets.aspx";
 
     $.getJSON(JSONPath, function(data) {
 
