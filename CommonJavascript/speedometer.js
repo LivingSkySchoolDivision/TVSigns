@@ -15,8 +15,8 @@ function drawLargeGauge(value, peak, peakdate, maxvalue, label, canvasid)
     // bar size = 240 (for this example)
     // 50 value -> 50% -> filledBarInDegrees was 120
 
-    canvas = document.getElementById(canvasid);
-    context = canvas.getContext('2d');
+    var canvas = document.getElementById(canvasid);
+    var context = canvas.getContext('2d');
 
     var chartRadius = (canvas.height / 2) * 0.9;
 
