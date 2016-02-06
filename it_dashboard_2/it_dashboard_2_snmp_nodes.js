@@ -7,10 +7,8 @@ function add_snmp_sensor_node(sidebar, idnum, title, health, inbits, outbits, me
     htmlcode += '<table border=0 cellpadding=0 cellspacing=2 class="sensor_node_table">';
     htmlcode += '<tr id="SNMP_NODE_SNMPDATA_' + idnum + '">';
     htmlcode += '<td class="sensor_node_info" width="50">in</td>';
-    //htmlcode += '<td class="sensor_node_data" width="112"><div style="display: inline" id="SNMP_NODE_' + idnum + '_inbits"></div></td>';
     htmlcode += '<td class="sensor_node_data" width="112" id="SNMP_NODE_' + idnum + '_inbits"></td>';
     htmlcode += '<td class="sensor_node_info" width="50">out</td>';
-    //htmlcode += '<td class="sensor_node_data" width="112"><div style="display: inline" id="SNMP_NODE_' + idnum + '_outbits"></div></td>';
     htmlcode += '<td class="sensor_node_data" width="112" id="SNMP_NODE_' + idnum + '_outbits"></td>';
     htmlcode += '</tr>';
     htmlcode += '<tr id="SNMP_NODE_ERRORDATA_' + idnum + '" class="hidden">';

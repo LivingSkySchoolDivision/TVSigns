@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700);
 
 html {
     padding: 0;
@@ -322,7 +322,7 @@ td {
 
 .watchdog_temp_title {
     font-size: 14pt;
-    text-align: center;    
+    text-align: center;
     color: rgba(255,255,255,1);
 }
 
@@ -338,16 +338,16 @@ td {
     padding: 5px;
     padding-top: 15px;
     padding-bottom: 15px;
-    vertical-align: middle;    
+    vertical-align: middle;
     font-size: 25pt;
     color: rgb(255,255,255);
-    
+
     border: 2px solid rgba(255,255,255,0.05);
     border-radius: 5px;
     text-align: center;
     margin-left: auto;
-    margin-right: auto; 
-    font-family: sans-serif;       
+    margin-right: auto;
+    font-family: sans-serif;
 }
 
 .warning {
@@ -357,7 +357,7 @@ td {
 }
 
 .critical {
-    animation: fadered 3s infinite linear;    
+    animation: fadered 3s infinite linear;
     color: white;
     border: 3px solid red;
 }
