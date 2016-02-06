@@ -26,8 +26,7 @@ function add_snmp_sensor_node(sidebar, idnum, title, health, inbits, outbits, me
 function update_snmp_sensor_node(sidebar, id, title, health, inbits, outbits, megain, megaout, err, rev, connectionLimitIn, connectionLimitOut, trafficPeakIn, trafficPeakOut) {
 
     if (doesElementExist('SNMP_NODE_' + id) == true) {
-        //$('#weather_temp').addClass("weather_alert");
-        //$('#SNMP_NODE_' + id)
+        // If the sensor DIV exists, upate it (otherwise create it, below)
 
         var displayTitle = title;
 
@@ -35,6 +34,7 @@ function update_snmp_sensor_node(sidebar, id, title, health, inbits, outbits, me
             displayTitle += ' <small style="font-size: 6pt; color: rgba(255,255,255,0.2);">M</small>';
         }
 
+        // Indicate if the in/out values are reversed (but make it super hard to notice unless you're looking for it)
         if (rev == true) {
             displayTitle += ' <small style="font-size: 6pt; color: rgba(255,255,255,0.2);">R</small>';
         }
@@ -161,10 +161,11 @@ function update_snmp_sensor_node(sidebar, id, title, health, inbits, outbits, me
         $('#SNMP_NODE_' + id + '_outbits').html(displayStringOut);
         $('#SNMP_NODE_' + id + '_title').html(displayTitle);
         $('#SNMP_NODE_' + id + '_error').html('<div style="text-align: center">' + err + '</div>');
-        $('#SNMP_NODE_' + id + '').css("background-image", "url(/StrendinMonitor/Graphs/SNMPThroughput.aspx?sensorid=" + id + "&height=40&width=340&hours=6&semitrans=true&graphstyle=line&maxvalue=" + connectionLimitIn + ")");
-        //$('#SNMP_NODE_' + id + '_inbits').css("background-image", "url(/StrendinMonitor/Graphs/SNMPThroughput.aspx?sensorid=" + id + "&height=40&width=112&hours=6&semitrans=true)");
+        $('#SNMP_NODE_' + id + '').css("background-image", "url(" + strendinMonitorRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + id + "&height=40&width=340&hours=6&semitrans=true&graphstyle=line&maxvalue=" + connectionLimitIn + ")");
+
 
     } else {
+        // If the sensor DIV doesn't exist, create it
         add_snmp_sensor_node(sidebar, id, title, health, inbits, outbits, megain, megaout, err, rev, connectionLimitIn, connectionLimitOut, trafficPeakIn, trafficPeakOut)
     }
 }

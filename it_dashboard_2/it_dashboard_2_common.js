@@ -119,11 +119,7 @@ function updateSNMPSensorNodes(JSONPath) {
             if (thisSensor.id == 21) {
                 update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Macklin", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
-            /*
-             if (thisSensor.id == 22) {
-             update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Major", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
-             }
-             */
+
             if (thisSensor.id == 23) {
                 update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Maymont", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
             }
@@ -147,11 +143,7 @@ function updateSNMPSensorNodes(JSONPath) {
             if (thisSensor.id == 28) {
                 update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Norman Carter", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
             }
-            /*
-             if (thisSensor.id == 29) {
-             update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Phoenix Manacowin", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
-             }
-             */
+
             if (thisSensor.id == 30) {
                 update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Spiritwood High", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
@@ -166,11 +158,7 @@ function updateSNMPSensorNodes(JSONPath) {
 
             if (thisSensor.id == 32) {
                 update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Unity Public", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
-                //update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Unity Public", -1, -1, thisSensor.mbpsout, thisSensor.mbpsin, "Error text", true);
             }
-
-
-            //update_snmp_sensor_node("#sidebar_bottom_left",666, "Test Sensor (Ignore me)", 0 , -1, -1, 1210.45, 123.45, ":(", true, 125, 125);
 
         });
     });
@@ -180,8 +168,8 @@ function updateSNMPSensorNodes(JSONPath) {
 function updatePingSensorNodes(JSONPath) {
 
     // Add map pieces
-    draw_region_map("/strendinmonitor/JSON/allsensors.aspx", "region_map");
-    draw_city_map("/strendinmonitor/JSON/allsensors.aspx", "city_map");
+    draw_region_map(strendinMonitorRoot + "/JSON/allsensors.aspx", "region_map");
+    draw_city_map(strendinMonitorRoot + "/JSON/allsensors.aspx", "city_map");
 
 }
 
@@ -204,7 +192,7 @@ function updateBandwidthGraph(JSONPath) {
         if (graphID > 0)
         {
             d = new Date();
-            $('#bandwidth_graph').attr('src','/strendinmonitor/graphs/SNMPThroughput.aspx?sensorid=' + graphID + '&graphstyle=line&width=450&height=70&date=' + d.getTime());
+            $('#bandwidth_graph').attr('src',strendinMonitorRoot + '/graphs/SNMPThroughput.aspx?sensorid=' + graphID + '&graphstyle=line&width=450&height=70&date=' + d.getTime());
         }
     });
 }
@@ -310,7 +298,7 @@ function updateTotalTrafficThisMonth(JSONPath1, JSONPath2) {
 }
 
 function updateConnectionWarnings() {
-    var JSONPath = "/LSKYDashboardDataCollector/Internet/index.aspx";
+    var JSONPath = dashboardDataCollectorRoot + "/Internet/index.aspx";
 
     $.getJSON(JSONPath, function(data) {
 
