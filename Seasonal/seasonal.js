@@ -21,6 +21,9 @@ var currentDay = currentDate.getDate();
 var currentMonth = currentDate.getMonth();
 var currentYear = currentDate.getYear();
 
+console.log("Current month is: " + currentMonth);
+console.log("Current day is: " + currentDay);
+
 // Valentines
 if (currentMonth == 2) {
     if ((currentDay >= 1) && (currentDay <= 14)) {
