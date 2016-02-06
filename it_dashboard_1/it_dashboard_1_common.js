@@ -1,11 +1,12 @@
 function UpdateTicketsPerSchool() {
-    var JSONPath = "/lskydashboarddatacollector/Jira/TicketsByFacility.aspx";
+    var JSONPath = dashboardDataCollectorRoot + "/Jira/TicketsByFacility.aspx";
 
    $.getJSON(JSONPath, function(data) {
-        $('#leftside_table').empty();
-        $('#leftside_table').append("<tbody></tbody>");
+        $("#leftside_table").empty();
+        $("#leftside_table").append("<tbody></tbody>");
 
         $.each(data.Facilities, function(categoryIndex, thisSchool) {
+            // Skip schools that we don't care about having on the dashboard
             if (
                 (thisSchool.Facility != "Lakeview Colony") &&
                 (thisSchool.Facility != "Hillsvale Colony") &&
@@ -34,7 +35,7 @@ function UpdateTicketsPerSchool() {
 
 
 function updateWirelessCount(JSONPath) {
-    var JSONPath = "/LSKYDashboardDataCollector/CiscoWireless/WirelessClients.aspx";
+    var JSONPath = dashboardDataCollectorRoot + "/CiscoWireless/WirelessClients.aspx";
 
     $.getJSON(JSONPath, function(data) {
         var wifiClients = data["Wireless"]["Authenticated"];
@@ -50,7 +51,7 @@ function updateWirelessCount(JSONPath) {
 
 var tickerIndex = -1;
 function updateTicker() {
-    var JSONPath = "/lskydashboarddatacollector/Jira/NewestTickets.aspx";
+    var JSONPath = dashboardDataCollectorRoot + "/Jira/NewestTickets.aspx";
 
     $.getJSON(JSONPath, function(data) {
 
@@ -71,7 +72,7 @@ function updateTicker() {
 var newTicketsToday = -1;
 var closedTicketsToday = -1;
 function updateTicketCounts() {
-    var JSONPath = "/LSKYDashboardDataCollector/SysAid/JSONTicketCounts.aspx";
+    var JSONPath = dashboardDataCollectorRoot + "/Jira/TicketCounts.aspx"
     $.getJSON(JSONPath, function(data) {
 
         if (
@@ -79,13 +80,10 @@ function updateTicketCounts() {
             (closedTicketsToday != data.Stats.ServiceRequests.Recent.Today.Closed)
         )
         {
-
             newTicketsToday = data.Stats.ServiceRequests.Recent.Today.Created;
-            closedTicketsToday = data.Stats.ServiceRequests.Recent.Today.Closed;
+            closedTicketsToday = data.Stats.ServiceRequests.Recent.Today.Closed
             drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Today.Created  ,data.Stats.ServiceRequests.Recent.Today.Closed ,"Chart_TicketsToday");
             drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Last7Days.Created  ,data.Stats.ServiceRequests.Recent.Last7Days.Closed ,"Chart_TicketsLast7Days");
         }
-
     });
-
 }

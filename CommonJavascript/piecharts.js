@@ -9,8 +9,8 @@ var pie_chart_color_1 = '#6CA870';
 var pie_chart_color_2 = '#2966B8';
 
 function drawTicketsPieChart(opened, closed, canvasid) {
-    canvas = document.getElementById(canvasid);
-    context = canvas.getContext('2d');
+    var canvas = document.getElementById(canvasid);
+    var context = canvas.getContext('2d');
 
     canvas.width = 300;
     canvas.height = 250;
