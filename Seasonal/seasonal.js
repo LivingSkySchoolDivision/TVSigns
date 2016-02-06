@@ -16,5 +16,14 @@ function add_pie_image(context) {
 
 
 // Check the date, and if there is a special occasion, apply the stylesheet for it
+var currentDate = new Date();
+var currentDay = currentDate.getDate();
+var currentMonth = currentDate.getMonth();
+var currentYear = currentDate.getYear();
 
-LoadCSSFile("../Seasonal/Halloween/seasonal.css");
+// Valentines
+if (currentMonth == 2) {
+    if ((currentDay >= 1) && (currentDay <= 14)) {
+        LoadCSSFile("../Seasonal/Valentines/seasonal.css");
+    }
+}
