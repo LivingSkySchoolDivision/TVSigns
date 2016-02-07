@@ -8,6 +8,7 @@ function UpdateTicketsPerSchool() {
         $.each(data.Facilities, function(categoryIndex, thisSchool) {
             // Skip schools that we don't care about having on the dashboard
             if (
+                (thisSchool.Facility != "Phoenix") &&
                 (thisSchool.Facility != "Lakeview Colony") &&
                 (thisSchool.Facility != "Hillsvale Colony") &&
                 (thisSchool.Facility != "Scott Colony") &&
