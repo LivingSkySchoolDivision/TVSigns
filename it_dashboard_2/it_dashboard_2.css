@@ -97,7 +97,7 @@ td {
 }
 
 .data_peak {
-    color: orangered;
+    color: yellow;
 }
 
 .sidebar {
@@ -133,12 +133,11 @@ td {
 }
 
 .warning_node_title {
-
 }
 
 .data_peak_title {
-    background-color: orangered;
-    color: white;
+    background-color: yellow;
+    color: black;
 }
 
 .idle {
