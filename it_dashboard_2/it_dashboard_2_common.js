@@ -15,9 +15,13 @@ function updateSNMPSensorNodes(JSONPath) {
             if (thisSensor.lastfailurereason.length > 0)
             {
                 //errorNotes = thisSensor.lastfailurereason;
-                errorNotes = "Last seen: " + thisSensor.lastsuccess;
+                if (thisSensor.lastsuccess == 'Never') {
+                    errorNotes = "[OFFLINE] For over 24 hours";
+                } else {
+                    errorNotes = "[OFFLINE] Last seen " + thisSensor.lastsuccess;
+                }
             } else {
-                errorNotes = "offline";
+                errorNotes = "[OFFLINE]";
             }
 
             //var errorNotes = "Last seen: " + thisSensor.lastsuccess;
@@ -192,7 +196,7 @@ function updateBandwidthGraph(JSONPath) {
         if (graphID > 0)
         {
             d = new Date();
-            $('#bandwidth_graph').attr('src',strendinMonitorRoot + '/graphs/SNMPThroughput.aspx?sensorid=' + graphID + '&graphstyle=line&width=450&height=70&date=' + d.getTime());
+            $('#bandwidth_graph').attr('src',strendinMonitorRoot + '/graphs/SNMPThroughput.aspx?sensorid=' + graphID + '&graphstyle=doublesided&width=450&height=70&date=' + d.getTime());
         }
     });
 }
