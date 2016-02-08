@@ -67,15 +67,17 @@
 				<table border=0 cellpadding=0 cellspacing=0 width="100%">
 					<tr>
 						<td id="sidebar_bottom_left">
-							<div class="sensor_node" id="TOTAL_DATA_TODAY_NODE">
-								<div class="sensor_node_title" id="TOTAL_DATA_title">Today's Internet Traffic</div>
+							<div class="total_traffic_node" id="TOTAL_DATA_TODAY_NODE">
+								<div class="total_traffic_title" id="TOTAL_DATA_title">Today's Internet Traffic</div>
 								<table border=0 cellpadding=0 cellspacing=2 class="sensor_node_table">
 									<tr>
-										<td class="sensor_node_info" width="50">in</td>
-										<td class="sensor_node_data" width="112" id="TOTAL_DATA_in">...</td>
-										<td class="sensor_node_info" width="50">out</td>
-										<td class="sensor_node_data" width="112" id="TOTAL_DATA_out">...</td>
+										<td class="total_traffic_info" width="50">inbound</td>
+										<td class="total_traffic_info" width="50">outbound</td>
 									</tr>
+                                    <tr>
+                                        <td class="total_traffic_data" width="112" id="TOTAL_DATA_in"><i class="fa fa-spinner fa-spin semitrans"></i></td>
+                                        <td class="total_traffic_data" width="112" id="TOTAL_DATA_out"><i class="fa fa-spinner fa-spin semitrans"></i></td>
+                                    </tr>
 								</table>
 							</div>
 						</td>
@@ -83,15 +85,17 @@
 							<div><img id="bandwidth_graph" src="" height="70" width="450"/></div>
 						</td>
 						<td id="sidebar_bottom_right">
-							<div class="sensor_node" id="TOTAL_DATA_MONTH_NODE">
-								<div class="sensor_node_title" id="TOTAL_DATA_MONTH_title">Internet Traffic for ...</div>
+							<div class="total_traffic_node" id="TOTAL_DATA_MONTH_NODE">
+								<div class="total_traffic_title" id="TOTAL_DATA_MONTH_title">Internet Traffic for ...</div>
 								<table border=0 cellpadding=0 cellspacing=2 class="sensor_node_table">
-									<tr>
-										<td class="sensor_node_info" width="50">in</td>
-										<td class="sensor_node_data" width="112" id="TOTAL_DATA_MONTH_in">...</td>
-										<td class="sensor_node_info" width="50">out</td>
-										<td class="sensor_node_data" width="112" id="TOTAL_DATA_MONTH_out">...</td>
-									</tr>
+                                    <tr>
+                                        <td class="total_traffic_info" width="50">inbound</td>
+                                        <td class="total_traffic_info" width="50">outbound</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="total_traffic_data" width="112" id="TOTAL_DATA_MONTH_in"><i class="fa fa-spinner fa-spin semitrans"></i></td>
+                                        <td class="total_traffic_data" width="112" id="TOTAL_DATA_MONTH_out"><i class="fa fa-spinner fa-spin semitrans"></i></td>
+                                    </tr>
 								</table>
 							</div>
 						</td>

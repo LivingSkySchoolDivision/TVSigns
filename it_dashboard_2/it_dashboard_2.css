@@ -202,6 +202,38 @@ td {
     color: white;
 }
 
+.total_traffic_node {
+
+}
+
+.total_traffic_data {
+    font-size: 16pt;
+    font-family: 'Droid Sans', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.total_traffic_title {
+    font-size: 8pt;
+    font-weight: bold;
+    font-family: 'Droid Sans', sans-serif;
+    text-align: center;
+    color: #151010;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.total_traffic_info {
+    font-family: 'Droid Sans', sans-serif;
+    text-align: center;
+    font-size: 7pt;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+}
+
+.semitrans {
+    color: rgba(255,255,255,0.1);
+}
+
 @keyframes bouncerotate {
     0%  {
         transform:scale(1) rotate(1deg);
