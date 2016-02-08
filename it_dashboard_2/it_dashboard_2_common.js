@@ -30,10 +30,8 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 2) {
-                update_snmp_sensor_node("#sidebar_top_middle", thisSensor.id, "Firewall Internet Port (Secondary)", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, true, 200, 200);
+                update_snmp_sensor_node("#sidebar_top_right", thisSensor.id, "Firewall Internet Port (Secondary)", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, true, 200, 200);
             }
-
-
 
             // BCS 9
             // Bready  10
@@ -74,7 +72,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 5) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Division Office", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 75, 75); /* actually 1000 */
+                update_snmp_sensor_node("#sidebar_top_middle", thisSensor.id, "Division Office", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 1000, 1000); /* actually 1000 */
             }
 
             if (thisSensor.id == 15) {
@@ -90,7 +88,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 18) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Kerrobert", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Kerrobert", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
 
             if (thisSensor.id == 3) {
@@ -129,7 +127,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 24) {
-                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "McKitrick", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "McKitrick", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
 
             if (thisSensor.id == 25) {

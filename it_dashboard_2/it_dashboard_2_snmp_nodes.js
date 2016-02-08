@@ -116,27 +116,36 @@ function update_snmp_sensor_node(sidebar, id, title, health, inbits, outbits, me
                 $('#SNMP_NODE_' + id + '_inbits').removeClass("data_peak");
             } else {
                 $('#SNMP_NODE_' + id + '_outbits').removeClass("data_peak");
-
             }
+        }
+
+
+        if (
+            (megaout >= (connectionLimitOut * 0.9)) ||
+            (megain >= (connectionLimitIn * 0.9))) {
+
+            $('#SNMP_NODE_' + id + '_title').addClass("data_peak_title");
+        } else {
+            $('#SNMP_NODE_' + id + '_title').removeClass("data_peak_title");
         }
 
         displayStringOut = parseFloat(megaout).toFixed(2) + ' mbps';
         displayStringIn = parseFloat(megain).toFixed(2) + ' mbps';
 
-        if (megain == 0) {
-            displayStringIn = "idle";
+        if (megain <= 0.02) {
+            displayStringIn = "<span class=\"idle\">idle</span>";
         }
 
-        if (megaout == 0) {
-            displayStringOut = "idle";
+        if (megaout <= 0.02) {
+            displayStringOut = "<span class=\"idle\">idle</span>";
         }
 
         if (inbits == 0) {
-            displayStringIn = 'idle';
+            displayStringIn = '<span class=\"idle\">idle</span>';
         }
 
         if (outbits == 0) {
-            displayStringOut = 'idle';
+            displayStringOut = '<span class=\"idle\">idle</span>';
         }
 
 

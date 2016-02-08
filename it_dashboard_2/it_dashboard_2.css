@@ -132,6 +132,19 @@ td {
     color: white;
 }
 
+.warning_node_title {
+
+}
+
+.data_peak_title {
+    background-color: orangered;
+    color: white;
+}
+
+.idle {
+    color: rgba(128,128,128,0.1);
+}
+
 .page_container{
     width: 1920px;
     height: 1080px;
