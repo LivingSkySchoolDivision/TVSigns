@@ -40,14 +40,12 @@ td {
 
 .sensor_node {
     width: 340px;
-    background-color: #2B3856;
-    border-radius: 7px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15px;
     margin-top: 5px;
     padding-bottom: 5px;
-    border: 2px solid #111111;
+    /*border: 1px solid rgba(255,255,255,0.1);*/
     color: white;
     background-position:right bottom;
     background-repeat: no-repeat;
@@ -55,7 +53,13 @@ td {
 
 .sensor_node_title {
     text-align: center;
+    font-size: 8pt;
+    background-color: rgba(255,255,255,0.2);/* */
+    /*background-color: rgba(0,128,0,0.1); /* */
+    /* color: rgba(255,255,255,0.1); */
+    color: rgba(255,255,255,0.2);
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .sensor_node_table {
@@ -66,25 +70,34 @@ td {
 
 .sensor_node_info {
     margin: 5px;
-    color: #C0C0C0;
+    color: rgba(255,255,255,0.1);
     text-align: center;
-    font-size: 8pt;
+    font-size: 6pt;
     text-transform: uppercase;
 }
 
 .sensor_node_data {
     text-align: right;
-    background-color: rgba(255,255,255,0.30);
-    color: black;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
     padding: 5px;
-    border-radius: 5px;
-    font-size: 11pt;
+    font-size: 16pt;
+    font-weight: bold;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+.sensor_node_data_error {
+    font-size: 12pt;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    animation: fadered 3s infinite linear;
+    font-weight: bold;
 }
 
 .data_peak {
-    border: 3px solid rgba(248, 114, 23, 1);
-    background-color: rgba(248, 114, 23, 0.4);
-    color: rgba(255, 255, 255, 0.5);
+    color: orangered;
 }
 
 .sidebar {
@@ -94,7 +107,6 @@ td {
 
 
 .offline {
-    background-color: #AA0114;
 }
 
 
@@ -107,9 +119,6 @@ td {
 }
 
 .idle_node {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255,255,255,0.2);
 }
 
 .offline_node {
@@ -118,34 +127,14 @@ td {
     animation: fadered 3s infinite linear;
 }
 
-.healthy_node {
-    background-color: #229922;
-    color: black;
-    border: 2px solid #007700;
-
-}
-
-.warning_node {
-    /* border: 2px solid #770000;   */
-    /* background-color: #2B3856; */
-    border: 3px solid rgba(248, 114, 23, 1);
-    animation: faderedborder 3s infinite linear;
-}
-
-.maintenance_node {
-    border: 2px solid #000077;
-    background-color: #444499;
-    color: black;
+.offline_node_title {
+    background-color: red;
+    color: white;
 }
 
 .page_container{
-    /*
-    width:auto;
-    height:auto;
-    */
     width: 1920px;
     height: 1080px;
-    /*padding: 10px;*/
     overflow: hidden;
     position: relative;
     margin-left: auto;
@@ -154,38 +143,10 @@ td {
     margin-bottom: auto;
 }
 
-.bounce {
-    animation: bounce 2s infinite linear;
-}
-
-@keyframes bounce {
-    0%  {
-        transform:scale(1);
-    }
-
-    25%  {
-    }
-    50%  {
-        transform:scale(0.96);
-    }
-    75%  {
-    }
-    100%  {
-        transform:scale(1);
-    }
-}
-
 .hidden {
     display: none;
 }
 
-.bouncerotate {
-    animation: bouncerotate 1s infinite linear;
-}
-
-/*
- 1920 x 1080
-*/
 .intrusive_error {
     position: absolute;
     top: 500px;
@@ -195,7 +156,7 @@ td {
     border-radius: 5px;
     background-color: rgba(248, 23, 23, 0.8);
     border: 5px solid red;
-    display: tablecell;
+    display: none;
     vertical-align: middle;
     text-align: center;
     font-size: 20pt;
@@ -253,18 +214,21 @@ td {
 
 @keyframes fadered {
     0%  {
-        background-color: #AA0114;
+        border-color: #330000;
+        color: #990000;
     }
 
     25%  {
     }
     50%  {
-        background-color: #FF0000;
+        border-color: #FF0000;
+        color: #FF0000;
     }
     75%  {
     }
     100%  {
-        background-color: #AA0114;
+        border-color: #330000;
+        color: #990000;
     }
 }
 
