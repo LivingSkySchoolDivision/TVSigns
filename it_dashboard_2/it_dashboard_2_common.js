@@ -60,7 +60,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 12) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Cut Knife Elementary", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Cut Knife Elementary", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
 
             if (thisSensor.id == 13) {
