@@ -102,9 +102,17 @@ if (currentMonth == 12) {
     }
 }
 
+// Pi Day
+if (currentMonth == 3) {
+    if (currentDay == 14) {
+        console.log("Loading Pi day stylesheets");
+        LoadCSSFile("../Seasonal/PiDay/seasonal.css");
+    }
+}
+
 // St Patrick's Day
 if (currentMonth == 3) {
-    if ((currentDay >= 12) && (currentDay <= 17)) {
+    if ((currentDay >= 16) && (currentDay <= 17)) {
         console.log("Loading st patrick's day stylesheets");
         LoadCSSFile("../Seasonal/StPatricks/seasonal.css");
     }
