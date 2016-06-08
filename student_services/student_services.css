@@ -405,3 +405,15 @@ td {
         background-color: #FFAA73;
     }
 }
+
+.meeting_room_title {
+    font-size: 10pt;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+}
+
+.meeting_room_status {
+    font-size: 16pt;
+    margin-bottom: 25px;
+    font-weight: bold;
+}

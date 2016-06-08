@@ -29,6 +29,7 @@
 
     <!-- Javascript for this dashboard specifically -->
     <script type="text/javascript" src="student_services_settings.js"></script>
+    <script type="text/javascript" src="student_services_spcalendars.js"></script>
     <script type="text/javascript" src="student_services_lync.js"></script>
     <script type="text/javascript" src="student_services_common.js"></script>
     <script type="text/javascript" src="student_services_autostart.js"></script>
@@ -134,14 +135,22 @@
         <tr>
 
             <td class="tile tilewidth_1 tileheight_1 gray pumpkin_tile" id="wireless_tile">
-                <div class="tile_content_container" style="color: rgba(255,255,255,0.1)">
-
+                <div class="tile_content_container">
+                    <div class="tile_title">Vehicles</div><br/>
+                    <div class="meeting_room_title">Green Journey</div> <div class="meeting_room_status" id="veh_gj"></div>
+                    <div class="meeting_room_title">Blue Journey </div><div class="meeting_room_status" id="veh_bj"></div>
+                    <div class="meeting_room_title">Silver Journey </div><div class="meeting_room_status" id="veh_sj"></div>
+                    <div class="meeting_room_title">Jeep</div> <div class="meeting_room_status" id="veh_jeep"></div>
                 </div>
             </td>
 
             <td class="tile tilewidth_1 tileheight_1 gray" id="wireless_tile">
-                <div class="tile_content_container" style="color: rgba(255,255,255,0.1)">
-
+                <div class="tile_content_container">
+                    <div class="tile_title">Meeting rooms</div><br/>
+                    <div class="meeting_room_title">Board Room</div> <div class="meeting_room_status" id="room_board"></div>
+                    <div class="meeting_room_title">Meeting Room </div><div class="meeting_room_status" id="room_meeting"></div>
+                    <div class="meeting_room_title">Student Service Meeting Room </div><div class="meeting_room_status" id="room_ss"></div>
+                    <div class="meeting_room_title">Small Meeting room</div> <div class="meeting_room_status" id="room_smallmeeting"></div>
                 </div>
             </td>
 
