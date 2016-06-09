@@ -70,3 +70,7 @@ body{
     margin-bottom: 25px;
     font-weight: bold;
 }
+
+.vertical_align_top {
+    vertical-align: top;
+}

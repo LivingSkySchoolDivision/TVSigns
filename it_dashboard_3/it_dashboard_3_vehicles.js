@@ -5,7 +5,7 @@
 function updateVehicleStatus(divid, JSONURL) {
     var CurrentEvents = new Array();
 
-    !$('#' + divid).html("Loading..");
+    //!$('#' + divid).html("Loading..");
 
     // Read JSON
     // Find current events

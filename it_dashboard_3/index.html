@@ -27,6 +27,7 @@
     <script type="text/javascript" src="../Seasonal/seasonal.js"></script>
 
     <!-- Javascript for this dashboard specifically -->
+    <script type="text/javascript" src="it_dashboard_3_vpn.js"></script>
     <script type="text/javascript" src="it_dashboard_3_meetingrooms.js"></script>
     <script type="text/javascript" src="it_dashboard_3_vehicles.js"></script>
     <script type="text/javascript" src="it_dashboard_3_settings.js"></script>
@@ -42,12 +43,7 @@
     <div class="page_container">
     <table style="width:100%; height: 100%" border=0 cellpadding=0 cellspacing=7>
         <tr>
-            <td valign="middle" align="left" class="tile graysemitrans tilewidth_1">
-                <div class="tile_title">Meeting rooms</div><br/>
-                <div class="meeting_room_title">Board Room</div> <div class="meeting_room_status" id="room_board"></div>
-                <div class="meeting_room_title">Meeting Room </div><div class="meeting_room_status" id="room_meeting"></div>
-                <div class="meeting_room_title">Student Service Meeting Room </div><div class="meeting_room_status" id="room_ss"></div>
-                <div class="meeting_room_title">Small Meeting room</div> <div class="meeting_room_status" id="room_smallmeeting"></div>
+            <td valign="middle" align="left" class="tile graysemitrans tilewidth_1 tileheight_2" rowspan="2">
             </td>
             <td class="tile graysemitrans tilewidth_1 tileheight_1">
                 <div class="tile_title">Vehicles</div><br/>
@@ -56,22 +52,33 @@
                 <div class="meeting_room_title">Silver Journey </div><div class="meeting_room_status" id="veh_sj"></div>
                 <div class="meeting_room_title">Jeep</div> <div class="meeting_room_status" id="veh_jeep"></div>
             </td>
+            <td class="tile graysemitrans tilewidth_1 tileheight_1">
+                <div class="tile_title">Meeting rooms</div><br/>
+                <div class="meeting_room_title">Board Room</div> <div class="meeting_room_status" id="room_board"></div>
+                <div class="meeting_room_title">Meeting Room </div><div class="meeting_room_status" id="room_meeting"></div>
+                <div class="meeting_room_title">Student Service Meeting Room </div><div class="meeting_room_status" id="room_ss"></div>
+                <div class="meeting_room_title">Small Meeting room</div> <div class="meeting_room_status" id="room_smallmeeting"></div>
+            </td>
+            <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
+            <td class="tile graysemitrans tilewidth_1 tileheight_2 vertical_align_top" rowspan="2">
+                <div class="tile_title">Potential VPN Users</div>
+                <div class="tile_subtext">(Not counting IT staff)</div><br/>
+                <table id="vpnusers" cellpadding="3" style="padding-left: 10px; margin-left: 0; margin-right: auto;"></table>
+
+            </td>
+        </tr>
+        <tr>
+            <!--<td class="tile graysemitrans tilewidth_1 tileheight_1"></td>-->
             <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
             <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
             <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
+            <!-- <td class="tile graysemitrans tilewidth_1 tileheight_1"></td> -->
         </tr>
         <tr>
             <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
-            <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
-            <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
-            <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
-            <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
-        </tr>
-        <tr>
-            <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
-            <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
-            <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
-            <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
+            <td class="tile graysemitrans tilewidth_3 tileheight_1" colspan="3"></td>
+            <!--<td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
+            <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>-->
             <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
         </tr>
     </table>
