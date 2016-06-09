@@ -10,13 +10,12 @@ function updateVehicleStatus(divid, JSONURL) {
     // Read JSON
     // Find current events
     $.getJSON(JSONURL, function(data) {
-
-        !$('#' + divid).html("<span style='color: rgba(0,255,0,1);'>Available</span>");
+        var eventsNow = 0;
 
         $.each(data.rightnow, function(j, ce) {
-
+            eventsNow++;
             //!$('#' + divid).html(ce.title);
-            !$('#' + divid).html("<span style='color: rgba(255,255,255,0.1);'>" + ce.title + "</span>");
+            !$('#' + divid).html("<span style='color: rgba(255,255,255,0.2);'>" + ce.title + "</span>");
 
             // This doesn't work on the TV for some reason
             if (!ce.title.startsWith("Deleted"))
@@ -25,23 +24,28 @@ function updateVehicleStatus(divid, JSONURL) {
                 //CurrentEvents[CurrentEvents.length] = new NewCalendarItem(ce.id, ce.title, ce.startdatefriendly, ce.starttime, ce.enddate, ce.endtime, ce.description);}
             }
         });
+
+        if (eventsNow == 0) {
+            !$('#' + divid).html("<span style='color: rgb(0, 200, 0);'>Available</span>");
+        }
     });
 }
 
 function updateCurrentRoomStatus(divid, roomJSONURL) {
     var CurrentEvents = new Array();
 
-    !$('#' + divid).html("Loading..");
+    //!$('#' + divid).html("Loading..");
 
     // Read JSON
     // Find current events
     $.getJSON(roomJSONURL, function(data) {
 
-        !$('#' + divid).html("Empty");
+        var eventsNow = 0;
 
         $.each(data.rightnow, function(j, ce) {
+            eventsNow++;
 
-            !$('#' + divid).html(ce.title);
+            !$('#' + divid).html("<span style='color: rgba(255,255,255,0.2);'>" + ce.title + "</span>");
 
             // This doesn't work on the TV for some reason
             if (!ce.title.startsWith("Deleted"))
@@ -50,5 +54,9 @@ function updateCurrentRoomStatus(divid, roomJSONURL) {
                 //CurrentEvents[CurrentEvents.length] = new NewCalendarItem(ce.id, ce.title, ce.startdatefriendly, ce.starttime, ce.enddate, ce.endtime, ce.description);}
             }
         });
+
+        if (eventsNow == 0) {
+            !$('#' + divid).html("<span style='color: rgb(0, 200, 0);'>Available</span>");
+        }
     });
 }
