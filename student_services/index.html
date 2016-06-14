@@ -30,6 +30,7 @@
     <!-- Javascript for this dashboard specifically -->
     <script type="text/javascript" src="student_services_settings.js"></script>
     <script type="text/javascript" src="student_services_spcalendars.js"></script>
+    <script type="text/javascript" src="student_services_photo_gallery.js"></script>
     <script type="text/javascript" src="student_services_lync.js"></script>
     <script type="text/javascript" src="student_services_common.js"></script>
     <script type="text/javascript" src="student_services_autostart.js"></script>
@@ -113,15 +114,8 @@
 
                         </td>
             -->
-            <td class="tile tilewidth_2 tileheight_1 gray cobweb_right" colspan=2 style="vertical-align: top; overflow: hidden;">
-                <div class="tile_content_container" style="color: rgba(255,255,255,0.1); text-align: left; max-height: 365px; overflow: hidden;">
-                    <div id="sharepointBlog" class="blog_post">
-                        <div id="sharepointBlogTitle" class="blog_title"></div>
-                        <div id="sharepointBlogContent" class="blog_content"></div>
-                    </div>
-                </div>
-            </td>
-
+            <td class="tile tilewidth_2 tileheight_1 gray cobweb_right" colspan=2 style="vertical-align: top; overflow: hidden;padding: 0;margin:0;">
+                <div style="width: 750px; height: 375px; background-size: contain; background-repeat: no-repeat; background-position: 50% 50%;" id="photo_tile"></div></td>
             <!--
             <td class="tile tilewidth_1 tileheight_1 gray">
                 <div class="tile_content_container" style="color: rgba(255,255,255,0.1)">
