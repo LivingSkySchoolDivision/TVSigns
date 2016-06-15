@@ -47,7 +47,7 @@ $(document).ready(function(){
  3600000     1 hour
  */
 
-/* Refresh Ticker */
+
 setInterval(function() {
     NextGalleryImage();
 }, 10000);
@@ -61,6 +61,9 @@ setInterval(function() {
     updateWeather();
 }, 60000);
 
+setInterval(function() {
+    UpdatePhotoList("/LSKYDashboardDataCollector/FileSystem/PhotoGallery.aspx?gallery=StudentServices");
+}, 600000);
 
 /* Update the date and time displays */
 setInterval(function() {

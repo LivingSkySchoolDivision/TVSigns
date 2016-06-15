@@ -69,10 +69,7 @@ function NextGalleryImage() {
 
     console.log("PHOTO GALLERY: Transitioning to " + imageArray[imageIndex]);
 
-    !$("#photo_tile").fadeTo('slow', 0, function()
-    {
-        !$("#photo_tile").css("background-image", "url(" + imageArray[imageIndex] + ")");
-    }).fadeTo('slow', 1);
+    !$("#photo_tile").css("background-image", "url(" + imageArray[imageIndex] + ")");
 
     //alert(imageArray[imageIndex]);
 
