@@ -38,7 +38,7 @@ $(document).ready(function(){
 /* Refresh Ticker */
 setInterval(function() {
     NextGalleryImage();
-}, 1000);
+}, 10000);
 
 setInterval(function() {
     updateLyncWidgets();

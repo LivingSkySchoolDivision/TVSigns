@@ -413,7 +413,19 @@ td {
 }
 
 .meeting_room_status {
-    font-size: 16pt;
-    margin-bottom: 25px;
-    font-weight: bold;
+    font-size: 10pt;
+}
+
+.meeting_room_available {
+    background-color: green;
+    text-align: center;
+    height: 100%;
+    margin: auto auto auto auto;
+}
+
+.meeting_room_unavailable {
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    background-color: rgba(255,255,255,0.1);
+
 }

@@ -13,8 +13,8 @@ function updateVehicleStatus(divid, JSONURL) {
         $.each(data.rightnow, function(j, ce) {
             eventsNow++;
             //!$('#' + divid).html(ce.title);
-            !$('#' + divid).html("<span style='color: rgba(255,255,255,0.2);'>" + ce.title + "</span>");
-
+            //!$('#' + divid).html("<div class='meeting_room_unavailable'>" + ce.title + "</div>");
+            !$('#' + divid).html("<div class='meeting_room_unavailable'>Booked</div>");
             // This doesn't work on the TV for some reason
             if (!ce.title.startsWith("Deleted"))
             {
@@ -24,7 +24,7 @@ function updateVehicleStatus(divid, JSONURL) {
         });
 
         if (eventsNow == 0) {
-            !$('#' + divid).html("<span style='color: rgb(0, 200, 0);'>Available</span>");
+            !$('#' + divid).html("<div class='meeting_room_available''>Available</div>");
         }
     });
 }
@@ -41,7 +41,7 @@ function updateCurrentRoomStatus(divid, roomJSONURL) {
         $.each(data.rightnow, function(j, ce) {
             eventsNow++;
 
-            !$('#' + divid).html("<span style='color: rgba(255,255,255,0.2);'>" + ce.title + "</span>");
+            !$('#' + divid).html("<div class='meeting_room_unavailable'>" + ce.title + "</div>");
 
             // This doesn't work on the TV for some reason
             if (!ce.title.startsWith("Deleted"))
@@ -52,7 +52,7 @@ function updateCurrentRoomStatus(divid, roomJSONURL) {
         });
 
         if (eventsNow == 0) {
-            !$('#' + divid).html("<span style='color: rgb(0, 200, 0);'>Available</span>");
+            !$('#' + divid).html("<div class='meeting_room_available''>Available</div>");
         }
     });
 }

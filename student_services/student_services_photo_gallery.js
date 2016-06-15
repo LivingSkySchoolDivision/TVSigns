@@ -16,6 +16,16 @@ function UpdatePhotoList(JSONURL, div) {
             imageArray[x] = photoPath;
             x++;
         });
+
+        console.log("Preloading images");
+        // Preload the images in the browser
+        for (var x = 0; x < imageArray.length; x++) {
+            console.log("> " + imageArray[x]);
+            var imageObject = new Image();
+            imageObject.src = imageArray[x];
+        }
+        console.log("Finished preloading images");
+
     });
 }
 
@@ -24,7 +34,12 @@ var imageIndex = 0;
 function NextGalleryImage() {
     // Cycles to the next image
 
-    !$("#photo_tile").css("background-image", "url(" + imageArray[imageIndex] + ")");
+    console.log("PHOTO GALLERY: Transitioning to " + imageArray[imageIndex]);
+
+    !$("#photo_tile").fadeTo('slow', 0, function()
+    {
+        !$("#photo_tile").css("background-image", "url(" + imageArray[imageIndex] + ")");
+    }).fadeTo('slow', 1);
 
     //alert(imageArray[imageIndex]);
 

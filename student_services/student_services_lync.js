@@ -9,7 +9,7 @@ function addLyncWidget(ID)
 {
 //    console.log("Adding lync widget for: " + sipURI);
     lyncUserCount++;
-    if (lyncUserCount > 12) {
+    if (lyncUserCount > 11) {
         lyncColumnCount++;
         lyncUserCount=0;
     }
