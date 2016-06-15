@@ -25,7 +25,7 @@ function UpdatePhotoList(JSONURL, div) {
             imageObject.src = imageArray[x];
         }
         console.log("Finished preloading images");
-
+        NextGalleryImage();
     });
 
     // Adjust the "tomorrow" field names to indicate the actual day
