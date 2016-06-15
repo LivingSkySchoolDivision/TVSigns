@@ -5,8 +5,6 @@
 function updateVehicleStatus(divid, JSONURL) {
     var CurrentEvents = new Array();
 
-    !$('#' + divid).html("Loading..");
-
     // Read JSON
     // Find current events
     $.getJSON(JSONURL, function(data) {
@@ -33,8 +31,6 @@ function updateVehicleStatus(divid, JSONURL) {
 
 function updateCurrentRoomStatus(divid, roomJSONURL) {
     var CurrentEvents = new Array();
-
-    //!$('#' + divid).html("Loading..");
 
     // Read JSON
     // Find current events
