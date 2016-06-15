@@ -28,8 +28,7 @@
 
     <!-- Javascript for this dashboard specifically -->
     <script type="text/javascript" src="it_dashboard_3_vpn.js"></script>
-    <script type="text/javascript" src="it_dashboard_3_meetingrooms.js"></script>
-    <script type="text/javascript" src="it_dashboard_3_vehicles.js"></script>
+    <script type="text/javascript" src="it_dashboard_3_spcalendars.js"></script>
     <script type="text/javascript" src="it_dashboard_3_settings.js"></script>
     <script type="text/javascript" src="it_dashboard_3_common.js"></script>
     <script type="text/javascript" src="it_dashboard_3_autostart.js"></script>
@@ -46,18 +45,64 @@
             <td valign="middle" align="left" class="tile graysemitrans tilewidth_1 tileheight_2" rowspan="2">
             </td>
             <td class="tile graysemitrans tilewidth_1 tileheight_1">
-                <div class="tile_title">Vehicles</div><br/>
-                <div class="meeting_room_title">Green Journey</div> <div class="meeting_room_status" id="veh_gj"></div>
-                <div class="meeting_room_title">Blue Journey </div><div class="meeting_room_status" id="veh_bj"></div>
-                <div class="meeting_room_title">Silver Journey </div><div class="meeting_room_status" id="veh_sj"></div>
-                <div class="meeting_room_title">Jeep</div> <div class="meeting_room_status" id="veh_jeep"></div>
+                <div class="tile_title">Vehicles</div>
+                <table border="0" cellpadding="5"  cellspacing="0" style="width: 100%; margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td width="43%" style="font-size: 10pt; text-align: center;"></td>
+                        <td width="33%" style="font-size: 10pt; text-align: center;">Now</td>
+                        <td width="23%" style="font-size: 10pt; text-align: center;"><div id="tomorrow_name">Tomorrow</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="meeting_room_title">Green Journey</div></td>
+                        <td><div class="meeting_room_status" id="veh_gj"><div class="meeting_room_unavailable">...</div></div></td>
+                        <td><div class="meeting_room_status" id="veh_gj_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="meeting_room_title">Blue Journey </div></td>
+                        <td><div class="meeting_room_status" id="veh_bj"><div class="meeting_room_unavailable">...</div></div></td>
+                        <td><div class="meeting_room_status" id="veh_bj_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="meeting_room_title">Silver Journey </div></td>
+                        <td><div class="meeting_room_status" id="veh_sj"><div class="meeting_room_unavailable">...</div></div></td>
+                        <td><div class="meeting_room_status" id="veh_sj_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="meeting_room_title">Jeep</div></td>
+                        <td><div class="meeting_room_status" id="veh_jeep"><div class="meeting_room_unavailable">...</div></div></td>
+                        <td><div class="meeting_room_status" id="veh_jeep_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                    </tr>
+                </table>
             </td>
             <td class="tile graysemitrans tilewidth_1 tileheight_1">
-                <div class="tile_title">Meeting rooms</div><br/>
-                <div class="meeting_room_title">Board Room</div> <div class="meeting_room_status" id="room_board"></div>
-                <div class="meeting_room_title">Meeting Room </div><div class="meeting_room_status" id="room_meeting"></div>
-                <div class="meeting_room_title">Student Service Meeting Room </div><div class="meeting_room_status" id="room_ss"></div>
-                <div class="meeting_room_title">Small Meeting room</div> <div class="meeting_room_status" id="room_smallmeeting"></div>
+                <div class="tile_title">Rooms</div>
+                <table border="0" cellpadding="5"  cellspacing="0" style="width: 100%; margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td width="43%" style="font-size: 10pt; text-align: center;"></td>
+                        <td width="33%" style="font-size: 10pt; text-align: center;">Now</td>
+                        <td width="23%" style="font-size: 10pt; text-align: center;"><div id="tomorrow_name_2">Tomorrow</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="meeting_room_title">Student Services</div></td>
+                        <td><div class="meeting_room_status" id="room_ss"><div class="meeting_room_unavailable">...</div></div></td>
+                        <td><div class="meeting_room_status" id="room_ss_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="meeting_room_title">Board Room</div></td>
+                        <td><div class="meeting_room_status" id="room_board"><div class="meeting_room_unavailable">...</div></div></td>
+                        <td><div class="meeting_room_status" id="room_board_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="meeting_room_title">Workshop Room</div></td>
+                        <td><div class="meeting_room_status" id="room_meeting"><div class="meeting_room_unavailable">...</div></div></td>
+                        <td><div class="meeting_room_status" id="room_meeting_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="meeting_room_title">Small Mtng Rm</div></td>
+                        <td><div class="meeting_room_status" id="room_smallmeeting"><div class="meeting_room_unavailable">...</div></div></td>
+                        <td><div class="meeting_room_status" id="room_smallmeeting_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                    </tr>
+                </table>
             </td>
             <td class="tile graysemitrans tilewidth_1 tileheight_1"></td>
             <td class="tile graysemitrans tilewidth_1 tileheight_2 vertical_align_top" rowspan="2">

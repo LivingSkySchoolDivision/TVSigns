@@ -27,6 +27,39 @@ function UpdatePhotoList(JSONURL, div) {
         console.log("Finished preloading images");
 
     });
+
+    // Adjust the "tomorrow" field names to indicate the actual day
+    var date = new Date();
+    var dayOfWeek = date.getDay() + 1;
+    if (dayOfWeek >= 7) {
+        dayOfWeek = 0;
+    }
+
+    var dayName = "";
+    if (dayOfWeek == 0) {
+        dayName = "Monday"; // The JSON is automatically adjusted to skip weekends
+    }
+    if (dayOfWeek == 1) {
+        dayName =  "Monday";
+    }
+    if (dayOfWeek == 2) {
+        dayName =  "Tuesday";
+    }
+    if (dayOfWeek == 3) {
+        dayName =  "Wednesday";
+    }
+    if (dayOfWeek == 4) {
+        dayName =  "Thursday";
+    }
+    if (dayOfWeek == 5) {
+        dayName =  "Friday";
+    }
+    if (dayOfWeek == 6) {
+        dayName =  "Monday"; // The JSON is automatically adjusted to skip weekends
+    }
+
+    !$("#tomorrow_name").html(dayName);
+    !$("#tomorrow_name_2").html(dayName);
 }
 
 

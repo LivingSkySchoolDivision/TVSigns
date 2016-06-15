@@ -1,7 +1,6 @@
 /**
- * Created by mark.strendin on 2016-06-08.
+ * Created by Mark on 6/14/2016.
  */
-
 function updateCalendarStatus(divid, JSONURL) {
     var CurrentEvents = new Array();
 
