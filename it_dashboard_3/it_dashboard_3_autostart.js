@@ -66,3 +66,7 @@ setInterval(function() {
     updateCalendarStatus_Tomorrow('veh_jeep_tomorrow', '/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/officecalendars&guid={953A6778-9A3E-4203-B3D6-A5C312BD01F4}');
 
 }, 60000);
+
+setInterval(function() {
+    location.reload();
+}, (3600000*2));
