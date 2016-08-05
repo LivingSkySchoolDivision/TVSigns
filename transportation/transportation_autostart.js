@@ -3,7 +3,10 @@
 /* ******************************************** */
 $(document).ready(function(){
     updateWeather();
-    updateDateAndTime();
+    updateDateAndTime()
+    updateTicker();
+
+
 });
 
 
@@ -30,6 +33,10 @@ setInterval(function() {
 setInterval(function() {
     updateDateAndTime();
 }, 500);
+
+setInterval(function() {
+    updateTicker();
+}, 5000);
 
 /* Refresh the page every hour ish */
 setInterval(function() {
