@@ -79,9 +79,8 @@ function initializeLyncTable() {
     addLyncWidget("23"); // sip:leah.hildebrand@lskysd.ca
     addLyncWidget("24"); // sip:leanne.merkowsky@lskysd.ca
     addLyncWidget("25"); // sip:leanne.sargent@lskysd.ca
-    addLyncWidget("26"); // sip:lindsay.zubiak@lskysd.ca")
+    addLyncWidget("26"); // sip:lindsay.zubiak@lskysd.ca"
     addLyncWidget("34"); // sip:kate.carlisle@lskysd.ca
-    addLyncWidget("28"); // sip:michelle.sanderson@lskysd.ca
     addLyncWidget("29"); // sip:nancy.schultz@lskysd.ca
     addLyncWidget("30"); // sip:noelle.bidwell@lskysd.ca
     addLyncWidget("31"); // sip:nyna.barclay@lskysd.ca
