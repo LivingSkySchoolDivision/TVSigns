@@ -52,11 +52,11 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 10) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Bready", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Bready", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
 
             if (thisSensor.id == 11) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Cando", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Cando", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 25, 25);
             }
 
             if (thisSensor.id == 12) {
@@ -68,7 +68,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 14) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Connaught", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Connaught", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
 
             if (thisSensor.id == 5) {
@@ -92,7 +92,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 3) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Lawrence", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Lawrence", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
 
             if (thisSensor.id == 19) {
@@ -139,7 +139,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 27) {
-                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "NBCHS", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 80, 80); /* actually 200 */
+                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "NBCHS", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 80, 80); /* actually 1000 */
             }
 
             if (thisSensor.id == 28) {
@@ -151,7 +151,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 33) {
-                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "St. Vital", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "St. Vital", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
 
             if (thisSensor.id == 31) {
