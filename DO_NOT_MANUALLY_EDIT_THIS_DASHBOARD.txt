@@ -1,0 +1,16 @@
+DO NOT MANUALLY EDIT THIS DASHBOARD
+
+This dashboard is automatically deployed to it's web server via Jenkins (jenkins.lskysd.ca). If you manually edit anything on the server, it will get overwritten within a few hours automatically.
+
+To edit the contents of the dashboard, you must make changes to the source code using the repository.
+
+Currently, the repo for this can be found here: 
+https://sourcecode.lskysd.ca/Dashboards/TVSigns/
+
+You will need to be a member of the "developers" group to access it. 
+
+Jenkins will automatically deploy the "default" branch to:
+\\dashboard\wwwroot\TVSigns
+
+Jenkins will automatically deploy the "default" branch to:
+\\dashboard\wwwroot\TVSignsTest
