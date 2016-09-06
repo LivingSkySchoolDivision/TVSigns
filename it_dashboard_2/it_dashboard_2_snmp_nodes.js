@@ -5,14 +5,18 @@ function add_snmp_sensor_node(sidebar, idnum, title, health, inbits, outbits, me
     htmlcode += '<div class="sensor_node" id="SNMP_NODE_' + idnum + '">';
     htmlcode += '<div class="sensor_node_title" id="SNMP_NODE_' + idnum + '_title"></div>';
     htmlcode += '<table border=0 cellpadding=0 cellspacing=2 class="sensor_node_table">';
-    htmlcode += '<tr id="SNMP_NODE_SNMPDATA_' + idnum + '">';
-    htmlcode += '<td class="sensor_node_info" width="50">in</td>';
+
+    htmlcode += '<tr id="SNMP_NODE_SNMPDATA_TITLES_' + idnum + '">';
+    htmlcode += '<td class="sensor_node_info" width="50">inbound</td>';
+    htmlcode += '<td class="sensor_node_info" width="50">outbound</td>';
+    htmlcode += '</tr>';
+
+    htmlcode += '<tr id="SNMP_NODE_SNMPDATA_DATA_' + idnum + '">';
     htmlcode += '<td class="sensor_node_data" width="112" id="SNMP_NODE_' + idnum + '_inbits"></td>';
-    htmlcode += '<td class="sensor_node_info" width="50">out</td>';
     htmlcode += '<td class="sensor_node_data" width="112" id="SNMP_NODE_' + idnum + '_outbits"></td>';
     htmlcode += '</tr>';
     htmlcode += '<tr id="SNMP_NODE_ERRORDATA_' + idnum + '" class="hidden">';
-    htmlcode += '<td colspan="4" class="sensor_node_data" width="112"><div style="display: inline; text-align: center;" id="SNMP_NODE_' + idnum + '_error"></div></td>';
+    htmlcode += '<td colspan="4" class="sensor_node_data_error" width="112"><div style="display: inline; text-align: center;" id="SNMP_NODE_' + idnum + '_error"></div></td>';
     htmlcode += '</tr>';
     htmlcode += '</table>';
     htmlcode += '</div>';
@@ -42,32 +46,27 @@ function update_snmp_sensor_node(sidebar, id, title, health, inbits, outbits, me
         var displayStringOut = "";
         var isError = false;
 
-        // Color the node if it is offline
-
-        /*
-        if ((inbits == -1) || (outbits == -1)) {
-            //$('#SNMP_NODE_' + id).addClass("offline_node");
-            isError = true;
-        } else {
-            //$('#SNMP_NODE_' + id).removeClass("offline_node");
-            isError = false;
-        }
-        */
+        //
 
         if (health < 1) {
             if (health == 0) {
                 $('#SNMP_NODE_' + id).addClass("offline_node");
+                $('#SNMP_NODE_' + id + '_title').addClass("offline_node_title");
                 $('#SNMP_NODE_' + id).removeClass("warning_node");
+                $('#SNMP_NODE_' + id + '_title').removeClass("warning_node_title");
                 isError = true;
             } else {
                 $('#SNMP_NODE_' + id).addClass("warning_node");
+                $('#SNMP_NODE_' + id + '_title').addClass("warning_node_title");
                 $('#SNMP_NODE_' + id).removeClass("offline_node");
+                $('#SNMP_NODE_' + id + '_title').removeClass("offline_node_title");
             }
         } else {
             $('#SNMP_NODE_' + id).removeClass("offline_node");
+            $('#SNMP_NODE_' + id + '_title').removeClass("offline_node_title");
             $('#SNMP_NODE_' + id).removeClass("warning_node");
+            $('#SNMP_NODE_' + id + '_title').removeClass("warning_node_title");
         }
-
 
         // Color the node for maintenance if required
         if ((inbits == -2) || (outbits == -2)) {
@@ -117,27 +116,36 @@ function update_snmp_sensor_node(sidebar, id, title, health, inbits, outbits, me
                 $('#SNMP_NODE_' + id + '_inbits').removeClass("data_peak");
             } else {
                 $('#SNMP_NODE_' + id + '_outbits').removeClass("data_peak");
-
             }
+        }
+
+
+        if (
+            (megaout >= (connectionLimitOut * 0.9)) ||
+            (megain >= (connectionLimitIn * 0.9))) {
+
+            $('#SNMP_NODE_' + id + '_title').addClass("data_peak_title");
+        } else {
+            $('#SNMP_NODE_' + id + '_title').removeClass("data_peak_title");
         }
 
         displayStringOut = parseFloat(megaout).toFixed(2) + ' mbps';
         displayStringIn = parseFloat(megain).toFixed(2) + ' mbps';
 
-        if (megain == 0) {
-            displayStringIn = "< 0.01 mbps";
+        if (megain <= 0.02) {
+            displayStringIn = "<span class=\"idle\">idle</span>";
         }
 
-        if (megaout == 0) {
-            displayStringOut = "< 0.01 mbps";
+        if (megaout <= 0.02) {
+            displayStringOut = "<span class=\"idle\">idle</span>";
         }
 
         if (inbits == 0) {
-            displayStringIn = '<div style="text-align: center">idle</div>';
+            displayStringIn = '<span class=\"idle\">idle</span>';
         }
 
         if (outbits == 0) {
-            displayStringOut = '<div style="text-align: center">idle</div>';
+            displayStringOut = '<span class=\"idle\">idle</span>';
         }
 
 
@@ -148,18 +156,20 @@ function update_snmp_sensor_node(sidebar, id, title, health, inbits, outbits, me
         }
 
         if (isError) {
-            $('#SNMP_NODE_SNMPDATA_' + id).addClass("hidden");
+            $('#SNMP_NODE_SNMPDATA_TITLES_' + id).addClass("hidden");
+            $('#SNMP_NODE_SNMPDATA_DATA_' + id).addClass("hidden");
             $('#SNMP_NODE_ERRORDATA_' + id).removeClass("hidden");
         } else {
             $('#SNMP_NODE_ERRORDATA_' + id).addClass("hidden");
-            $('#SNMP_NODE_SNMPDATA_' + id).removeClass("hidden");
+            $('#SNMP_NODE_SNMPDATA_TITLES_' + id).removeClass("hidden");
+            $('#SNMP_NODE_SNMPDATA_DATA_' + id).removeClass("hidden");
         }
 
         $('#SNMP_NODE_' + id + '_inbits').html(displayStringIn);
         $('#SNMP_NODE_' + id + '_outbits').html(displayStringOut);
         $('#SNMP_NODE_' + id + '_title').html(displayTitle);
-        $('#SNMP_NODE_' + id + '_error').html('<div style="text-align: center">' + err + '</div>');
-        $('#SNMP_NODE_' + id + '').css("background-image", "url(" + strendinMonitorRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + id + "&height=40&width=340&hours=6&semitrans=true&graphstyle=line&maxvalue=" + connectionLimitIn + ")");
+        $('#SNMP_NODE_' + id + '_error').html(err);
+        $('#SNMP_NODE_' + id + '').css("background-image", "url(" + strendinMonitorRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + id + "&height=40&width=340&hours=6&semitrans=true&graphstyle=doublesided&maxvalue=" + connectionLimitIn + ")");
 
 
     } else {

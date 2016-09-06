@@ -13,7 +13,6 @@ body{
     /* overflow: hidden; */
     font-family: 'Droid Sans', sans-serif;
     text-align: center;
-    /*background-image: url('./penguin-wallpaper.jpg');*/
 }
 
 #spare_tile {
@@ -30,6 +29,9 @@ td {
 #ticker {
     position: relative;
     overflow: none;
+    text-align: left;
+    font-size: 20pt;
+    margin-left: 20px;
 }
 
 #mean_time_to_repair {
@@ -187,6 +189,8 @@ td {
     /*padding: 2px;  */
     vertical-align: middle;
     text-align: center;
+
+
 }
 
 .tileheight_half {
@@ -196,12 +200,6 @@ td {
 .tilewidth_1 {
     width: 375px;
 }
-
-.tilewidth_2 {
-    width: 750px;
-}
-
-
 
 .tileheight_1 {
     height: 375px;
@@ -364,14 +362,6 @@ td {
     border: 3px solid red;
 }
 
-#weather_table {
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 5px;
-    padding: 3px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 @keyframes fadered {
     0%  {
         background-color: #AA0114;
@@ -406,25 +396,10 @@ td {
     }
 }
 
-.meeting_room_title {
-    font-size: 10pt;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-}
-
-.meeting_room_status {
-    font-size: 10pt;
-}
-
-.meeting_room_available {
-    background-color: green;
-    text-align: center;
-    height: 100%;
-    margin: auto auto auto auto;
-}
-
-.meeting_room_unavailable {
-    color: rgba(255,255,255,0.5);
-    text-align: center;
+#weather_table {
     background-color: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
 }

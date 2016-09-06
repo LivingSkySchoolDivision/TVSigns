@@ -102,9 +102,17 @@ if (currentMonth == 12) {
     }
 }
 
+// Pi Day
+if (currentMonth == 3) {
+    if (currentDay == 14) {
+        console.log("Loading Pi day stylesheets");
+        LoadCSSFile("../Seasonal/PiDay/seasonal.css");
+    }
+}
+
 // St Patrick's Day
 if (currentMonth == 3) {
-    if ((currentDay >= 12) && (currentDay <= 17)) {
+    if ((currentDay >= 16) && (currentDay <= 17)) {
         console.log("Loading st patrick's day stylesheets");
         LoadCSSFile("../Seasonal/StPatricks/seasonal.css");
     }
@@ -115,6 +123,14 @@ if (currentMonth == 12) {
     if ((currentDay >= 12) && (currentDay <= 25)) {
         console.log("Loading Xmas stylesheets");
         LoadCSSFile("../Seasonal/Xmas/seasonal.css");
+    }
+}
+
+// Pink shirt day
+if (currentMonth == 2) {
+    if (currentDay ==24) {
+        console.log("Loading Pink shirt day stylesheets");
+        LoadCSSFile("../Seasonal/PinkShirtDay/seasonal.css");
     }
 }
 

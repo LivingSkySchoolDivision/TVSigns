@@ -34,11 +34,16 @@ function draw_city_map(JSONPath, canvasid) {
                 // Bready 195 170
                 addPingNode(canvasid, 195,170,"Bready", thisSensor.lastsuccessfulroundtrip , thisSensor.health,  true, false, true);
             }
+
             
-            
-            if (thisSensor.id == 3) {            
+            if (thisSensor.id == 3) {
                 // Lawrence 337 147
-                addPingNode(canvasid, 337,147,"Lawrence", thisSensor.lastsuccessfulroundtrip , thisSensor.health,  true,false, false);
+                addPingNode(canvasid, 337,127,"Lawrence", thisSensor.lastsuccessfulroundtrip , thisSensor.health,  true, true, false);
+            }
+
+            if (thisSensor.id == 78) {
+                // Manacowin 337 147
+                addPingNode(canvasid, 337,147,"Manacowin", thisSensor.lastsuccessfulroundtrip , thisSensor.health,  true ,false, false);
             }
 
             

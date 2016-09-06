@@ -15,9 +15,13 @@ function updateSNMPSensorNodes(JSONPath) {
             if (thisSensor.lastfailurereason.length > 0)
             {
                 //errorNotes = thisSensor.lastfailurereason;
-                errorNotes = "Last seen: " + thisSensor.lastsuccess;
+                if (thisSensor.lastsuccess == 'Never') {
+                    errorNotes = "[OFFLINE] For over 24 hours";
+                } else {
+                    errorNotes = "[OFFLINE] Last seen " + thisSensor.lastsuccess;
+                }
             } else {
-                errorNotes = "offline";
+                errorNotes = "[OFFLINE]";
             }
 
             //var errorNotes = "Last seen: " + thisSensor.lastsuccess;
@@ -26,10 +30,8 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 2) {
-                update_snmp_sensor_node("#sidebar_top_middle", thisSensor.id, "Firewall Internet Port (Secondary)", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, true, 200, 200);
+                update_snmp_sensor_node("#sidebar_top_right", thisSensor.id, "Firewall Internet Port (Secondary)", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, true, 200, 200);
             }
-
-
 
             // BCS 9
             // Bready  10
@@ -58,7 +60,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 12) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Cut Knife Elementary", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Cut Knife Elementary", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
 
             if (thisSensor.id == 13) {
@@ -70,11 +72,11 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 5) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Division Office", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 75, 75); /* actually 1000 */
+                update_snmp_sensor_node("#sidebar_top_middle", thisSensor.id, "Division Office", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 1000, 1000); /* actually 1000 */
             }
 
             if (thisSensor.id == 15) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Hafford", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Hafford", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 25, 25);
             }
 
             if (thisSensor.id == 16) {
@@ -86,7 +88,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 18) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Kerrobert", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Kerrobert", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
 
             if (thisSensor.id == 3) {
@@ -125,11 +127,11 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 24) {
-                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "McKitrick", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "McKitrick", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
 
             if (thisSensor.id == 25) {
-                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "McLurg", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "McLurg", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 25, 25);
             }
 
             if (thisSensor.id == 26) {
@@ -192,7 +194,7 @@ function updateBandwidthGraph(JSONPath) {
         if (graphID > 0)
         {
             d = new Date();
-            $('#bandwidth_graph').attr('src',strendinMonitorRoot + '/graphs/SNMPThroughput.aspx?sensorid=' + graphID + '&graphstyle=line&width=450&height=70&date=' + d.getTime());
+            $('#bandwidth_graph').attr('src',strendinMonitorRoot + '/graphs/SNMPThroughput.aspx?sensorid=' + graphID + '&graphstyle=doublesided&width=450&height=70&date=' + d.getTime());
         }
     });
 }

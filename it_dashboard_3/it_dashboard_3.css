@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+     background: #151010;
+     color: #fff;
+     padding: 0;
+     margin: 0;
+     /* overflow: hidden; */
+     font-family: 'Droid Sans', sans-serif;
+     text-align: center;
+ }
+
+.tile {
+    position: relative;
+    padding: 2px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tileheight_half {
+    height: 150px;
+}
+
+.tilewidth_1 {
+    width: 375px;
+}
+
+.tileheight_1 {
+    height: 375px;
+}
+
+.tileheight_2 {
+    /* This needs to be tileheight_1's height PLUS (tile padding times two) */
+    height: 754px;
+}
+
+.tileheight_quarter {
+    height: 100px;
+}
+
+.tile_number {
+    font-size: 110pt;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+}
+
+.tile_title {
+    font-size: 26pt;
+    font-weight: bold;
+}
+
+.align_left {
+    text-align: left;
+}
+
+.meeting_room_title {
+    font-size: 10pt;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+}
+
+.meeting_room_status {
+    font-size: 10pt;
+}
+
+.meeting_room_available {
+    background-color: green;
+    text-align: center;
+    height: 100%;
+    margin: auto auto auto auto;
+}
+
+.meeting_room_unavailable {
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.vertical_align_top {
+    vertical-align: top;
+}

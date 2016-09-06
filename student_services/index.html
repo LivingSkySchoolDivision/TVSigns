@@ -29,6 +29,8 @@
 
     <!-- Javascript for this dashboard specifically -->
     <script type="text/javascript" src="student_services_settings.js"></script>
+    <script type="text/javascript" src="student_services_spcalendars.js"></script>
+    <script type="text/javascript" src="student_services_photo_gallery.js"></script>
     <script type="text/javascript" src="student_services_lync.js"></script>
     <script type="text/javascript" src="student_services_common.js"></script>
     <script type="text/javascript" src="student_services_autostart.js"></script>
@@ -36,8 +38,8 @@
 </head>
 <body>
 <!-- colored bars for sizing on a 1080p TV screen -->
-<!--<div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
-<!--<div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
+<!-- <div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div><!-- -->
+<!-- <div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div><!-- -->
 
 <div class="page_container">
     <table align="center" border=0 cellpadding=0 cellspacing=7 class="tile_table" style="width: 1920px;">
@@ -92,7 +94,7 @@
         </tr>
 
         <tr>
-            <td class="tile tilewidth_2 tileheight_2 gray" rowspan=2 colspan=3>
+            <td class="tile tilewidth_2 gray" rowspan=2 colspan=3 style="vertical-align: top;">
                 <table border=0 cellpadding=0 cellspacing=0 width="100%">
                     <tr><td valign="top" width="50%">
                         <table id="lync_table_1" cellpadding=2 width="100%" border="0">
@@ -112,15 +114,8 @@
 
                         </td>
             -->
-            <td class="tile tilewidth_2 tileheight_1 gray cobweb_right" colspan=2 style="vertical-align: top; overflow: hidden;">
-                <div class="tile_content_container" style="color: rgba(255,255,255,0.1); text-align: left; max-height: 365px; overflow: hidden;">
-                    <div id="sharepointBlog" class="blog_post">
-                        <div id="sharepointBlogTitle" class="blog_title"></div>
-                        <div id="sharepointBlogContent" class="blog_content"></div>
-                    </div>
-                </div>
-            </td>
-
+            <td class="tile tilewidth_2" colspan=2 style="height: 563px; vertical-align: middle; overflow: hidden;padding: 0;margin:0;">
+                <div style="width: 750px; height: 563px; background-size: contain; background-repeat: no-repeat; background-position: 50% 50%;background-image: url(../images/loading.png);" id="photo_tile"></div></td>
             <!--
             <td class="tile tilewidth_1 tileheight_1 gray">
                 <div class="tile_content_container" style="color: rgba(255,255,255,0.1)">
@@ -133,26 +128,73 @@
 
         <tr>
 
-            <td class="tile tilewidth_1 tileheight_1 gray pumpkin_tile" id="wireless_tile">
-                <div class="tile_content_container" style="color: rgba(255,255,255,0.1)">
-
+            <td class="tile tilewidth_1 gray" style="height: 240px;vertical-align: top;">
+                <div class="tile_content_container">
+                    <div class="tile_title">Vehicles</div>
+                    <table border="0" cellpadding="5"  cellspacing="0" style="width: 100%; margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td width="43%" style="font-size: 10pt; text-align: center;"></td>
+                            <td width="33%" style="font-size: 10pt; text-align: center;">Now</td>
+                            <td width="23%" style="font-size: 10pt; text-align: center;"><div id="tomorrow_name">Tomorrow</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Green Journey</div></td>
+                            <td><div class="meeting_room_status" id="veh_gj"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="veh_gj_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Blue Journey </div></td>
+                            <td><div class="meeting_room_status" id="veh_bj"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="veh_bj_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Silver Journey </div></td>
+                            <td><div class="meeting_room_status" id="veh_sj"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="veh_sj_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Jeep</div></td>
+                            <td><div class="meeting_room_status" id="veh_jeep"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="veh_jeep_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                    </table>
                 </div>
             </td>
 
-            <td class="tile tilewidth_1 tileheight_1 gray" id="wireless_tile">
-                <div class="tile_content_container" style="color: rgba(255,255,255,0.1)">
-
+            <td class="tile tilewidth_1 gray" style="vertical-align: top;">
+                <div class="tile_content_container">
+                    <div class="tile_title">Rooms</div>
+                    <table border="0" cellpadding="5"  cellspacing="0" style="width: 100%; margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td width="43%" style="font-size: 10pt; text-align: center;"></td>
+                            <td width="33%" style="font-size: 10pt; text-align: center;">Now</td>
+                            <td width="23%" style="font-size: 10pt; text-align: center;"><div id="tomorrow_name_2">Tomorrow</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Student Services</div></td>
+                            <td><div class="meeting_room_status" id="room_ss"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="room_ss_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Board Room</div></td>
+                            <td><div class="meeting_room_status" id="room_board"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="room_board_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Workshop Room</div></td>
+                            <td><div class="meeting_room_status" id="room_meeting"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="room_meeting_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Small Mtng Rm</div></td>
+                            <td><div class="meeting_room_status" id="room_smallmeeting"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="room_smallmeeting_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                    </table>
                 </div>
             </td>
 
 
-        </tr>
-        <tr>
-            <td class="tile tileheight_quarter gray" colspan=5>
-                <div class="tile_content_container" style="text-align: left; color: rgba(255,255,255,0.1);">
-                    <!-- bottom tile -->
-                </div>
-            </td>
         </tr>
 
     </table>
