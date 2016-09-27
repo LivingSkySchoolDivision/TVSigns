@@ -5,8 +5,7 @@ $(document).ready(function(){
     updateWeather();
     updateDateAndTime()
     updateTicker();
-
-
+    updateWorkOrderLists();
 });
 
 
@@ -42,3 +41,7 @@ setInterval(function() {
 setInterval(function() {
     location.reload();
 }, 4500000);
+
+setInterval(function() {
+    updateWorkOrderLists();
+}, 5000);

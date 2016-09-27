@@ -6,13 +6,43 @@ html {
 }
 
 body{
-    background: #151010;
+    background: #000000;
     color: #fff;
     padding: 0;
     margin: 0;
     /* overflow: hidden; */
     font-family: 'Droid Sans', sans-serif;
     text-align: center;
+}
+
+.header_container {
+    border-bottom: 3px solid rgba(255,255,255,0.6);
+}
+
+.page_container{
+    /*
+    width:auto;
+    height:auto;
+    */
+    width: 1920px;
+    height: 1080px;
+    /*padding: 10px;*/
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.content_table {
+    width: 100%;
+}
+
+.tile_table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 #spare_tile {
@@ -228,7 +258,7 @@ td {
 }
 
 .large_text {
-    font-size: 42pt;
+    font-size: 50pt;
     font-weight: bold;
 }
 
@@ -293,7 +323,7 @@ td {
 }
 
 #current_date {
-    font-size: 125%;
+    font-size: 50pt;
 }
 
 #weather_detail_icon {
@@ -330,24 +360,6 @@ td {
     font-size: 10pt;
     text-align: center;
     color: rgba(255,255,255,0.25);
-}
-
-.watchdog_temp {
-    display: block;
-    width: 150px;
-    padding: 5px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    vertical-align: middle;
-    font-size: 25pt;
-    color: rgb(255,255,255);
-
-    border: 2px solid rgba(255,255,255,0.05);
-    border-radius: 5px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: sans-serif;
 }
 
 .warning {
@@ -397,9 +409,39 @@ td {
 }
 
 #weather_table {
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 5px;
-    padding: 3px;
-    padding-left: 10px;
-    padding-right: 10px;
 }
+
+#workOrders_HighPriority td {
+    font-size: 40pt;
+    vertical-align: top;
+    padding-left: 10px;
+}
+
+#workOrders_HighPriority {
+    margin-top: 0;
+}
+
+#workOrders_OtherPriority {
+    margin-top: 0;
+}
+
+#workOrders_OtherPriority td {
+    font-size: 30pt;
+    vertical-align: top;
+    padding-left: 10px;
+}
+
+.high_priority_wo_name {
+    background-color: rgba(200,0,0,1);
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.other_priority_wo_name {
+    border: 2px solid white;
+
+    font-weight: bold;
+    padding: 5px;
+}
+
