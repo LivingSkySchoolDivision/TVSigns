@@ -7,7 +7,6 @@
 
     <!-- Common dashboard stylesheets -->
     <link rel="stylesheet" href="../Stylesheets/colors.css"/>
-    <link rel="stylesheet" href="../Stylesheets/common.css"/>
     <link rel="stylesheet" href="../Stylesheets/animations.css"/>
     <link rel="stylesheet" href="../Seasonal/seasonal.css"/>
 
@@ -37,22 +36,23 @@
 <!--<div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
 
 <div class="page_container">
-    <table align="center" border=0 cellpadding=0 cellspacing=7 class="tile_table">
+    <div class="header_container">
+    <table align="center" border=0 cellpadding=0 class="tile_table">
         <tr>
-            <td class="tile tileheight_half blue titlebar" id="titlebar_1" colspan=3>
+            <td class="titlebar" id="titlebar_1" colspan=3>
                 <div class="large_text centered">
                     <div id="current_date"><div class="loading blink">LOADING</div></div>
                 </div>
             </td>
-            <td class="tile tileheight_half blue titlebar" id="titlebar_2">
+            <td class="titlebar" id="titlebar_2">
                 <div class="large_text">
                     <div id="current_time"><div class="loading blink">LOADING</div></div>
                 </div>
             </td>
-            <td id="weather_tile" class="tile tileheight_half blue titlebar" id="titlebar_3">
+
+            <td id="weather_tile" class="titlebar" id="titlebar_3">
 
                 <table width="260" border=0 cellpadding=0 cellspacing=3 align="Center" id="weather_table">
-
                     <tr>
                         <td width="50%" align="center">
                             <div class="large_text" id="weather_temp"></div>
@@ -62,32 +62,41 @@
                             <div id="weather_detail_description"></div>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td align="left">
-                            <div class="weather_detail"><b>Feels like: </b><div style="display: inline;" id="weather_temp_feelslike"></div></div>
-                        </td>
-
-                        <td align="left">
-                            <div class="weather_detail"><b>Humid: </b><div style="display: inline;" id="weather_temp_humid"></div></div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td align="left">
-                            <div class="weather_detail"><b>Wind: </b><div style="display: inline;" id="weather_wind"></div></div>
-                        </td>
-
-                        <td align="left">
-                            <div class="weather_detail"><b>Precip: </b><div style="display: inline;" id="weather_temp_precip"></div></div>
-                        </td>
-                    </tr>
-
                 </table>
 
             </td>
         </tr>
-
+        </table></div>
+        <table border="0" cellpadding="0" cellspacing="0" class="content_table">
+            <tr>
+                <td width="50%" style="vertical-align: top;">
+                    <div style="padding: 10px">
+                        <!-- Left column -->
+                        <h2>HIGH PRIORITY WORK ORDERS</h2>
+                        <table id="workOrders_HighPriority" style="width: 100%">
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </td>
+                <td width="50%" style="vertical-align: top;">
+                    <div style="padding: 10px">
+                        <!-- Right column -->
+                        <!--
+                        <table id="workOrders_OtherPriority" style="width: 100%">
+                            <tbody></tbody>
+                        </table>
+                        -->
+                        <div style="font-size: 50pt; padding: 25px;">
+                            <div style="font-size: 20pt">September 28, 2016 8:30 AM</div>
+                            Text that office staff entered manually so that bus garage staff sees it.
+                            <br><br/>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+<!--
         <tr>
             <td class="tile tilewidth_1 tileheight_2 gray" rowspan=2 id="left_side_tile" style="vertical-align: top;">
                 <table id="leftside_table" style="width: 100%">
@@ -136,19 +145,12 @@
                 <div id="ticker"></div>
             </td>
 
-            <!--
-            <td class="tile tileheight_quarter gray">
-                <div class="tile_content_container">
-                    <div style="font-size: 20pt;" id="trivia"></div>
-                </div>
-            </td>
-            -->
-
 
         </tr>
 
 
     </table>
+    -->
 </div>
 </body>
 </html>

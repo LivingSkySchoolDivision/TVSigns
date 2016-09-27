@@ -35,3 +35,24 @@ function updateTicketCounts() {
         }
     });
 }
+
+function updateWorkOrderLists() {
+    var JSONPath = dashboardDataCollectorRoot + "/FleetVision/NewestWorkOrders.aspx";
+
+    $.getJSON(JSONPath, function(data) {
+        $("#workOrders_HighPriority").empty();
+        $("#workOrders_HighPriority").append("<tbody></tbody>");
+
+        $("#workOrders_OtherPriority").empty();
+        $("#workOrders_OtherPriority").append("<tbody></tbody>");
+
+        $.each(data.WorkOrders, function(categoryIndex, workorder) {
+            $("#workOrders_HighPriority > tbody:last").append("<tr><td align=\"left\"><div class='high_priority_wo_name'>"+workorder.number+"</div></td><td align=\"left\"><p>"+workorder.workrequested+"</p><br></td></tr>");
+            if (workorder.priority == "Immediate - Today") {
+                $('#workOrders_HighPriority > tbody:last').append("<tr><td align=\"left\">"+workorder.number+"</td><td align=\"left\">"+workorder.workrequested+"</td></tr>");
+            } else {
+                $("#workOrders_OtherPriority > tbody:last").append("<tr><td align=\"left\"><div class='other_priority_wo_name'>"+workorder.number+"</div></td><td align=\"left\"><p>"+workorder.workrequested+"</p><br></td></tr>");
+            }
+        });
+    });
+}
