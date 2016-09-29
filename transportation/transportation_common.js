@@ -47,12 +47,46 @@ function updateWorkOrderLists() {
         $("#workOrders_OtherPriority").append("<tbody></tbody>");
 
         $.each(data.WorkOrders, function(categoryIndex, workorder) {
-            $("#workOrders_HighPriority > tbody:last").append("<tr><td align=\"left\"><div class='high_priority_wo_name'>"+workorder.number+"</div></td><td align=\"left\"><p>"+workorder.workrequested+"</p><br></td></tr>");
+            $("#workOrders_HighPriority > tbody:last").append("<tr><td align=\"left\"><div class='high_priority_wo_name'>"+workorder.number+"</div></td><td align=\"left\"><p>"+workorder.workrequested+"</p></td></tr>");
             if (workorder.priority == "Immediate - Today") {
                 $('#workOrders_HighPriority > tbody:last').append("<tr><td align=\"left\">"+workorder.number+"</td><td align=\"left\">"+workorder.workrequested+"</td></tr>");
             } else {
-                $("#workOrders_OtherPriority > tbody:last").append("<tr><td align=\"left\"><div class='other_priority_wo_name'>"+workorder.number+"</div></td><td align=\"left\"><p>"+workorder.workrequested+"</p><br></td></tr>");
+                $("#workOrders_OtherPriority > tbody:last").append("<tr><td align=\"left\"><div class='other_priority_wo_name'>"+workorder.number+"</div></td><td align=\"left\"><p>"+workorder.workrequested+"</p></td></tr>");
             }
         });
     });
+}
+
+var pages = [];
+var currentPage = 0;
+pages[0] = "page1";
+pages[1] = "page2";
+pages[2] = "page3";
+
+function cyclePages() {
+    console.log("Fading out page: " + pages[currentPage] );
+    $("#" + pages[currentPage]).fadeOut('500', function() {
+
+        currentPage++;
+        if (currentPage >= pages.length) {
+            currentPage = 0;
+        }
+
+        $("#" + pages[currentPage]).fadeIn();
+
+
+    });
+
+    /*
+
+    $('#ticker').fadeOut('500', function() {
+        $('#ticker').html("<b class=\"total_count\">" + data.Tickets[tickerIndex].timesince + ":</b> " + data.Tickets[tickerIndex].title + " <i>(" + data.Tickets[tickerIndex].requested_by + " - " + data.Tickets[tickerIndex].location + ")</i>").fadeIn('500');
+    });
+    */
+
+}
+
+function checkWindowSize() {
+    console.log("Resizing window");
+    window.resizeTo(1920, 1080);
 }

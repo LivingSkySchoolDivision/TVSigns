@@ -412,9 +412,10 @@ td {
 }
 
 #workOrders_HighPriority td {
-    font-size: 40pt;
+    font-size: 30pt;
     vertical-align: top;
     padding-left: 10px;
+    padding-top: 10px;
 }
 
 #workOrders_HighPriority {

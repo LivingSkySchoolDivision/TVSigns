@@ -23,6 +23,14 @@ $(document).ready(function(){
  3600000     1 hour
  */
 
+setInterval(function() {
+    checkWindowSize();
+}, 5000);
+
+setInterval(function() {
+    cyclePages();
+}, 5000);
+
 /* Update weather */
 setInterval(function() {
     updateWeather();
