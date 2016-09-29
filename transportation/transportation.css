@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@import 'https://fonts.googleapis.com/css?family=Days+One|Montserrat|Squada+One|Rubik|Droid+Sans|Source+Code+Pro|VT323|Share+Tech+Mono';
 
 html {
     padding: 0;
@@ -6,127 +6,54 @@ html {
 }
 
 body{
-    background: #000000;
+    background: black;;
     color: #fff;
     padding: 0;
     margin: 0;
-    /* overflow: hidden; */
-    font-family: 'Droid Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
     text-align: center;
 }
 
-.header_container {
-    border-bottom: 3px solid rgba(255,255,255,0.6);
+#curtain_black {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 1280px;
+     height: 720px;
+     background-color: rgba(0,0,0,1);
+     z-index: 990;
+     font-size: 100pt;
 }
 
-.page_container{
-    /*
-    width:auto;
-    height:auto;
-    */
-    width: 1920px;
-    height: 1080px;
+#curtain_dim {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 1280px;
+     height: 720px;
+     background-color: rgba(0,0,0,0.95);
+     z-index: 999;
+     font-size: 100pt;
+}
+
+.header_container {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.page_container {
+    width: 1280px;
+    height: 720px;
     /*padding: 10px;*/
     overflow: hidden;
     position: relative;
     padding: 0;
     margin: 0;
+    background: rgb(53, 56, 101);
 }
-
-
 
 .content_table {
     width: 100%;
 }
-
-.tile_table {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-#spare_tile {
-    background-position: -250px -20px;
-    background-size: 800px 450px;
-    background-repeat: no-repeat;
-}
-
-td {
-    font-size: 14pt;
-    position: relative;
-}
-
-#ticker {
-    position: relative;
-    overflow: none;
-    text-align: left;
-    font-size: 20pt;
-    margin-left: 20px;
-}
-
-#mean_time_to_repair {
-    font-size: 45pt;
-}
-
-#bandwidth_meter {
-    width: 300px;
-    height: 275px;
-}
-
-#small_bandwidth_meter {
-    width: 100px;
-    height: 75px;
-    background-color: red;
-}
-
-.traffic_heading {
-    font-size: 30pt;
-    font-weight: bold;
-    background-color: white;
-    color: #464041;
-    text-align: center;
-}
-
-.traffic_value {
-    font-size: 20pt;
-    padding: 5px;
-    text-align: center;
-}
-
-.traffic_container {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    border: 3px solid white;
-}
-
-
-.guide_top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 10px;
-    width: 1920px;
-    background-color: red;
-}
-
-.guide_left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 1080px;
-    width: 10px;
-    background-color: blue;
-}
-
-.smallPieChart {
-    width: 300px;
-    height: 250px;
-}
-
 
 .tile_number {
     font-size: 110pt;
@@ -148,9 +75,6 @@ td {
 }
 
 .tile_content_container {
-    /*height: 100%;*/
-    /*padding: 20px;*/
-    /*width: 90%;*/
     text-align: center;
     position: relative;
     margin: auto auto auto auto;
@@ -166,110 +90,8 @@ td {
     font-size: 14pt;
 }
 
-.page_container{
-    /*
-    width:auto;
-    height:auto;
-    */
-    width: 1920px;
-    height: 1080px;
-    /*padding: 10px;*/
-    overflow: hidden;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
 .leftalign {
     text-align: left;
-}
-
-
-.tile_skinny {
-    height: 150px;
-    font-size: 26pt;
-}
-
-.tile_bottom_small {
-    width: 350px;
-    height: 75px;
-    font-size: 26pt;
-}
-
-.tile_bottom {
-    width: 1870px;
-    height: 75px;
-    font-size: 26pt;
-}
-
-.tile_table {
-}
-
-.rounded_corners {
-    border-radius: 10px;
-}
-
-
-/* tiles and tile spacing */
-
-.tile {
-    position: relative;
-    /*padding: 2px;  */
-    vertical-align: middle;
-    text-align: center;
-
-
-}
-
-.tileheight_half {
-    height: 150px;
-}
-
-.tilewidth_1 {
-    width: 375px;
-}
-
-.tileheight_1 {
-    height: 375px;
-}
-
-.tileheight_2 {
-    /* This needs to be tileheight_1's height PLUS (tile padding times two) */
-    height: 754px;
-}
-
-.tileheight_quarter {
-    height: 100px;
-}
-
-
-/* Tile contents */
-
-.tile_title {
-    font-size: 26pt;
-    font-weight: bold;
-}
-
-.centered {
-    text-align: center;
-    vertical-align: center;
-}
-
-.large_text {
-    font-size: 50pt;
-    font-weight: bold;
-}
-
-.total_count {
-    background-color: white;
-    color: #151010;
-    padding: 2px;
-    border-radius: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
-
 }
 
 .loading{
@@ -280,19 +102,6 @@ td {
     vertical-align: middle;
     width: 100%;
     text-align: center;
-    /*
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    */
-}
-
-#status_bar {
-    text-align: left;
-    color: #454040;
-    position: absolute;
-    bottom: 0;
-    left: 0;
 }
 
 #ip_address {
@@ -309,7 +118,8 @@ td {
 }
 
 #time_second {
-    display: inline;
+    /*display: inline;*/
+    display: none;
     color: rgba(255,255,255,0.5);
     font-size: 30%;
     padding-left: 5px;
@@ -317,20 +127,38 @@ td {
     position: relative;
 }
 
-#wireless_client_count {
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
 
-#current_date {
-    font-size: 50pt;
-}
+
 
 #weather_detail_icon {
 }
 
-.weather_detail {
-    font-size: 10pt;
+#current_date {
+     font-size: 32pt;
+     margin-left: 10px;
+     text-align: center;
+     width: 768px;
+     font-family: 'Rubik', sans-serif;
+     font-weight: bold;
+}
+
+#current_time {
+     font-size: 38pt;
+     text-align: center;
+     width: 256px;
+     font-weight: bold;
+     font-family: 'Share Tech Mono', sans-serif;
+}
+
+#current_weather {
+     width: 250px;
+     font-weight: bold;
+     font-family: 'Rubik', sans-serif;
+}
+
+#weather_temp {
+     font-size: 32pt;
+     font-weight: bold;
 }
 
 #weather_detail_description {
@@ -342,24 +170,30 @@ td {
     vertical-align: middle;
 }
 
-#weather_temp {
-}
-
 #Chart_TicketsByMonth {
     width: 300px;
     height: 250px;
 }
 
-.watchdog_temp_title {
-    font-size: 14pt;
-    text-align: center;
-    color: rgba(255,255,255,1);
+.textmessage_content {
+     font-size: 40pt;
+
 }
 
-.watchdog_temp_subtitle {
-    font-size: 10pt;
-    text-align: center;
-    color: rgba(255,255,255,0.25);
+.textmessage_time {
+     font-size: 20pt;
+     border: 0;
+     border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.title {
+     font-size:  30pt;
+     font-weight: bold;
+     border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.inspection_text {
+     font-size: 25pt;
 }
 
 .warning {
@@ -408,11 +242,8 @@ td {
     }
 }
 
-#weather_table {
-}
-
 #workOrders_HighPriority td {
-    font-size: 30pt;
+    font-size: 18pt;
     vertical-align: top;
     padding-left: 10px;
     padding-top: 10px;
@@ -427,9 +258,10 @@ td {
 }
 
 #workOrders_OtherPriority td {
-    font-size: 30pt;
+    font-size: 18pt;
     vertical-align: top;
     padding-left: 10px;
+    padding-top: 10px;
 }
 
 .high_priority_wo_name {
@@ -441,8 +273,6 @@ td {
 
 .other_priority_wo_name {
     border: 2px solid white;
-
     font-weight: bold;
     padding: 5px;
 }
-

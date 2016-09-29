@@ -86,7 +86,21 @@ function cyclePages() {
 
 }
 
-function checkWindowSize() {
-    console.log("Resizing window");
-    window.resizeTo(1920, 1080);
+// Only show page 1
+function initPages() {
+     /*
+     for (x = 1; x <= pages.length; x++) {
+          console.log("Hiding " + pages[x])
+           $("#" + pages[x]).fadeOut(1);
+     }
+     */
+     $("#curtain_black").delay(1000).fadeOut(500);
+}
+
+function dim() {
+     $("#curtain_dim").fadeIn(5000);
+}
+
+function undim() {
+     $("#curtain_dim").fadeOut(5000);
 }

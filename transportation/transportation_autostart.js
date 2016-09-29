@@ -6,6 +6,7 @@ $(document).ready(function(){
     updateDateAndTime()
     updateTicker();
     updateWorkOrderLists();
+    initPages();
 });
 
 
@@ -23,13 +24,10 @@ $(document).ready(function(){
  3600000     1 hour
  */
 
-setInterval(function() {
-    checkWindowSize();
-}, 5000);
 
 setInterval(function() {
     cyclePages();
-}, 5000);
+}, 10000);
 
 /* Update weather */
 setInterval(function() {
