@@ -32,47 +32,46 @@
 </head>
 <body>
 <!-- colored bars for sizing on a 1080p TV screen -->
-<!--<div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
-<!--<div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
-
+<!--<div style="height: 2px; width: 1280px; background-color: red;position: absolute; top: 0; left: 0;"></div>
+<div style="width: 2px; height: 720px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
+<div id="curtain_black"></div>
+<div id="curtain_dim" style="display: none;"></div>
 <div class="page_container">
     <div class="header_container">
-    <table align="center" border=0 cellpadding=0 class="tile_table">
+    <table align="center" border=0 cellpadding=0 style="width: 100%;">
         <tr>
-            <td class="titlebar" id="titlebar_1" colspan=3>
-                <div class="large_text centered">
-                    <div id="current_date"><div class="loading blink">LOADING</div></div>
-                </div>
+            <td class="titlebar" id="titlebar_1">
+               <div id="current_date"><div class="loading blink">LOADING</div></div>
             </td>
             <td class="titlebar" id="titlebar_2">
-                <div class="large_text">
-                    <div id="current_time"><div class="loading blink">LOADING</div></div>
-                </div>
+               <div id="current_time"><div class="loading blink">LOADING</div></div>
             </td>
 
             <td id="weather_tile" class="titlebar" id="titlebar_3">
-
-                <table width="260" border=0 cellpadding=0 cellspacing=3 align="Center" id="weather_table">
-                    <tr>
-                        <td width="50%" align="center">
-                            <div class="large_text" id="weather_temp"></div>
-                        </td>
-                        <td width="50%" align="center" valign="top" id="weather_detail">
-                            <div id="weather_detail_icon"></div>
-                            <div id="weather_detail_description"></div>
-                        </td>
-                    </tr>
-                </table>
+                 <div id="current_weather">
+                     <table style="width: 100%;" border=0 cellpadding=0 cellspacing=3 align="Center" id="weather_table">
+                         <tr>
+                             <td width="50%" align="center">
+                                 <div id="weather_temp"></div>
+                             </td>
+                             <td width="50%" align="center" valign="top" id="weather_detail">
+                                 <div id="weather_detail_icon"></div>
+                                 <div id="weather_detail_description"></div>
+                             </td>
+                         </tr>
+                     </table>
+                </div>
 
             </td>
         </tr>
-        </table></div>
+        </table>
+   </div>
+    <div ID="page1">
         <table border="0" cellpadding="0" cellspacing="0" class="content_table">
             <tr>
                 <td width="50%" style="vertical-align: top;">
                     <div style="padding: 10px">
                         <!-- Left column -->
-                        <h2>HIGH PRIORITY WORK ORDERS</h2>
                         <table id="workOrders_HighPriority" style="width: 100%">
                             <tbody></tbody>
                         </table>
@@ -81,76 +80,51 @@
                 <td width="50%" style="vertical-align: top;">
                     <div style="padding: 10px">
                         <!-- Right column -->
-                        <!--
                         <table id="workOrders_OtherPriority" style="width: 100%">
                             <tbody></tbody>
                         </table>
-                        -->
-                        <div style="font-size: 50pt; padding: 25px;">
-                            <div style="font-size: 20pt">September 28, 2016 8:30 AM</div>
-                            Text that office staff entered manually so that bus garage staff sees it.
-                            <br><br/>
-                            
-                        </div>
                     </div>
                 </td>
             </tr>
         </table>
-<!--
-        <tr>
-            <td class="tile tilewidth_1 tileheight_2 gray" rowspan=2 id="left_side_tile" style="vertical-align: top;">
-                <table id="leftside_table" style="width: 100%">
-                    <tbody></tbody>
-                </table>
-            </td>
+    </div>
 
-            <td class="tile tilewidth_1 tileheight_1 gray">
-                <div class="tile_title">Work Orders: Last 7 days</div>
-                <canvas id="Chart_TicketsToday"></canvas>
-            </td>
+    <div ID="page2" style="display: none;">
+        <div style="text-align: left; padding: 30px;">
+            <div class="textmessage_time">31 minutes ago:</div><br/>
+            <div class="textmessage_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan ligula pretium urna finibus, at scelerisque lectus facilisis. Sed cursus dolor nec congue tincidunt. Etiam aliquet, nulla tincidunt pretium tempor, sem dui mollis sapien, id vestibulum turpis nunc non dolor. </div>
+        </div>
+    </div>
 
-            <td class="tile tilewidth_1 tileheight_1 gray" style="vertical-align: top;">
-            </td>
+    <div ID="page3" style="display: none;">
+        <div style="text-align: left; padding: 30px;">
+            <div class="title">SGI Inspections due this month</div>
+            <br/>
+            <table style="width: 90%; margin-left: auto; margin-right: auto;">
+                <tr>
+                    <td class="inspection_text">Bus # 123</td>
+                    <td class="inspection_text">Tony Stark</td>
+                    <td class="inspection_text">123 ABC</td>
+                </tr>
+                <tr>
+                    <td class="inspection_text">Bus # 456</td>
+                    <td class="inspection_text">Bruce Banner</td>
+                    <td class="inspection_text">123 ABC</td>
+                </tr>
+                <tr>
+                    <td class="inspection_text">Bus # 789</td>
+                    <td class="inspection_text">Peter Parker</td>
+                    <td class="inspection_text">123 ABC</td>
+                </tr>
+                <tr>
+                    <td class="inspection_text">Bus # 367</td>
+                    <td class="inspection_text">John Smith</td>
+                    <td class="inspection_text">123 ABC</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-            <td class="tile  tilewidth_1 tileheight_1 gray" style="vertical-align: top;" id="lync_tile">
-            </td>
-
-
-            <td class="tile tilewidth_1 tileheight_1 gray">
-                <div class="tile_content_container">
-                </div>
-            </td>
-        </tr>
-
-        <tr>
-
-            <td class="tile tilewidth_1 tileheight_1 gray">
-                <div class="tile_title">Work Orders: last 30 days</div>
-                <canvas id="Chart_TicketsLast30Days"></canvas>
-            </td>
-
-            <td class="tile tilewidth_1 tileheight_1 gray">
-            </td>
-
-            <td class="tile tilewidth_1 tileheight_1 gray pumpkin_tile">
-            </td>
-
-
-            <td class="tile tilewidth_1 tileheight_1 gray pumpkin_tile">
-            </td>
-        </tr>
-
-        <tr>
-            <td class="tile tileheight_quarter gray" colspan=5>
-                <div id="ticker"></div>
-            </td>
-
-
-        </tr>
-
-
-    </table>
-    -->
 </div>
 </body>
 </html>

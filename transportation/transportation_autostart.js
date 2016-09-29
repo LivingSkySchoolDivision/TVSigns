@@ -6,6 +6,7 @@ $(document).ready(function(){
     updateDateAndTime()
     updateTicker();
     updateWorkOrderLists();
+    initPages();
 });
 
 
@@ -22,6 +23,11 @@ $(document).ready(function(){
  1800000     30 mins
  3600000     1 hour
  */
+
+
+setInterval(function() {
+    cyclePages();
+}, 10000);
 
 /* Update weather */
 setInterval(function() {
