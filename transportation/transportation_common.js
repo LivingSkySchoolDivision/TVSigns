@@ -36,44 +36,90 @@ function updateTicketCounts() {
     });
 }
 
+var workOrderTables = [];
+workOrderTables[0] = "workOrders_1";
+workOrderTables[1] = "workOrders_2";
+
+workOrderTables[2] = "workOrders_3";
+workOrderTables[3] = "workOrders_4";
+
+workOrderTables[4] = "workOrders_5";
+workOrderTables[5] = "workOrders_6";
+
+var pagesUsed = 1;
+var maxWorkOrdersPerColumn = 6;
+
 function updateWorkOrderLists() {
     var JSONPath = dashboardDataCollectorRoot + "/FleetVision/NewestWorkOrders.aspx";
 
-    $.getJSON(JSONPath, function(data) {
-        $("#workOrders_HighPriority").empty();
-        $("#workOrders_HighPriority").append("<tbody></tbody>");
+    var displayedWorkOrders = 0;
+    var currentWorkOrderColumn = 0;
 
-        $("#workOrders_OtherPriority").empty();
-        $("#workOrders_OtherPriority").append("<tbody></tbody>");
+    $.getJSON(JSONPath, function(data) {
+
+        for (x = 0; x <= workOrderTables.length; x++) {
+            $("#" + workOrderTables[x]).empty();
+            $("#" + workOrderTables[x]).append("<tbody></tbody>");
+        }
 
         $.each(data.WorkOrders, function(categoryIndex, workorder) {
-            $("#workOrders_HighPriority > tbody:last").append("<tr><td align=\"left\"><div class='high_priority_wo_name'>"+workorder.number+"</div></td><td align=\"left\"><p>"+workorder.workrequested+"</p></td></tr>");
-            if (workorder.priority == "Immediate - Today") {
-                $('#workOrders_HighPriority > tbody:last').append("<tr><td align=\"left\">"+workorder.number+"</td><td align=\"left\">"+workorder.workrequested+"</td></tr>");
-            } else {
-                $("#workOrders_OtherPriority > tbody:last").append("<tr><td align=\"left\"><div class='other_priority_wo_name'>"+workorder.number+"</div></td><td align=\"left\"><p>"+workorder.workrequested+"</p></td></tr>");
+            if (currentWorkOrderColumn < workOrderTables.length) {
+
+                var wo_content_font_size_style = "wo_content_font_normal";
+
+                if (workorder.workrequested.length > 64) {
+                    wo_content_font_size_style = "wo_content_font_small";
+                }
+
+                $("#" + workOrderTables[currentWorkOrderColumn] + " > tbody:last").append("<tr><td align=\"left\" style='vertical-align: top;'><div class='wo_ID'>" + workorder.vehicle + "</div><div class='wo_Priority'>" + workorder.priority + "</div></td><td align=\"left\" style='vertical-align: top;'><div class='wo_Content " + wo_content_font_size_style + "'>" + workorder.workrequested + "</div></td></tr>");
+
+            }
+
+            displayedWorkOrders++;
+            if (displayedWorkOrders >= maxWorkOrdersPerColumn) {
+                displayedWorkOrders = 0;
+                currentWorkOrderColumn++;
             }
         });
+
+        // How many pages did we use up
+        pagesUsed = (currentWorkOrderColumn + 1) / 2;
     });
 }
 
 var pages = [];
 var currentPage = 0;
-pages[0] = "page1";
-pages[1] = "page2";
-pages[2] = "page3";
+pages[0] = "workorders_page_1";
+pages[1] = "workorders_page_2";
+pages[2] = "workorders_page_3";
+//pages[3] = "inspections_page";
+//pages[4] = "text_page";
 
 function cyclePages() {
     console.log("Fading out page: " + pages[currentPage] );
     $("#" + pages[currentPage]).fadeOut('500', function() {
 
         currentPage++;
+
+        // Skip blank work order pages
+        if (currentPage == 1) {
+            if (pagesUsed < 2) {
+                currentPage++;
+            }
+        }
+
+        if (currentPage == 2) {
+            if (pagesUsed < 3) {
+                currentPage++;
+            }
+        }
+
+
         if (currentPage >= pages.length) {
             currentPage = 0;
         }
 
         $("#" + pages[currentPage]).fadeIn();
-
 
     });
 

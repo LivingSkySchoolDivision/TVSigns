@@ -96,7 +96,6 @@ body{
 
 .loading{
     color: white;
-    font-family: Arial;
     font-size: 10pt;
     font-weight: bold;
     vertical-align: middle;
@@ -138,7 +137,7 @@ body{
      margin-left: 10px;
      text-align: center;
      width: 768px;
-     font-family: 'Rubik', sans-serif;
+
      font-weight: bold;
 }
 
@@ -147,13 +146,11 @@ body{
      text-align: center;
      width: 256px;
      font-weight: bold;
-     font-family: 'Share Tech Mono', sans-serif;
 }
 
 #current_weather {
      width: 250px;
      font-weight: bold;
-     font-family: 'Rubik', sans-serif;
 }
 
 #weather_temp {
@@ -275,4 +272,41 @@ body{
     border: 2px solid white;
     font-weight: bold;
     padding: 5px;
+}
+
+.wo_ID {
+    font-size: 24pt;
+    padding: 3px;
+    color: rgb(53, 56, 101);
+    background-color: rgba(255,255,255,0.8);
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    max-height: 60px;
+    min-width: 65px;
+    max-width: 100px;
+    overflow: hidden;
+}
+
+.wo_priority {
+    font-size: 10pt;
+    background-color: rgba(255,255,255,0.8);
+    text-align: center;
+    height: 15px;
+}
+
+.wo_Content {
+    padding-left: 10pt;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.wo_content_font_small {
+    font-size: 16pt;
+}
+
+.wo_content_font_normal {
+    font-size: 20pt;
 }

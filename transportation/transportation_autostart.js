@@ -7,6 +7,10 @@ $(document).ready(function(){
     updateTicker();
     updateWorkOrderLists();
     initPages();
+
+    // Hide the mouse cursor
+    //$('body').css('cursor', 'none');
+
 });
 
 
