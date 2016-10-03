@@ -1,22 +1,3 @@
-var tickerIndex = -1;
-function updateTicker() {
-    var JSONPath = dashboardDataCollectorRoot + "/FleetVision/NewestWorkOrders.aspx";
-
-    $.getJSON(JSONPath, function(data) {
-
-        var numTickets = data.Total - 1; // Zero indexed remember, so if there are 5 listed, use 4 here
-
-        tickerIndex++;
-        if (tickerIndex > numTickets) {
-            tickerIndex = 0;
-        }
-
-        $('#ticker').fadeOut('500', function() {
-            $('#ticker').html("<b class=\"total_count\">" + data.WorkOrders[tickerIndex].timesince + ":</b> " + data.WorkOrders[tickerIndex].number + ": " + data.WorkOrders[tickerIndex].workrequested + "").fadeIn('500');
-        });
-    });
-}
-
 var newTicketsToday = -1;
 var closedTicketsToday = -1;
 function updateTicketCounts() {
@@ -92,7 +73,7 @@ var currentPage = 0;
 pages[0] = "workorders_page_1";
 pages[1] = "workorders_page_2";
 pages[2] = "workorders_page_3";
-//pages[3] = "inspections_page";
+pages[3] = "inspections_page";
 //pages[4] = "text_page";
 
 function cyclePages() {
@@ -149,4 +130,30 @@ function dim() {
 
 function undim() {
      $("#curtain_dim").fadeOut(5000);
+}
+
+
+function updateSGIInspections() {
+    var JSONPath = dashboardDataCollectorRoot + "/Versatrans/UpcomingBusInspections.aspx";
+
+
+    $.getJSON(JSONPath, function(data) {
+        var font_style = "sgi_medium_text";
+        if ((data.TotalThisMonth + data.TotalOverdue) < 15) {
+            font_style = "sgi_big_text";
+        }
+
+        $("#month_name").html(" in " + data.MonthName)
+
+        $("#sgi_insepections_list").html("")
+
+        $.each(data.Overdue, function(index, cert) {
+            $("#sgi_insepections_list").append("<div class='sgi_inspection_overdue " + font_style + "'>" + cert.Vehicle + "</div>");
+        });
+
+        $.each(data.ThisMonth, function(index, cert) {
+            $("#sgi_insepections_list").append("<div class='sgi_inspection_normal " + font_style + "'>" + cert.Vehicle + "</div>");
+        });
+    });
+
 }
