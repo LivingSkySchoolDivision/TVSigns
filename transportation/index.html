@@ -72,7 +72,7 @@
                 <td width="50%" style="vertical-align: top;">
                     <div style="padding: 10px">
                         <!-- Left column -->
-                        <table id="workOrders_1" style="width: 100%">
+                        <table id="workOrders_1" border=0 style="width: 100%">
                             <tbody></tbody>
                         </table>
                     </div>
@@ -137,30 +137,9 @@
 
     <div ID="inspections_page" style="display: none;">
         <div style="text-align: left; padding: 30px;">
-            <div class="title">SGI Inspections due this month</div>
+            <div class="title">SGI Inspections due <div style="display: inline;" id="month_name"></div></div>
             <br/>
-            <table style="width: 90%; margin-left: auto; margin-right: auto;">
-                <tr>
-                    <td class="inspection_text">Bus # 123</td>
-                    <td class="inspection_text">Tony Stark</td>
-                    <td class="inspection_text">123 ABC</td>
-                </tr>
-                <tr>
-                    <td class="inspection_text">Bus # 456</td>
-                    <td class="inspection_text">Bruce Banner</td>
-                    <td class="inspection_text">123 ABC</td>
-                </tr>
-                <tr>
-                    <td class="inspection_text">Bus # 789</td>
-                    <td class="inspection_text">Peter Parker</td>
-                    <td class="inspection_text">123 ABC</td>
-                </tr>
-                <tr>
-                    <td class="inspection_text">Bus # 367</td>
-                    <td class="inspection_text">John Smith</td>
-                    <td class="inspection_text">123 ABC</td>
-                </tr>
-            </table>
+                <div id="sgi_insepections_list"></div>
         </div>
     </div>
 

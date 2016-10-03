@@ -4,12 +4,11 @@
 $(document).ready(function(){
     updateWeather();
     updateDateAndTime()
-    updateTicker();
     updateWorkOrderLists();
     initPages();
-
+    updateSGIInspections();
     // Hide the mouse cursor
-    //$('body').css('cursor', 'none');
+    $('body').css('cursor', 'none');
 
 });
 
@@ -29,6 +28,12 @@ $(document).ready(function(){
  */
 
 
+/* Refresh the page every hour ish */
+setInterval(function() {
+    location.reload();
+}, 4500000);
+
+// Flip the pages
 setInterval(function() {
     cyclePages();
 }, 10000);
@@ -44,14 +49,9 @@ setInterval(function() {
 }, 500);
 
 setInterval(function() {
-    updateTicker();
-}, 5000);
-
-/* Refresh the page every hour ish */
-setInterval(function() {
-    location.reload();
-}, 4500000);
-
-setInterval(function() {
     updateWorkOrderLists();
-}, 5000);
+}, 10000);
+
+setInterval(function() {
+    updateSGIInspections();
+}, 60000);

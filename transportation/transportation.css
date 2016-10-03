@@ -276,21 +276,18 @@ body{
 
 .wo_ID {
     font-size: 24pt;
-    padding: 3px;
     color: rgb(53, 56, 101);
     background-color: rgba(255,255,255,0.8);
     font-weight: bold;
     text-align: center;
-    vertical-align: middle;
-    max-height: 60px;
-    min-width: 65px;
-    max-width: 100px;
     overflow: hidden;
+    width: 75px;
+    padding: 3px;
 }
 
 .wo_priority {
     font-size: 10pt;
-    background-color: rgba(255,255,255,0.8);
+    /*background-color: rgba(255,255,255,0.8);*/
     text-align: center;
     height: 15px;
 }
@@ -309,4 +306,41 @@ body{
 
 .wo_content_font_normal {
     font-size: 20pt;
+}
+
+#sgi_insepections_list {
+    text-wrap: normal;
+    width: 100%;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.sgi_inspection_overdue {
+    background-color: rgba(255,0,0,0.5);
+    border: 5px solid red;
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+
+.sgi_inspection_normal {
+    display: inline-block;
+    padding: 5px;
+    border: 5px solid rgba(255,255,255,1);
+    background-color: rgba(255,255,255,0.8);
+    margin-left: 15px;
+    margin-bottom: 5px;
+    color: rgb(53, 56, 101);
+    text-align: center;
+}
+
+.sgi_big_text {
+    font-size: 100pt;
+    min-width: 100px;
+}
+
+.sgi_medium_text {
+    font-size: 50pt;
+    min-width: 80px;
 }
