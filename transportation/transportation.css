@@ -40,7 +40,7 @@ body{
     background-color: rgba(0,0,0,0.3);
 }
 
-.page_container {
+.transportation_page_container {
     width: 1280px;
     height: 720px;
     /*padding: 10px;*/
@@ -183,7 +183,7 @@ body{
      border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.title {
+.transportation_title {
      font-size:  30pt;
      font-weight: bold;
      border-bottom: 1px solid rgba(255,255,255,0.1);
