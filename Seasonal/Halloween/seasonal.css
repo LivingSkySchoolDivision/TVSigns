@@ -114,6 +114,15 @@
     display: inline-block !important;
 }
 
+.transportation_page_container {
+    background-color: rgb(46, 19, 64) !important;
+    color: black !important;
+}
+
+.transportation_title {
+    color: white;
+}
+
 @keyframes ghost {
   10%  {
     transform:scale(1) rotate(-2deg);
