@@ -56,9 +56,12 @@ if (
 
 // Halloween
 if (currentMonth == 10) {
-    if ((currentDay >= 26) && (currentDay <= 31)) {
+    if ((currentDay >= 10) && (currentDay <= 31)) {
         console.log("Loading Halloween stylesheets");
         LoadCSSFile("../Seasonal/Halloween/seasonal.css");
+
+        var pie_chart_color_1 = '#EA8825';
+        var pie_chart_color_2 = '#C46200';
     }
 }
 
@@ -123,6 +126,9 @@ if (currentMonth == 12) {
     if ((currentDay >= 12) && (currentDay <= 25)) {
         console.log("Loading Xmas stylesheets");
         LoadCSSFile("../Seasonal/Xmas/seasonal.css");
+
+        var pie_chart_color_1 = '#EA8825';
+        var pie_chart_color_2 = '#C46200';
     }
 }
 
