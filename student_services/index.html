@@ -39,7 +39,7 @@
 <body>
 <!-- colored bars for sizing on a 1080p TV screen -->
 <!-- <div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div><!-- -->
-<!-- <div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div><!-- -->
+<div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div><!-- -->
 
 <div class="page_container">
     <table align="center" border=0 cellpadding=0 cellspacing=7 class="tile_table" style="width: 1920px;">
@@ -130,32 +130,26 @@
 
             <td class="tile tilewidth_1 gray" style="height: 240px;vertical-align: top;">
                 <div class="tile_content_container">
-                    <div class="tile_title">Vehicles</div>
+                    <div class="tile_title" style="font-size: 15pt;">Vehicle Bookings Today</div>
                     <table border="0" cellpadding="5"  cellspacing="0" style="width: 100%; margin-left: auto; margin-right: auto;">
                         <tr>
-                            <td width="43%" style="font-size: 10pt; text-align: center;"></td>
-                            <td width="33%" style="font-size: 10pt; text-align: center;">Now</td>
-                            <td width="23%" style="font-size: 10pt; text-align: center;"><div id="tomorrow_name">Tomorrow</div></td>
+                            <td width="33%" style="font-size: 10pt; text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td><div class="meeting_room_title">Green Journey</div></td>
-                            <td><div class="meeting_room_status" id="veh_gj"><div class="meeting_room_unavailable">...</div></div></td>
-                            <td><div class="meeting_room_status" id="veh_gj_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td class="vehicle_title" valign="bottom">Green Journey</div></td>
+                            <td class="vehicle_status" valign="bottom" id="veh_gj">...</td>
                         </tr>
                         <tr>
-                            <td><div class="meeting_room_title">Blue Journey </div></td>
-                            <td><div class="meeting_room_status" id="veh_bj"><div class="meeting_room_unavailable">...</div></div></td>
-                            <td><div class="meeting_room_status" id="veh_bj_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td class="vehicle_title" valign="bottom">Blue Journey </div></td>
+                            <td class="vehicle_status" valign="bottom" id="veh_bj">...</td>
                         </tr>
                         <tr>
-                            <td><div class="meeting_room_title">Silver Journey </div></td>
-                            <td><div class="meeting_room_status" id="veh_sj"><div class="meeting_room_unavailable">...</div></div></td>
-                            <td><div class="meeting_room_status" id="veh_sj_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td class="vehicle_title" valign="bottom">Silver Journey </div></td>
+                            <td class="vehicle_status" valign="bottom" id="veh_sj">...</td>
                         </tr>
                         <tr>
-                            <td><div class="meeting_room_title">Jeep</div></td>
-                            <td><div class="meeting_room_status" id="veh_jeep"><div class="meeting_room_unavailable">...</div></div></td>
-                            <td><div class="meeting_room_status" id="veh_jeep_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td class="vehicle_title" valign="bottom">Jeep</div></td>
+                            <td class="vehicle_status" valign="bottom" id="veh_jeep">...</td>
                         </tr>
                     </table>
                 </div>
@@ -163,7 +157,7 @@
 
             <td class="tile tilewidth_1 gray" style="vertical-align: top;">
                 <div class="tile_content_container">
-                    <div class="tile_title">Rooms</div>
+                    <div class="tile_title" style="font-size: 15pt;">Meeting Rooms</div>
                     <table border="0" cellpadding="5"  cellspacing="0" style="width: 100%; margin-left: auto; margin-right: auto;">
                         <tr>
                             <td width="43%" style="font-size: 10pt; text-align: center;"></td>
@@ -193,8 +187,6 @@
                     </table>
                 </div>
             </td>
-
-
         </tr>
 
     </table>

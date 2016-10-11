@@ -428,3 +428,27 @@ td {
     text-align: center;
     background-color: rgba(255,255,255,0.1);
 }
+
+.vehicle_unavailable {
+    font-size: 14pt;
+    border: 0;
+}
+
+.vehicle_available {
+    font-size: 14pt;
+    border: 0;
+    background-color: rgb(0, 128, 0);
+    text-align: center;
+}
+
+.vehicle_status {
+    font-size: 14pt;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.vehicle_title {
+    font-size: 10pt;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
