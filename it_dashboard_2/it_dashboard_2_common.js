@@ -10,19 +10,13 @@ function updateSNMPSensorNodes(JSONPath) {
     // Load JSON
     $.getJSON(JSONPath, function(data) {
         $.each(data.snmpthroughputsensors, function(sensorID, thisSensor) {
-            var errorNotes = "";
+          var errorNotes = "[OFFLINE]";
 
-            if (thisSensor.lastfailurereason.length > 0)
-            {
-                //errorNotes = thisSensor.lastfailurereason;
-                if (thisSensor.lastsuccess == 'Never') {
-                    errorNotes = "[OFFLINE] For over 24 hours";
-                } else {
-                    errorNotes = "[OFFLINE] Last seen " + thisSensor.lastsuccess;
-                }
-            } else {
-                errorNotes = "[OFFLINE]";
-            }
+          if (thisSensor.lastsuccess == 'Never') {
+               errorNotes = "[OFFLINE] For over 24 hours";
+          } else {
+               errorNotes = "[OFFLINE] Last seen " + thisSensor.lastsuccess;
+          }
 
             //var errorNotes = "Last seen: " + thisSensor.lastsuccess;
             if (thisSensor.id == 1) {
@@ -356,6 +350,3 @@ function updateConnectionWarnings() {
 
     });
 }
-
-
-

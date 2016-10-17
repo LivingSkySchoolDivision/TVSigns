@@ -51,12 +51,12 @@ setInterval(function() {
 // Update ping sensor nodes
 setInterval(function() {
     updatePingSensorNodes(strendinMonitorRoot + '/JSON/allsensors.aspx');
-}, 10000);
+}, 20000);
 
 
 // UPdate traffic counters
 setInterval(function() {
-    updateTotalTrafficToday(strendinMonitorRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', strendinMonitorRoot + 'JSON/bySNMPThroughputSensor.aspx?sensorid=2');
+    updateTotalTrafficToday(strendinMonitorRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', strendinMonitorRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=2');
     updateTotalTrafficThisMonth(strendinMonitorRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', strendinMonitorRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=2');
 }, 60000);
 
@@ -66,6 +66,6 @@ setInterval(function() {
 }, 60000);
 
 // Check connectivity with internal sites and the internet
-setInterval(function() {
-    updateConnectionWarnings();
-}, 300000);
+//setInterval(function() {
+//    updateConnectionWarnings();
+//}, 300000);
