@@ -94,16 +94,16 @@
 
 #jack1 {
      position: absolute;
-     top: 255px;
-     left: 425px;
+     bottom: 50px; /* 255 */
+     left: 35px; /* 425 */
      display: inline-block !important;
 
 }
 
 #jack2 {
      position: absolute;
-     top: 755px;
-     left: 425px;
+     bottom: 40px; /* 755 */
+     left: 35px; /* 425 */
      display: inline-block !important;
 }
 
