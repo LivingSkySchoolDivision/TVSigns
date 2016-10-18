@@ -92,7 +92,20 @@
     background-position: center;
 }
 
+#jack1 {
+     position: absolute;
+     top: 255px;
+     left: 425px;
+     display: inline-block !important;
 
+}
+
+#jack2 {
+     position: absolute;
+     top: 755px;
+     left: 425px;
+     display: inline-block !important;
+}
 
 #ghost {
     position: absolute;
