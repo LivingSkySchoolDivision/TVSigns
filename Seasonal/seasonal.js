@@ -97,13 +97,23 @@ if (currentMonth == 9) {
     }
 }
 
+// XMas
 // Winter solstice
 if (currentMonth == 12) {
-    if ((currentDay >= 21) && (currentDay <= 21)) {
+
+    // Solstice overrides xmas
+    if ((currentDay >= 12) && (currentDay <= 25)) {
+        console.log("Loading Xmas stylesheets");
+        LoadCSSFile("../Seasonal/Xmas/seasonal.css");
+
+        var pie_chart_color_1 = '#EA8825';
+        var pie_chart_color_2 = '#C46200';
+    } else if ((currentDay >= 21) && (currentDay <= 21)) {
         console.log("Loading winter solstice stylesheets");
         LoadCSSFile("../Seasonal/WinterSolstice/seasonal.css");
     }
 }
+
 
 // Pi Day
 if (currentMonth == 3) {
@@ -121,16 +131,7 @@ if (currentMonth == 3) {
     }
 }
 
-// XMas
-if (currentMonth == 12) {
-    if ((currentDay >= 12) && (currentDay <= 25)) {
-        console.log("Loading Xmas stylesheets");
-        LoadCSSFile("../Seasonal/Xmas/seasonal.css");
 
-        var pie_chart_color_1 = '#EA8825';
-        var pie_chart_color_2 = '#C46200';
-    }
-}
 
 // Pink shirt day
 if (currentMonth == 2) {
