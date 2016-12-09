@@ -66,7 +66,8 @@
         </tr>
         </table>
    </div>
-    <div class="cobweb_right" style="z-index: 999">
+
+    <div style="font-size: 8pt; color: rgba(255,255,255,0.2); position: absolute; bottom: 0; right: 0; z-index: 999" id="page_name"></div>
     <div ID="workorders_page_1">
         <table border="0" cellpadding="0" cellspacing="0" class="content_table">
             <tr>
@@ -144,13 +145,21 @@
         </div>
     </div>
 
+    <div ID="inspections_page_2" style="display: none;">
+        <div style="text-align: left; padding: 30px;">
+            <div class="transportation_title">SGI Inspections due next month <div style="display: inline;" id="next_month_name"></div></div>
+            <br/>
+            <div id="sgi_insepections_list_nextmonth"></div>
+        </div>
+    </div>
+
     <div ID="text_page" style="display: none;">
         <div style="text-align: left; padding: 30px;">
             <div class="textmessage_time">31 minutes ago:</div><br/>
             <div class="textmessage_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan ligula pretium urna finibus, at scelerisque lectus facilisis. Sed cursus dolor nec congue tincidunt. Etiam aliquet, nulla tincidunt pretium tempor, sem dui mollis sapien, id vestibulum turpis nunc non dolor. </div>
         </div>
     </div>
-    </div>
+
 </div>
 </body>
 </html>

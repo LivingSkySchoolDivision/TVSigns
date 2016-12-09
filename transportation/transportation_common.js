@@ -1,21 +1,6 @@
-var newTicketsToday = -1;
-var closedTicketsToday = -1;
-function updateTicketCounts() {
-    var JSONPath = dashboardDataCollectorRoot + "/FleetVision/WorkOrderCounts.aspx"
-    $.getJSON(JSONPath, function(data) {
+var inspectionsThisMonthcount = 0;
+var inspectionsNextMonthCount = 0;
 
-        if (
-            (newTicketsToday != data.Stats.ServiceRequests.Recent.Today.Created) ||
-            (closedTicketsToday != data.Stats.ServiceRequests.Recent.Today.Closed)
-        )
-        {
-            newTicketsToday = data.Stats.ServiceRequests.Recent.Today.Created;
-            closedTicketsToday = data.Stats.ServiceRequests.Recent.Today.Closed
-            drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Today.Created  ,data.Stats.ServiceRequests.Recent.Today.Closed ,"Chart_TicketsToday");
-            drawTicketsPieChart(data.Stats.ServiceRequests.Recent.Last7Days.Created  ,data.Stats.ServiceRequests.Recent.Last7Days.Closed ,"Chart_TicketsLast7Days");
-        }
-    });
-}
 
 var workOrderTables = [];
 workOrderTables[0] = "workOrders_1";
@@ -64,7 +49,7 @@ function updateWorkOrderLists() {
         });
 
         // How many pages did we use up
-        pagesUsed = (currentWorkOrderColumn + 1) / 2;
+        pagesUsed = Math.ceil((currentWorkOrderColumn + 1) / 2);
     });
 }
 
@@ -74,53 +59,69 @@ pages[0] = "workorders_page_1";
 pages[1] = "workorders_page_2";
 pages[2] = "workorders_page_3";
 pages[3] = "inspections_page";
+pages[4] = "inspections_page_2";
 //pages[4] = "text_page";
 
 function cyclePages() {
+    var skipEmptyPages = true;
+    console.log("Pages used: " + pagesUsed);
     console.log("Fading out page: " + pages[currentPage] );
     $("#" + pages[currentPage]).fadeOut('500', function() {
 
         currentPage++;
 
-        // Skip blank work order pages
-        if (currentPage == 1) {
-            if (pagesUsed < 2) {
-                currentPage++;
+        if (skipEmptyPages) {
+            // Skip blank work order pages
+            if (currentPage == 1) {
+                if (pagesUsed < 2) {
+                    console.log("Skipping empty page " + currentPage);
+                    currentPage++;
+                }
+            }
+
+            // Skip workorders page 3 if there are no workorders on it
+            if (currentPage == 2) {
+                if (pagesUsed < 3) {
+                    console.log("Skipping empty page " + currentPage);
+                    currentPage++;
+                }
+            }
+
+            // Skip SGI page if there are no inspections left this month
+
+            if (currentPage == 3) {
+                if (inspectionsThisMonthcount <= 0) {
+                    console.log("No inspections this month - skipping page");
+                    currentPage++;
+                }
+            }
+
+            if (currentPage == 4) {
+                if (inspectionsNextMonthCount <= 0) {
+                    console.log("No inspections next month - skipping page")
+                    currentPage++;
+                }
             }
         }
-
-        if (currentPage == 2) {
-            if (pagesUsed < 3) {
-                currentPage++;
-            }
-        }
-
-
+        // Wrap around
         if (currentPage >= pages.length) {
             currentPage = 0;
         }
 
         $("#" + pages[currentPage]).fadeIn();
-
+        console.log("Now showing page: " + pages[currentPage] );
+        $("#page_name").html("[" + pages[currentPage] + "]");
     });
-
-    /*
-
-    $('#ticker').fadeOut('500', function() {
-        $('#ticker').html("<b class=\"total_count\">" + data.Tickets[tickerIndex].timesince + ":</b> " + data.Tickets[tickerIndex].title + " <i>(" + data.Tickets[tickerIndex].requested_by + " - " + data.Tickets[tickerIndex].location + ")</i>").fadeIn('500');
-    });
-    */
-
 }
 
 // Only show page 1
 function initPages() {
-     /*
+
      for (x = 1; x <= pages.length; x++) {
           console.log("Hiding " + pages[x])
            $("#" + pages[x]).fadeOut(1);
      }
-     */
+
      $("#curtain_black").delay(1000).fadeOut(500);
 }
 
@@ -136,24 +137,46 @@ function undim() {
 function updateSGIInspections() {
     var JSONPath = dashboardDataCollectorRoot + "/Versatrans/UpcomingBusInspections.aspx";
 
+    console.log("Loading SGI inspections");
 
     $.getJSON(JSONPath, function(data) {
+        inspectionsThisMonthcount = 0;
+        inspectionsNextMonthCount = 0;
+
+        console.log("Loaded SGI inspections");
+
         var font_style = "sgi_medium_text";
         if ((data.TotalThisMonth + data.TotalOverdue) < 15) {
             font_style = "sgi_big_text";
         }
 
-        $("#month_name").html(" in " + data.MonthName)
+        $("#month_name").html(" in " + data.ThisMonthName)
+        $("#next_month_name").html(" in " + data.NextMonthName)
 
         $("#sgi_insepections_list").html("")
 
         $.each(data.Overdue, function(index, cert) {
+            console.log("Adding overdue inspection for vehicle " + cert.Vehicle);
             $("#sgi_insepections_list").append("<div class='sgi_inspection_overdue " + font_style + "'>" + cert.Vehicle + "</div>");
+            inspectionsThisMonthcount++;
         });
 
         $.each(data.ThisMonth, function(index, cert) {
+            console.log("Adding inspection for this month for vehicle " + cert.Vehicle);
             $("#sgi_insepections_list").append("<div class='sgi_inspection_normal " + font_style + "'>" + cert.Vehicle + "</div>");
+            inspectionsThisMonthcount++;
         });
+
+
+        $("#sgi_insepections_list_nextmonth").html("")
+
+        $.each(data.NextMonth, function(index, cert) {
+            console.log("Adding inspection for next month for vehicle " + cert.Vehicle);
+            $("#sgi_insepections_list_nextmonth").append("<div class='sgi_inspection_normal " + font_style + "'>" + cert.Vehicle + "</div>");
+            inspectionsNextMonthCount++;
+        });
+
+
     });
 
 }
