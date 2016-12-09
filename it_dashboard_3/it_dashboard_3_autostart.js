@@ -2,7 +2,6 @@
  * Created by Mark on 2/6/2016.
  */
 $(document).ready(function(){
-    UpdateGuestAccounts();
 
     updateCalendarStatus('room_board', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={72452b73-24d2-4291-b7db-4e9f65cc4d9e}');
     updateCalendarStatus('room_meeting', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={3811d3ab-5e47-4ce7-b1de-16a36905f589}');
@@ -38,9 +37,6 @@ $(document).ready(function(){
  3600000     1 hour
  */
 
-setInterval(function() {
-    UpdateGuestAccounts();
-}, 60000);
 
 setInterval(function() {
     DisplayVPNAccounts('vpnusers', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/ActiveDirectory/VPNAccounts.aspx')

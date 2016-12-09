@@ -1,16 +1,18 @@
 //var pie_chart_overlay_image = '/dashboard_common/seasonal_customizations/Halloween/jackolantern.png'; // Halloween: jackolantern.png
-var pie_chart_overlay_image = '/dashboard_common/sphere.png'; // Halloween: jackolantern.png
+var pie_chart_overlay_image = ''; // Halloween: jackolantern.png
 
 function add_pie_image(context) {
     // Add a cool graphic overtop of the pie chart
     // Image should be the same size as the canvas
-    /*
-    base_image = new Image();
-    base_image.src = pie_chart_overlay_image;
-    base_image.onload = function(){
-      context.drawImage(base_image, 0, 0);
-    };
 
+    if (pie_chart_overlay_image.length > 0) {
+        base_image = new Image();
+        base_image.src = pie_chart_overlay_image;
+        base_image.onload = function () {
+            context.drawImage(base_image, 0, 0);
+        };
+
+    }
     // Leave this line here */
 }
 
@@ -102,13 +104,17 @@ if (currentMonth == 9) {
 if (currentMonth == 12) {
 
     // Solstice overrides xmas
-    if ((currentDay >= 12) && (currentDay <= 25)) {
+    if ((currentDay >= 1) && (currentDay <= 25)) {
         console.log("Loading Xmas stylesheets");
         LoadCSSFile("../Seasonal/Xmas/seasonal.css");
 
-        var pie_chart_color_1 = '#EA8825';
-        var pie_chart_color_2 = '#C46200';
-    } else if ((currentDay >= 21) && (currentDay <= 21)) {
+        var pie_chart_color_1 = '#007200';
+        var pie_chart_color_2 = '#8E020E';
+        pie_chart_overlay_image = '../Seasonal/xmas/sphere.png';
+
+    }
+
+    if ((currentDay == 21)) {
         console.log("Loading winter solstice stylesheets");
         LoadCSSFile("../Seasonal/WinterSolstice/seasonal.css");
     }

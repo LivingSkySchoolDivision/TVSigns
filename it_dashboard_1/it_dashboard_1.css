@@ -296,25 +296,6 @@ td {
     font-size: 125%;
 }
 
-#weather_detail_icon {
-}
-
-.weather_detail {
-    font-size: 10pt;
-}
-
-#weather_detail_description {
-    font-size: 12pt;
-    font-weight: bold;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-#weather_temp {
-}
-
 #Chart_TicketsByMonth {
     width: 300px;
     height: 250px;
@@ -394,12 +375,4 @@ td {
     100%  {
         background-color: #FFAA73;
     }
-}
-
-#weather_table {
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 5px;
-    padding: 3px;
-    padding-left: 10px;
-    padding-right: 10px;
 }

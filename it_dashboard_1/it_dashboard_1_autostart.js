@@ -11,6 +11,7 @@ $(document).ready(function(){
     UpdateTicketsPerSchool();
     initializeLyncTable();
     updateLyncWidgets();
+    UpdateGuestAccounts();
 });
 
 
@@ -28,7 +29,9 @@ $(document).ready(function(){
  3600000     1 hour
  */
 
-/* Refresh Ticker */
+setInterval(function() {
+    UpdateGuestAccounts();
+}, 60000);
 
 setInterval(function() {
     updateLyncWidgets();

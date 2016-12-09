@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../Stylesheets/colors.css"/>
     <link rel="stylesheet" href="../Stylesheets/common.css"/>
     <link rel="stylesheet" href="../Stylesheets/animations.css"/>
-    <link rel="stylesheet" href="../Seasonal/seasonal.css"/>
 
     <!-- Stylesheets unique to this dashboard -->
     <link rel="stylesheet" href="it_dashboard_1.css"/>
@@ -34,7 +33,7 @@
     <script type="text/javascript" src="it_dashboard_1_autostart.js"></script>
 
 </head>
-<body>
+<body id="body_it_1">
     <!-- colored bars for sizing on a 1080p TV screen -->
     <!--<div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
     <!--<div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
@@ -43,50 +42,36 @@
     <table align="center" border=0 cellpadding=0 cellspacing=7 class="tile_table">
         <tr>
             <td class="tile tileheight_half blue titlebar" id="titlebar_1" colspan=3>
+                <div class="titlebar_text_container">
                 <div class="large_text centered">
                     <div id="current_date"><div class="loading blink">LOADING</div></div>
                 </div>
+                </div>
             </td>
             <td class="tile tileheight_half blue titlebar" id="titlebar_2">
+                <div class="titlebar_text_container">
                 <div class="large_text">
                     <div id="current_time"><div class="loading blink">LOADING</div></div>
                 </div>
+                </div>
             </td>
             <td id="weather_tile" class="tile tileheight_half blue titlebar" id="titlebar_3">
-
-                <table width="260" border=0 cellpadding=0 cellspacing=3 align="Center" id="weather_table">
-
-                    <tr>
-                        <td width="50%" align="center">
-                            <div class="large_text" id="weather_temp"></div>
-                        </td>
-                        <td width="50%" align="center" valign="top" id="weather_detail">
+                <div class="titlebar_text_container">
+                    <div id="weather_container">
+                        <div id="weather_conditions_container">
                             <div id="weather_detail_icon"></div>
                             <div id="weather_detail_description"></div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td align="left">
+                        </div>
+                        <div id="weather_temperature_container">
+                            <div id="weather_temp"></div>
+                        </div>
+                        <div id="weather_details_container">
                             <div class="weather_detail"><b>Feels like: </b><div style="display: inline;" id="weather_temp_feelslike"></div></div>
-                        </td>
-
-                        <td align="left">
                             <div class="weather_detail"><b>Humid: </b><div style="display: inline;" id="weather_temp_humid"></div></div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td align="left">
-                            <div class="weather_detail"><b>Wind: </b><div style="display: inline;" id="weather_wind"></div></div>
-                        </td>
-
-                        <td align="left">
                             <div class="weather_detail"><b>Precip: </b><div style="display: inline;" id="weather_temp_precip"></div></div>
-                        </td>
-                    </tr>
-
-                </table>
+                            <div class="weather_detail"><b>Wind: </b><div id="weather_wind"></div></div>
+                        </div>
+                </div>
 
             </td>
         </tr>
@@ -150,10 +135,8 @@
 
             <td class="tile tilewidth_1 tileheight_1 gray">
                 <div class="tile_content_container">
-                    <div class="tile_title">Wireless Clients</div>
-                    <div class="tile_number" id="wireless_client_count"><div class="loading blink">LOADING</div></div>
-                    <div class="tile_subtext" id="wireless_client_last_updated">...</div>
-                    <div class="tile_subtext">(Updates hourly)</div>
+                    <div class="tile_title">Guest Accounts Active</div>
+                    <div class="tile_number" id="guest_accounts_active">?</div>
                 </div>
             </td>
 
@@ -246,4 +229,8 @@
 
 <img src="../Seasonal/Halloween/ghost.png" id="ghost" style="display: none;">
 <img src="../Seasonal/Halloween/ghost2.png" id="ghost2" style="display: none;">
+
+<img src="../Seasonal/xmas/xmas_floatie_1.png" id="xmas_floatie_1" style="display: none;">
+<img src="../Seasonal/xmas/xmas_floatie_2.png" id="xmas_floatie_2" style="display: none;">
+<img src="../Seasonal/xmas/xmas_floatie_3.png" id="xmas_floatie_3" style="display: none;">
 </html>

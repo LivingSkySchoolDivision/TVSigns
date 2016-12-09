@@ -1,10 +1,18 @@
-body {
-    background-image: url('forest_2.jpg') !important; /**/
+#body_it_1 {
+    background-image: url('christmasbg.png') !important; /**/
+}
+#body_it_3 {
+    background-image: url('forest_3.jpg') !important; /**/
+}
 
+#body_ss {
+    background-image: url('christmasbg.png') !important; /**/
+}
+
+#body_transport {
 }
 
 .titlebar {
-    color: white !important;
 }
 
 #weather_table {
@@ -16,8 +24,6 @@ body {
 #titlebar_2 {
 }
 
-#weather_tile {
-}
 
 .weather_heading {
     color: black;
@@ -26,12 +32,6 @@ body {
     font-size: 10pt;
 }
 
-#spare_tile {
-  background-image: url('fireplace.gif');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-}
 
 #current_date {
 }
@@ -39,6 +39,12 @@ body {
 #current_time {
 
 }
+
+.weather_table {
+    color: black;
+}
+
+#time_second {}
 
 #weather_detail {
 
@@ -50,22 +56,37 @@ body {
 #spare_tile {
 }
 
-#xmas2 {
+#xmas_floatie_1 {
+    display: inline-block !important;
     position: absolute;
     top: 20px;
     left: 5px;
     width: 120px;
     height: 120px;
     animation: ghost 10s infinite linear;
+    z-index: 999;
+
 }
 
-#xmas1 {
+#xmas_floatie_2 {
+    position: absolute;
+    top: 90px; /* 20px */
+    right: -25px; /* 1040px */
+    width: 100px;
+    height: 100px;
+    display: inline-block !important;
+}
+
+#xmas_floatie_3 {
+    display: inline-block !important;
     position: absolute;
     bottom: 10px; /* 20px */
     right: -10px; /* 1040px */
     width: 200px;
     height: 200px;
+    z-index: 999;
 }
+
 
 @keyframes ghost {
   10%  {
@@ -93,4 +114,8 @@ body {
   90%  {
     transform:scale(1) rotate(-3deg);
     }
+}
+
+.graysemitrans {
+    background-color: rgba(70, 64, 65, 0.8);
 }

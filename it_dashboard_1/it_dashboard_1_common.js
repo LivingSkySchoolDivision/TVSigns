@@ -88,3 +88,15 @@ function updateTicketCounts() {
         }
     });
 }
+
+function UpdateGuestAccounts() {
+    var JSONPath = dashboardDataCollectorRoot + "/Proxy/XML.aspx?url=https://guests.lskysd.ca/JSON/";
+
+    $.getJSON(JSONPath, function(data) {
+
+        var activeGuestAccounts = data.TotalActive;
+
+        $('#guest_accounts_active').html(activeGuestAccounts);
+
+    });
+}
