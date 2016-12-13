@@ -27,20 +27,6 @@ function updateSNMPSensorNodes(JSONPath) {
                 update_snmp_sensor_node("#sidebar_top_right", thisSensor.id, "Firewall Internet Port (Secondary)", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, true, 200, 200);
             }
 
-            // BCS 9
-            // Bready  10
-            // Cando   11
-            // CKES    12
-            // CKHS    13
-            // Connaught   14
-            // Hafford 15
-            // HCES    16
-            // Heritage    17
-            // Kerobert    18
-            // Lawrence    3
-            // Leoville    19
-            // Luseland    20
-
             if (thisSensor.id == 9) {
                 update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Battleford Central", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
             }
@@ -54,11 +40,11 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 12) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Cut Knife Elementary", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 100, 100);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Cut Knife Elementary", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 25, 25);
             }
 
             if (thisSensor.id == 13) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Cut Knife High", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Cut Knife High", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 25, 25);
             }
 
             if (thisSensor.id == 14) {
@@ -66,7 +52,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 5) {
-                update_snmp_sensor_node("#sidebar_top_middle", thisSensor.id, "Division Office", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 1000, 1000); /* actually 1000 */
+                update_snmp_sensor_node("#sidebar_top_middle", thisSensor.id, "Division Office", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 75, 75); /* actually 1000 */
             }
 
             if (thisSensor.id == 15) {
@@ -90,7 +76,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 19) {
-                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Leoville", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_left", thisSensor.id, "Leoville", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 25, 25);
             }
 
 
@@ -109,7 +95,7 @@ function updateSNMPSensorNodes(JSONPath) {
             // UPS 102
 
             if (thisSensor.id == 20) {
-                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Luseland", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Luseland", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 25, 25);
             }
 
             if (thisSensor.id == 21) {
@@ -117,7 +103,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 23) {
-                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Maymont", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Maymont", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 25, 25);
             }
 
             if (thisSensor.id == 24) {
@@ -129,11 +115,11 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 26) {
-                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Medstead", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Medstead", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 25, 25);
             }
 
             if (thisSensor.id == 27) {
-                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "NBCHS", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 80, 80); /* actually 1000 */
+                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "NBCHS", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 75, 75); /* actually 1000 */
             }
 
             if (thisSensor.id == 28) {
@@ -153,7 +139,7 @@ function updateSNMPSensorNodes(JSONPath) {
             }
 
             if (thisSensor.id == 32) {
-                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Unity Public", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 10, 10);
+                update_snmp_sensor_node("#sidebar_right", thisSensor.id, "Unity Public", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, false, 25, 25);
             }
 
         });
