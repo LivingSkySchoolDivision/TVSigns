@@ -153,7 +153,15 @@ function draw_region_map(JSONPath, canvasid) {
             }
 
             if (thisSensor.id == 86) {
-               addPingNode(canvasid, 10,795,"Mail LB",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, false, false);
+                addPingNode(canvasid, 10,795,"Mail LB",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, false, false);
+            }
+
+            if (thisSensor.id == 123) {
+                addPingNode(canvasid, 10,745,"SIS",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, false, false);
+            }
+
+            if (thisSensor.id == 122) {
+                addPingNode(canvasid, 10,770,"SYSLOG",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, false, false);
             }
 
             if (thisSensor.id == 87) {
@@ -169,7 +177,7 @@ function draw_region_map(JSONPath, canvasid) {
             }
 
             if (thisSensor.id == 91) {
-               addPingNode(canvasid, 280,870,"8.8.8.8",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, false, false);
+                addPingNode(canvasid, 280,870,"8.8.8.8",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, false, false);
             }
 
             // Alarms
