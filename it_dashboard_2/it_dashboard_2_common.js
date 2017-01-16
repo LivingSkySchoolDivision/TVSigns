@@ -20,11 +20,11 @@ function updateSNMPSensorNodes(JSONPath) {
 
             //var errorNotes = "Last seen: " + thisSensor.lastsuccess;
             if (thisSensor.id == 1) {
-                update_snmp_sensor_node("#sidebar_top_left",thisSensor.id, "Firewall Internet Port (Primary)", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, true, 200, 200);
+                update_snmp_sensor_node("#sidebar_top_right",thisSensor.id, "Firewall Internet Port (Secondary)", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, true, 200, 200);
             }
 
             if (thisSensor.id == 2) {
-                update_snmp_sensor_node("#sidebar_top_right", thisSensor.id, "Firewall Internet Port (Secondary)", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, true, 200, 200);
+                update_snmp_sensor_node("#sidebar_top_left", thisSensor.id, "Firewall Internet Port (Primary)", thisSensor.health , thisSensor.bitspersecondin, thisSensor.bitspersecondout, thisSensor.mbpsin, thisSensor.mbpsout, errorNotes, true, 200, 200);
             }
 
             if (thisSensor.id == 9) {
