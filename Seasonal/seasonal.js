@@ -140,12 +140,13 @@ if (currentMonth == 3) {
 
 
 // Pink shirt day
+/*
 if (currentMonth == 2) {
     if (currentDay ==24) {
         console.log("Loading Pink shirt day stylesheets");
         LoadCSSFile("../Seasonal/PinkShirtDay/seasonal.css");
     }
 }
-
+*/
 
 
