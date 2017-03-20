@@ -90,7 +90,7 @@ function updateTicketCounts() {
 }
 
 function UpdateGuestAccounts() {
-    var JSONPath = dashboardDataCollectorRoot + "/Proxy/XML.aspx?url=https://guests.lskysd.ca/JSON/";
+    var JSONPath = dashboardDataCollectorRoot + "/Proxy/JSON.aspx?url=https://guests.lskysd.ca/JSON/";
 
     $.getJSON(JSONPath, function(data) {
 
