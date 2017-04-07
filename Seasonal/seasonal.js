@@ -44,8 +44,8 @@ if (currentMonth == 2) {
 // Easter (2021): April 4
 if (
     ((currentYear == 2016) && (currentMonth == 3) && (currentDay >= 22) && (currentDay <= 27)) ||
-    ((currentYear == 2017) && (currentMonth == 4) && (currentDay >= 11) && (currentDay <= 16)) ||
-    ((currentYear == 2018) && (currentMonth == 3) && (currentDay >= 26) && (currentDay <= 31)) ||
+    ((currentYear == 2017) && (currentMonth == 4) && (currentDay >= 5) && (currentDay <= 16)) ||
+    ((currentYear == 2018) && (currentMonth == 3) && (currentDay >= 20) && (currentDay <= 31)) ||
     ((currentYear == 2018) && (currentMonth == 4) && (currentDay >= 1) && (currentDay <= 1)) ||
     ((currentYear == 2019) && (currentMonth == 4) && (currentDay >= 16) && (currentDay <= 21)) ||
     ((currentYear == 2020) && (currentMonth == 4) && (currentDay >= 6) && (currentDay <= 12)) ||
