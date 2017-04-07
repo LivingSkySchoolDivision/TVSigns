@@ -1,7 +1,7 @@
 .lyncUsername {
     font-size: 14pt;
     padding-left: 10px;
-    border-bottom: 1px solid rgba(255,255,255,1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .lyncLocation {
@@ -27,7 +27,7 @@
 
 .lyncPresence_Offline {
     border-left: 5px solid transparent;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,1);
 }
 
 .lyncPresence_BeRightBack {
