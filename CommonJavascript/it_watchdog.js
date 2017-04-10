@@ -1,208 +1,104 @@
+const wd_warning_temperature_high = 28;
+const wd_warning_temperature_low = 5;
+const wd_critical_temperature_high = 30;
+const wd_critical_temperature_low = 2;
+
+function putTemperatureInBox(currentTemp, container) {
+    $(container).html(currentTemp + ' &deg;C');
+
+    // Threshold warnings
+    if (currentTemp >= wd_critical_temperature_high) {
+        $(container).addClass("critical");
+    } else if (currentTemp >= wd_warning_temperature_high) {
+        $(container).addClass("warning");
+    } else if (currentTemp <= wd_critical_temperature_low) {
+        $(container).addClass("critical");
+    } else if (currentTemp <= wd_warning_temperature_low) {
+        $(container).addClass("warning");
+    } else {
+        $(container).removeClass("warning");
+        $(container).removeClass("critical");
+    }
+}
+
+function putHumidityInBox(currentHumidity, container) {
+    $(container).html(currentHumidity + ' %')
+}
+
 function getWatchdogTemp() {
-    var XMLPath_DO = dashboardDataCollectorRoot + "/Proxy/XML.aspx?SKIPCACHE=yes&url=http://10.177.54.129/data.xml";
-    var XMLPath_NBCHS = dashboardDataCollectorRoot + "/Proxy/XML.aspx?SKIPCACHE=yes&url=http://10.177.200.129/data.xml";
+    var JSONPath_DO = dashboardDataCollectorRoot + "/Proxy/JSON.aspx?SKIPCACHE=yes&url=http://10.177.54.129/api";
+    var JSONPath_NBCHS = dashboardDataCollectorRoot + "/Proxy/JSON.aspx?SKIPCACHE=yes&url=http://10.177.200.129/api";
+
+    // Device IDs:
+    // 9F0004A3F25158C3 - DO server room Watchdog 100
+    // CC0000056A877228 - DO server room temperature probe
+    // ED0004A3F25F36C3 - NBCHS server room Watchdog 100
+    // 350000043FA0EC28 - Remote temperature probe at NBCHS
 
     // Warning temperatures
-    var warnHigh = 28;
-    var warnLow = 5;
-    var critHigh = 30;
-    var critLow = 2;
 
-    // DO Watchdog
-    //temp_do_swi , temp_do_vmw
 
-    $.get(XMLPath_DO, function(xmlroot){
-        $(xmlroot).find('device').each(function() {
-            var $device = $(this);
-            var deviceID = $device.attr("id");
-            var deviceName = $device.attr("name");
-            var currentTemp = -999;
-            var currentHumid = -999;
+    // DO
+    $.getJSON(JSONPath_DO, function(data) {
+        $.each(data.data.dev, function(sensorID, thisSensor) {
+            if (sensorID == '9F0004A3F25158C3') {
+                $('#wd_do_swi_title').html(thisSensor.label);
+                $.each(thisSensor.entity, function(entity, thisEntity) {
+                    $.each(thisEntity.measurement, function(measurement, thisMeasurement) {
+                        if (thisMeasurement.type == "temperature") {
+                            putTemperatureInBox(thisMeasurement.value, '#wd_do_swi_temp');
+                        }
 
-            $device.find('field').each(function() {
-                if ($(this).attr("key") == "Temp") {
-                    currentTemp = ($(this).attr("value"));
-                }
+                        if (thisMeasurement.type == "humidity") {
+                            putHumidityInBox(thisMeasurement.value, '#wd_do_swi_humid')
 
-                if ($(this).attr("key") == "Humidity") {
-                    currentHumid = ($(this).attr("value"));
-                }
-            });
-
-            // Fill in values for the two sensors we care about
-            if (deviceID == '9F0004A3F25158C3') {
-                $('#wd_do_swi_title').html(deviceName);
-                if (currentTemp != -999) {
-                    $('#wd_do_swi_temp').html(currentTemp + ' &deg;C');
-
-                    // Threshold warnings
-                    if (currentTemp >= critHigh) {
-                        $('#wd_do_swi_temp').addClass("critical");
-                    } else if (currentTemp >= warnHigh) {
-                        $('#wd_do_swi_temp').addClass("warning");
-                    } else if (currentTemp <= critLow) {
-                        $('#wd_do_swi_temp').addClass("critical");
-                    } else if (currentTemp <= warnLow) {
-                        $('#wd_do_swi_temp').addClass("warning");
-                    } else {
-                        $('#wd_do_swi_temp').removeClass("warning");
-                        $('#wd_do_swi_temp').removeClass("critical");
-                    }
-                }
-
-                if (currentHumid != -999)
-                {
-                    $('#wd_do_swi_humid').html(currentHumid + ' %')
-                }
+                        }
+                    });
+                });
             }
 
-            if (deviceID == 'CC0000056A877228') {
-                $('#wd_do_vmw_title').html(deviceName);
-                if (currentTemp != -999) {
-                    $('#wd_do_vmw_temp').html(currentTemp + ' &deg;C');
-
-                    if (currentTemp >= critHigh) {
-                        $('#wd_do_vmw_temp').addClass("critical");
-                    } else if (currentTemp >= warnHigh) {
-                        $('#wd_do_vmw_temp').addClass("warning");
-                    } else if (currentTemp <= critLow) {
-                        $('#wd_do_vmw_temp').addClass("critical");
-                    } else if (currentTemp <= warnLow) {
-                        $('#wd_do_vmw_temp').addClass("warning");
-                    } else {
-                        $('#wd_do_vmw_temp').removeClass("warning");
-                        $('#wd_do_vmw_temp').removeClass("critical");
-                    }
-                }
+            if (sensorID == 'CC0000056A877228') {
+                $('#wd_do_vmw_title').html(thisSensor.label);
+                $.each(thisSensor.entity, function(entity, thisEntity) {
+                    $.each(thisEntity.measurement, function(measurement, thisMeasurement) {
+                        if (thisMeasurement.type == "temperature") {
+                            putTemperatureInBox(thisMeasurement.value, '#wd_do_vmw_temp');
+                        }
+                    });
+                });
             }
         });
     });
 
+    // NBCHS
+    $.getJSON(JSONPath_NBCHS, function(data) {
+        $.each(data.data.dev, function(sensorID, thisSensor) {
+            if (sensorID == 'ED0004A3F25F36C3') {
+                $('#wd_dc_swi_title').html(thisSensor.label);
+                $.each(thisSensor.entity, function(entity, thisEntity) {
+                    $.each(thisEntity.measurement, function(measurement, thisMeasurement) {
+                        if (thisMeasurement.type == "temperature") {
+                            putTemperatureInBox(thisMeasurement.value, '#wd_dc_swi_temp');
+                        }
 
+                        if (thisMeasurement.type == "humidity") {
+                            putHumidityInBox(thisMeasurement.value, '#wd_dc_swi_humid')
 
-    // NBCHS Watchdog
-    //
-    $.get(XMLPath_NBCHS, function(xmlroot){
-        $(xmlroot).find('device').each(function() {
-            var $device = $(this);
-            var deviceID = $device.attr("id");
-            var deviceName = $device.attr("name");
-            var currentTemp = -999;
-            var currentHumid = -999;
-
-            $device.find('field').each(function() {
-                if ($(this).attr("key") == "Temp") {
-                    currentTemp = ($(this).attr("value"));
-                }
-
-                if ($(this).attr("key") == "Humidity") {
-                    currentHumid = ($(this).attr("value"));
-                }
-            });
-
-            // Fill in values for the two sensors we care about
-            if (deviceID == 'ED0004A3F25F36C3') {
-                $('#wd_dc_swi_title').html(deviceName);
-                if (currentTemp != -999) {
-                    $('#wd_dc_swi_temp').html(currentTemp + ' &deg;C');
-
-                    // Threshold warnings
-                    if (currentTemp >= critHigh) {
-                        $('#wd_dc_swi_temp').addClass("critical");
-                    } else if (currentTemp >= warnHigh) {
-                        $('#wd_dc_swi_temp').addClass("warning");
-                    } else if (currentTemp <= critLow) {
-                        $('#wd_dc_swi_temp').addClass("critical");
-                    } else if (currentTemp <= warnLow) {
-                        $('#wd_dc_swi_temp').addClass("warning");
-                    } else {
-                        $('#wd_dc_swi_temp').removeClass("warning");
-                        $('#wd_dc_swi_temp').removeClass("critical");
-                    }
-                }
-
-                if (currentHumid != -999)
-                {
-                    $('#wd_dc_swi_humid').html(currentHumid + ' %')
-                }
+                        }
+                    });
+                });
             }
 
-            if (deviceID == '350000043FA0EC28') {
-                $('#wd_dc_vmw_title').html(deviceName);
-                if (currentTemp != -999) {
-                    $('#wd_dc_vmw_temp').html(currentTemp + ' &deg;C');
-
-                    if (currentTemp >= critHigh) {
-                        $('#wd_dc_vmw_temp').addClass("critical");
-                    } else if (currentTemp >= warnHigh) {
-                        $('#wd_dc_vmw_temp').addClass("warning");
-                    } else if (currentTemp <= critLow) {
-                        $('#wd_dc_vmw_temp').addClass("critical");
-                    } else if (currentTemp <= warnLow) {
-                        $('#wd_dc_vmw_temp').addClass("warning");
-                    } else {
-                        $('#wd_dc_vmw_temp').removeClass("warning");
-                        $('#wd_dc_vmw_temp').removeClass("critical");
-                    }
-                }
+            if (sensorID == '350000043FA0EC28') {
+                $('#wd_dc_vmw_title').html(thisSensor.label);
+                $.each(thisSensor.entity, function(entity, thisEntity) {
+                    $.each(thisEntity.measurement, function(measurement, thisMeasurement) {
+                        if (thisMeasurement.type == "temperature") {
+                            putTemperatureInBox(thisMeasurement.value, '#wd_dc_vmw_temp');
+                        }
+                    });
+                });
             }
         });
     });
-
-    //*/
-
-    // Temporary telephone room watchdog (actually NBCHS's but moved)
-    //
-    /*
-    $.get(XMLPath_NBCHS, function(xmlroot){
-        $(xmlroot).find('device').each(function() {
-            var $device = $(this);
-            var deviceID = $device.attr("id");
-            var deviceName = $device.attr("name");
-            var currentTemp = -999;
-            var currentHumid = -999;
-
-            $device.find('field').each(function() {
-                if ($(this).attr("key") == "Temp") {
-                    currentTemp = ($(this).attr("value"));
-                }
-
-                if ($(this).attr("key") == "Humidity") {
-                    currentHumid = ($(this).attr("value"));
-                }
-            });
-
-            // Fill in values for the two sensors we care about
-            if (deviceID == 'ED0004A3F25F36C3') {
-                $('#wd_dc_swi_title').html(deviceName);
-                if (currentTemp != -999) {
-                    $('#wd_dc_swi_temp').html(currentTemp + ' &deg;C');
-
-                    // Threshold warnings
-                    if (currentTemp >= critHigh) {
-                        $('#wd_dc_swi_temp').addClass("critical");
-                    } else if (currentTemp >= warnHigh) {
-                        $('#wd_dc_swi_temp').addClass("warning");
-                    } else if (currentTemp <= critLow) {
-                        $('#wd_dc_swi_temp').addClass("critical");
-                    } else if (currentTemp <= warnLow) {
-                        $('#wd_dc_swi_temp').addClass("warning");
-                    } else {
-                        $('#wd_dc_swi_temp').removeClass("warning");
-                        $('#wd_dc_swi_temp').removeClass("critical");
-                    }
-                }
-
-                if (currentHumid != -999)
-                {
-                    $('#wd_dc_swi_humid').html(currentHumid + ' %')
-                }
-            }
-
-        });
-    });*/
-
-
-
-
 }
