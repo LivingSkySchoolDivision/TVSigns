@@ -43,13 +43,13 @@ setInterval(function() {
 }, 300000);
 
 setInterval(function() {
-    updateCalendarStatus('room_board', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={d492d463-8204-460c-99a2-81f7646fb65e}');
+    updateCalendarStatus('room_board', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={72452b73-24d2-4291-b7db-4e9f65cc4d9e}');
     updateCalendarStatus('room_meeting', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={3811d3ab-5e47-4ce7-b1de-16a36905f589}');
     updateCalendarStatus('room_ss', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={6fd797f6-2ddc-446c-bdc0-638bfbf28a2f}');
     updateCalendarStatus('room_smallmeeting', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={c401f760-485c-4c6f-b56b-3b39ecaaa8a7}');
 
     // Tomorrow
-    updateCalendarStatus_Tomorrow('room_board_tomorrow', '/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={d492d463-8204-460c-99a2-81f7646fb65e}');
+    updateCalendarStatus_Tomorrow('room_board_tomorrow', '/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={72452b73-24d2-4291-b7db-4e9f65cc4d9e}');
     updateCalendarStatus_Tomorrow('room_meeting_tomorrow', '/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={3811d3ab-5e47-4ce7-b1de-16a36905f589}');
     updateCalendarStatus_Tomorrow('room_ss_tomorrow', '/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={6fd797f6-2ddc-446c-bdc0-638bfbf28a2f}');
     updateCalendarStatus_Tomorrow('room_smallmeeting_tomorrow', '/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={c401f760-485c-4c6f-b56b-3b39ecaaa8a7}');
