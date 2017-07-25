@@ -41,12 +41,6 @@ function draw_city_map(JSONPath, canvasid) {
                 addPingNode(canvasid, 337,127,"Lawrence", thisSensor.lastsuccessfulroundtrip , thisSensor.health,  true, true, false);
             }
 
-            if (thisSensor.id == 78) {
-                // Manacowin 337 147
-                addPingNode(canvasid, 337,147,"Manacowin", thisSensor.lastsuccessfulroundtrip , thisSensor.health,  true ,false, false);
-            }
-
-            
             if (thisSensor.id == 31) {            
                 // St Vital 204 727
                 addPingNode(canvasid, 204,727,"St Vital", thisSensor.lastsuccessfulroundtrip , thisSensor.health,  true,false, true); // This one should be on the left side of the pin
