@@ -61,8 +61,6 @@ function clearLyncTable() {
 // Set up a referencable table row for the specific user
 function initializeLyncTable() {
     clearLyncTable();
-    //addLyncWidget("sip:joanne.kasper@lskysd.ca");
-    //addLyncWidget("sip:kim.cottini@lskysd.ca");
 
 
     addLyncWidget("13"); // sip:angela.okanee@lskysd.ca
@@ -71,13 +69,10 @@ function initializeLyncTable() {
     addLyncWidget("16"); // sip:cathy.richardson@lskysd.ca
     addLyncWidget("35"); // sip:chelsea.seymour@lskysd.ca
     addLyncWidget("17"); // sip:derek.hoiseth@lskysd.ca
-    addLyncWidget("18"); // sip:donna.desroches@lskysd.ca
     addLyncWidget("19"); // sip:doug.drover@lskysd.ca
-    addLyncWidget("20"); // sip:jamie.foster@lskysd.ca
-    addLyncWidget("21"); // sip:janice.nicotine@lskysd.ca
+    addLyncWidget("20"); // sip:jamie.foster@lskysd.ca    
     addLyncWidget("22"); // sip:jennifer.harder@lskysd.ca
-    addLyncWidget("23"); // sip:leah.hildebrand@lskysd.ca
-    addLyncWidget("24"); // sip:leanne.merkowsky@lskysd.ca
+    addLyncWidget("23"); // sip:leah.hildebrand@lskysd.ca    
     addLyncWidget("25"); // sip:leanne.sargent@lskysd.ca
     addLyncWidget("26"); // sip:lindsay.zubiak@lskysd.ca"
     addLyncWidget("34"); // sip:kate.carlisle@lskysd.ca
