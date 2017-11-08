@@ -6,7 +6,8 @@
 
 // Path to StrendinMonitor, relative to this dashboard
 // Keep in mind that JQuery won't allow ajax requests from other domains
-var strendinMonitorRoot = "/strendinmonitor";
+var strendinMonitorJSONRoot = "/LSKYDashboardDataCollector/Proxy/JSON.aspx?SKIPCACHE=Yes&url=https://status.lskysd.ca/strendinmonitor";
+var strendinMonitorGraphRoot = "https://status.lskysd.ca/strendinmonitor";
 
 
 // Path to the LSKYDashboardDataCollector web application

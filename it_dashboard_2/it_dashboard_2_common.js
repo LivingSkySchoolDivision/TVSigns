@@ -150,8 +150,8 @@ function updateSNMPSensorNodes(JSONPath) {
 function updatePingSensorNodes(JSONPath) {
 
     // Add map pieces
-    draw_region_map(strendinMonitorRoot + "/JSON/allsensors.aspx", "region_map");
-    draw_city_map(strendinMonitorRoot + "/JSON/allsensors.aspx", "city_map");
+    draw_region_map(strendinMonitorJSONRoot + "/JSON/allsensors.aspx", "region_map");
+    draw_city_map(strendinMonitorJSONRoot + "/JSON/allsensors.aspx", "city_map");
 
 }
 
@@ -174,7 +174,7 @@ function updateBandwidthGraph(JSONPath) {
         if (graphID > 0)
         {
             d = new Date();
-            $('#bandwidth_graph').attr('src',strendinMonitorRoot + '/graphs/SNMPThroughput.aspx?sensorid=' + graphID + '&graphstyle=doublesided&width=450&height=70&date=' + d.getTime());
+            $('#bandwidth_graph').attr('src',strendinMonitorGraphRoot + '/graphs/SNMPThroughput.aspx?sensorid=' + graphID + '&graphstyle=doublesided&width=450&height=70&date=' + d.getTime());
         }
     });
 }

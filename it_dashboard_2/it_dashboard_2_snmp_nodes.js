@@ -169,7 +169,7 @@ function update_snmp_sensor_node(sidebar, id, title, health, inbits, outbits, me
         $('#SNMP_NODE_' + id + '_outbits').html(displayStringOut);
         $('#SNMP_NODE_' + id + '_title').html(displayTitle);
         $('#SNMP_NODE_' + id + '_error').html(err);
-        $('#SNMP_NODE_' + id + '').css("background-image", "url(" + strendinMonitorRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + id + "&height=40&width=340&hours=6&semitrans=true&graphstyle=doublesided&maxvalue=" + connectionLimitIn + ")");
+        $('#SNMP_NODE_' + id + '').css("background-image", "url(" + strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + id + "&height=40&width=340&hours=6&semitrans=true&graphstyle=doublesided&maxvalue=" + connectionLimitIn + ")");
 
 
     } else {
