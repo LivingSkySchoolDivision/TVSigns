@@ -13,8 +13,8 @@ $(document).ready(function() {
     updatePingSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
 
     // Update total traffic counter
-    updateTotalTrafficToday(strendinMonitorJSONRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', '/StrendinMonitor/JSON/bySNMPThroughputSensor.aspx?sensorid=2');
-    updateTotalTrafficThisMonth(strendinMonitorJSONRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', '/StrendinMonitor/JSON/bySNMPThroughputSensor.aspx?sensorid=2');
+    updateTotalTrafficToday(strendinMonitorJSONRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', strendinMonitorJSONRoot +'/JSON/bySNMPThroughputSensor.aspx?sensorid=2');
+    updateTotalTrafficThisMonth(strendinMonitorJSONRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', strendinMonitorJSONRoot +'/JSON/bySNMPThroughputSensor.aspx?sensorid=2');
 
     // Update graph
     updateBandwidthGraph(strendinMonitorJSONRoot + '/JSON/ByHost.aspx?hostid=1');
