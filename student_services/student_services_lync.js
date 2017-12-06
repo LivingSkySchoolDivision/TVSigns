@@ -71,7 +71,9 @@ function initializeLyncTable() {
     addLyncWidget("17"); // sip:derek.hoiseth@lskysd.ca
     addLyncWidget("19"); // sip:doug.drover@lskysd.ca    
     addLyncWidget("22"); // sip:jennifer.harder@lskysd.ca
-    addLyncWidget("23"); // sip:leah.hildebrand@lskysd.ca    
+    addLyncWidget("37"); // Jennifer Heggstrom
+    addLyncWidget("23"); // sip:leah.hildebrand@lskysd.ca        
+    addLyncWidget("36"); // Jennifer Simonson    
     addLyncWidget("25"); // sip:leanne.sargent@lskysd.ca
     addLyncWidget("26"); // sip:lindsay.zubiak@lskysd.ca"
     addLyncWidget("34"); // sip:kate.carlisle@lskysd.ca
@@ -81,6 +83,8 @@ function initializeLyncTable() {
     addLyncWidget("20"); // sip:shari.dueck@lskysd.ca
     addLyncWidget("32"); // sip:sherry.bockus@lskysd.ca
     addLyncWidget("33"); // sip:sherron.burns@lskysd.ca
+
+    
 
 
     //addLyncWidget("sip:harvey.birdman@lskysd.ca");
