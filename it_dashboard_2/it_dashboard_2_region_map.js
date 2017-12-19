@@ -153,7 +153,7 @@ function draw_region_map(JSONPath, canvasid) {
             }
 
             if (thisSensor.id == 86) {
-                addPingNode(canvasid, 10,795,"Mail LB",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, false, false);
+                addPingNode(canvasid, 10,795,"Papercut",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, false, false);
             }
 
             if (thisSensor.id == 123) {
