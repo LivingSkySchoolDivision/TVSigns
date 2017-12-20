@@ -9,8 +9,6 @@ $(document).ready(function(){
     updateWirelessCount();
     updateTicketCounts();
     UpdateTicketsPerSchool();
-    initializeLyncTable();
-    updateLyncWidgets();
     UpdateGuestAccounts();
 });
 
@@ -32,10 +30,6 @@ $(document).ready(function(){
 setInterval(function() {
     UpdateGuestAccounts();
 }, 60000);
-
-setInterval(function() {
-    updateLyncWidgets();
-}, 5000);
 
 setInterval(function() {
     updateTicker();
