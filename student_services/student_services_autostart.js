@@ -4,8 +4,8 @@
 $(document).ready(function(){
     updateWeather();
     //updateTicker();
-    initializeLyncTable();
-    updateLyncWidgets();
+
+    updateStudentServicesPresence();
 
     updateCalendarStatus_MeetingRooms('room_board', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={72452b73-24d2-4291-b7db-4e9f65cc4d9e}');
     updateCalendarStatus_MeetingRooms('room_meeting', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={3811d3ab-5e47-4ce7-b1de-16a36905f589}');
@@ -16,7 +16,6 @@ $(document).ready(function(){
     updateCalendarStatus_Vehicles('veh_bj', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={cfd6dc87-731d-45fc-acdd-27305907f971}');
     updateCalendarStatus_Vehicles('veh_sj', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={bb6a9eb7-cbbd-43db-93c9-eb816d307ff0}');
     updateCalendarStatus_Vehicles('veh_jeep', 'https://dashboard.lskysd.ca/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={6bf86bc7-9700-494b-a6f6-a27596d2b144}');
-
 
     // Tomorrow
     updateCalendarStatus_Tomorrow('room_board_tomorrow', '/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?url=https://portal.lskysd.ca/office&guid={72452b73-24d2-4291-b7db-4e9f65cc4d9e}');
@@ -48,7 +47,7 @@ setInterval(function() {
 }, 10000);
 
 setInterval(function() {
-    updateLyncWidgets();
+    updateStudentServicesPresence();
 }, 5000);
 
 /* Update weather */
