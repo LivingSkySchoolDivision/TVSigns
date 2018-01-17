@@ -1,0 +1,148 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+#sensorbox_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  text-align: left;
+}
+
+.sensorbox {
+  position: relative;
+  margin: 2px;
+  width: 375px;
+  display: inline-block;
+  background-color: rgba(255,255,255,0.03);
+  border: 3px solid rgba(255,255,255,0.05);
+  border-radius: 3px;
+  text-align: center;
+  clear: both;
+}
+
+.sensorbox_name {
+  font-size: 32px;
+  color: rgba(255,255,255,0.5);
+}
+
+.sensorbox_snmp_section {
+  display: block;
+  margin-top: 5px;
+}
+
+.sensorbox_ping_section {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+  text-align: right;
+}
+
+.sensorbox_ping_title {
+  display: inline;
+}
+
+.sensorbox_ping_value {
+  display: inline;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.sensorbox_snmp_title {
+  display: inline;
+  font-size: 8pt;
+  color: rgba(255,255,255,0.3);
+}
+
+.sensorbox_snmp_value {
+  display: inline;
+  font-size: 25px;
+  font-weight: bold;
+  color: rgba(255,255,255,0.3);
+}
+
+.sensorbox_misc_section {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+  min-height: 40px;
+}
+
+.sensorbox_up_or_down_button {
+  width: 100px;
+  border-radius: 2px;
+  margin: 5px;
+  padding: 5px;
+  display: inline;
+  border: 2px solid rgba(255,255,255,0.5);
+  font-size: 10pt;
+}
+
+.sensorbox_snmp_container_table {
+  width: 100%;
+}
+
+.sensorbox_snmp_container_table td {
+  text-align: center;
+}
+
+.sensorbox_snmp_graph {
+  width: 370px;
+  height: 40px;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.01);
+
+}
+
+.sensorbox_ping_graph {
+  width: 370px;
+  height: 2px;
+  margin-bottom: 5px;
+}
+
+.sensorbox_hidden {
+  display: none;
+}
+
+.sensorbox_health_online {
+  background-color: rgba(128,128,128,0.1);
+  color: rgba(255,255,255,0.5);
+  border: 2px solid rgba(128,128,128,0.2);
+}
+
+.sensorbox_health_offline {
+    background-color: rgba(255, 36, 0, 1);
+    border: 2px solid rgba(128,0,0,0.1);
+    color: white;
+}
+
+.sensorbox_health_queasy {
+    background-color: rgba(251, 177, 23, 1);
+    color: black;
+}
+
+
+.sensorbox_health_error {
+    background-color: rgba(105, 96, 236,1);
+    color: white;
+}
+
+.sensorbox_snmp_offline_section {
+    border-radius: 5px;
+    border: 2px solid red;
+    background: rgba(255,0,0,0.2);
+}
+
+.sensorbox_snmp_offline_section_title {
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.sensorbox_snmp_offline_section_lastseen {
+    font-size: 10pt;
+    font-weight: bold;
+
+}

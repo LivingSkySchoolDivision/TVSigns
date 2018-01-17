@@ -7,7 +7,7 @@ $(document).ready(function() {
     // Sensor data can come from here http://dashboard.lskysd.ca/strendinmonitor/JSON/allsensors.aspx
 
     // add all nodes
-    updateSNMPSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
+    //updateSNMPSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
 
     // Does this have to be added and updated seperately as well? We'll find out
     updatePingSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
@@ -21,6 +21,7 @@ $(document).ready(function() {
 
     // Update communications errors
     updateConnectionWarnings();
+
 });
 
 
@@ -38,6 +39,16 @@ $(document).ready(function() {
  3600000     1 hour
  */
 
+// Every 5 minutes, updadate the graphs
+setInterval(function() {
+    UpdateAllSensorGraphs();
+}, (10000));
+
+// Every 4 minutes, update the values
+setInterval(function() {
+    UpdateAllSensorValues();
+}, (30000));
+
 // Reload the whole page every 45 minutes
 setInterval(function() {
     location.reload();
@@ -45,7 +56,7 @@ setInterval(function() {
 
 // Update SNMP sensor nodes
 setInterval(function() {
-    updateSNMPSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
+    //updateSNMPSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
 }, 60000);
 
 // Update ping sensor nodes

@@ -8,4 +8,3 @@ function DaysUntil (year, month, day) {
     var firstDate = new Date();
     return Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
 }
-

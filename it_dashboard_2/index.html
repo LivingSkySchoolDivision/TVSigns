@@ -8,6 +8,7 @@
     <!-- Common dashboard stylesheets -->
 	<link rel="stylesheet" href="../Stylesheets/colors.css"/>
     <link rel="stylesheet" href="../Stylesheets/common.css"/>
+    <link rel="stylesheet" href="../Stylesheets/sensorbox.css"/>
     <link rel="stylesheet" href="../Stylesheets/animations.css"/>
 
 	<!-- Stylesheets unique to this dashboard -->
@@ -20,10 +21,10 @@
     <script type="text/javascript" src="../CommonJavascript/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../CommonJavascript/common_settings.js"></script>
     <script type="text/javascript" src="../CommonJavascript/helpers.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/sensorbox.js"></script>
 
     <!-- Javascript unique to this dashboard -->
 	<script type="text/javascript" src="it_dashboard_2_settings.js"></script>
-	<script type="text/javascript" src="it_dashboard_2_snmp_nodes.js"></script>
     <script type="text/javascript" src="it_dashboard_2_map_general.js"></script>
     <script type="text/javascript" src="it_dashboard_2_region_map.js"></script>
     <script type="text/javascript" src="it_dashboard_2_city_map.js"></script>
@@ -32,38 +33,19 @@
 </head>
 <body id="body_it_2">
     <!-- colored bars for sizing on a 1080p TV screen -->
-    <!--<div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
-	<!--<div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
+    <!--<div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div> -->
+	<!--<div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div> -->
 
 	<div class="page_container">
-	<table border=0 cellspacing="0" cellpadding="0">
+	<div id="sensorbox_container"></div>
+	<table border=0 cellspacing="0" cellpadding="0" style="position: absolute; bottom: 0; right: 0;">
 		<tr>
-			<td rowspan=3 valign="top">
-				<div class="sidebar" id="sidebar_left" valign="top"></div>
-			</td>
-
-			<td colspan=2 valign="top">
-				<div class="top_bar">
-					<table border=0 cellpadding=0 cellspacing=0 width="100%">
-						<tr>
-							<td id="sidebar_top_left"></td>
-							<td id="sidebar_top_middle"></td>
-							<td id="sidebar_top_right"></td>
-						</tr>
-					</table>
-				</div>
-			</td>
-
-			<td rowspan=3 valign="top">
-				<div class="sidebar" valign="top" id="sidebar_right"><div>
-			</td>
-		</tr>
-		<tr>
-			<td valign="top"><canvas id="region_map" /><div style="height: 3px; width: 0; background-color: rgba(255,255,255,0.1);" id="timerBar"></div></td>
+			<td valign="top"></td>
+			<td valign="top"><canvas id="region_map" /></td>
 			<td valign="top"><canvas id="city_map" /></td>
 		</tr>
 		<tr>
-			<td colspan=2 id="sidebar_bottom" align="center">
+			<td colspan=3 id="sidebar_bottom" align="center">
 				<table border=0 cellpadding=0 cellspacing=0 width="100%">
 					<tr>
 						<td id="sidebar_bottom_left">
@@ -104,6 +86,7 @@
 			</td>
 		</tr>
 	</table>
+
 	</div>
 	<div id="comms_error_internal" class="intrusive_error hidden" style="margin-top: -200px;">CAN'T COMMUNICATE WITH DATACENTER</div>
 	<div id="comms_error_external" class="intrusive_error hidden">CAN'T COMMUNICATE WITH INTERNET</div>
