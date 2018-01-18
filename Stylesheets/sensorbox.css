@@ -88,13 +88,15 @@
   text-align: center;
 }
 
-.solidensorbox_snmp_graph {
+.sensorbox_snmp_graph {
   width: 370px;
   height: 40px;
   border: 0;
   border-bottom: 1px solid rgba(255,255,255,0.01);
 
 }
+
+
 
 .sensorbox_ping_graph {
   width: 370px;
@@ -156,4 +158,67 @@
     color: white;
     background-color: rgba(255, 36, 0, 1);
     border-radius: 3px;
+}
+
+
+.detailed_sensorbox {
+  width: 600px;
+  position: relative;
+  margin: 5px;
+  display: inline-block;
+  background-color: rgba(255,255,255,0.03);
+  border: 3px solid rgba(255,255,255,0.05);
+  border-radius: 3px;
+  text-align: left;
+  padding: 5px;
+  clear: both;
+}
+
+.sensorbox_snmp_graph_detailed {
+  width: 400px;
+  height: 100px;
+  border: 0;
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.sensorbox_snmp_value_detailed {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+  color: white;
+}
+
+.sensorbox_snmp_container_table_detailed {
+  text-align: left;
+}
+
+.sensorbox_details_section {
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.sensorbox_details_snmp_value {
+  color: white;
+  font-size: 16px;
+}
+
+.sensorbox_details_title {
+  margin-bottom: 3px;
+  font-size: 10pt;
+  color: rgba(255,255,255,0.5);
+
+}
+
+.sensorbox_details_table {
+  width: 100%;
+  text-align: center;
+}
+
+.sensorbox_details_snmp_title {
+  font-size: 8pt;
+  color: rgba(255,255,255,0.4);
 }

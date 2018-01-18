@@ -6,9 +6,6 @@
 $(document).ready(function() {
     // Sensor data can come from here http://dashboard.lskysd.ca/strendinmonitor/JSON/allsensors.aspx
 
-    // add all nodes
-    //updateSNMPSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
-
     // Does this have to be added and updated seperately as well? We'll find out
     updatePingSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
 
@@ -21,6 +18,12 @@ $(document).ready(function() {
 
     // Update communications errors
     updateConnectionWarnings();
+
+    // New stuff
+    InitializeAllLocationBoxes();
+    UpdateAllSensorGraphs();
+    UpdateAllSensorValues();
+    UpdateDetailedSNMPValues();
 
 });
 
@@ -48,6 +51,12 @@ setInterval(function() {
 setInterval(function() {
     UpdateAllSensorValues();
 }, (30000));
+
+// Every 15 minutes, update the detailed values
+setInterval(function() {
+    UpdateDetailedSNMPValues();
+}, (600000));
+
 
 // Reload the whole page every 45 minutes
 setInterval(function() {
@@ -80,3 +89,18 @@ setInterval(function() {
 //setInterval(function() {
 //    updateConnectionWarnings();
 //}, 300000);
+
+
+
+
+function InitializeAllLocationBoxes() {
+    // Main firewall boxes
+    InitializeDetailedSNMPBox("CORE1","Core Switch - Port 15",1000,1);
+    InitializeDetailedSNMPBox("CORE2","Core Switch - Port 16",1000,2);
+
+    // Internal server boxes
+
+
+    // External server boxes
+
+}
