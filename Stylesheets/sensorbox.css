@@ -46,7 +46,6 @@
 
 .sensorbox_ping_value {
   display: inline;
-  font-weight: bold;
   padding-right: 10px;
 }
 
@@ -89,7 +88,7 @@
   text-align: center;
 }
 
-.sensorbox_snmp_graph {
+.solidensorbox_snmp_graph {
   width: 370px;
   height: 40px;
   border: 0;
@@ -99,7 +98,7 @@
 
 .sensorbox_ping_graph {
   width: 370px;
-  height: 2px;
+  height: 4px;
   margin-bottom: 5px;
 }
 
@@ -145,4 +144,16 @@
     font-size: 10pt;
     font-weight: bold;
 
+}
+
+
+.sensorbox_ping_health_healthy { color: inherit;}
+.sensorbox_ping_health_queasy { color: rgba(251, 177, 23, 1);}
+.sensorbox_ping_health_offline { color: rgba(255,0,0,1); }
+
+.sensorbox_ping_offline_box {
+    text-align: center;
+    color: white;
+    background-color: rgba(255, 36, 0, 1);
+    border-radius: 3px;
 }

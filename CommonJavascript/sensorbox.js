@@ -32,8 +32,22 @@ function UpdateAllSensorValues() {
 				var valudDIVID = pingValuePrefix + thisSensor.id
 				if ($(valudDIVID).length !== 0) {
 
-					// A div with this ID exists, try to update it
-					$(valudDIVID).html(thisSensor.lastroundtrip + "ms");
+					if (thisSensor.health > 0) {
+						var healthPercent = (thisSensor.health * 100) + "%";
+						var healthColorClass = "sensorbox_ping_health_healthy";
+						if (thisSensor.health < 1) {
+							healthColorClass = "sensorbox_ping_health_queasy";
+						}
+						if (thisSensor.health <= 0) {
+							healthColorClass = "sensorbox_ping_health_offline";
+							healthPercent = thisSensor.hostname + " unreachable";
+						}
+						// A div with this ID exists, try to update it
+						$(valudDIVID).html("ping: <b class='" + healthColorClass + "'>" + thisSensor.lastroundtrip + "ms</b>");
+					} else {
+						$(valudDIVID).html("<div class='sensorbox_ping_offline_box'>" + thisSensor.hostname + " unreachable</div>");
+					}
+
 				}
 
 				var statusDIVID = pingStatusPrefix + thisSensor.id
@@ -151,7 +165,7 @@ function UpdateAllSensorGraphs() {
 			var serverPingID = KnownPingGraphIDs[x];
 			var divID = pingGraphPrefix + "" + serverPingID;
 			if ($(divID).length !== 0) {
-				$(divID).attr("src",strendinMonitorGraphRoot + "/Graphs/PingLatency.aspx?sensorid=" + serverPingID + "&showworkday=true&graphstyle=onoff&height=1&width=346&showhourlines=false&showworkday=true&hours=" + graphHoursToPull + "");
+				$(divID).attr("src",strendinMonitorGraphRoot + "/Graphs/PingLatency.aspx?sensorid=" + serverPingID + "&showworkday=true&graphstyle=onoff&height=1&width=346&showhourlines=false&hours=" + graphHoursToPull + "");
 			}
 		};
 	//}
@@ -231,7 +245,6 @@ function AddLocationBox(divName,locationName,SNMPGraphMax,HostID,routerSNMPID,se
 			htmlCode += "    <!-- SNMP -->";
 			htmlCode += "    <div class='sensorbox_snmp_section' id='" + removeFirstCharacter(snmpSectionPrefix) + routerSNMPID + "'>";
 
-
 			htmlCode += "        <!-- SNMP Offline section -->";
 			htmlCode += "        <div class='sensorbox_snmp_section sensorbox_hidden' id='" + removeFirstCharacter(snmpSectionPrefix) + routerSNMPID + "_offline'>";
 			htmlCode += "        	<div class='sensorbox_snmp_offline_section'>";
@@ -263,7 +276,7 @@ function AddLocationBox(divName,locationName,SNMPGraphMax,HostID,routerSNMPID,se
 			htmlCode += "        <div id='" + adjustedDivName + "_ping_section' class='sensorbox_ping_section'>";
 			htmlCode += "            <img class='sensorbox_ping_graph' id='" + pingGraphID + "'>";
 			htmlCode += "            <div class='sensorbox_ping_title'>";
-			htmlCode += "            	ping: <div id='" + removeFirstCharacter(pingValuePrefix) + serverPingID + "' class='sensorbox_ping_value'>...</div>";
+			htmlCode += "            	<div id='" + removeFirstCharacter(pingValuePrefix) + serverPingID + "' class='sensorbox_ping_value'>...</div>";
 			/*
 			if (routerSNMPID > 0) {
 				htmlCode += "            	24 hr Traffic in: <div id='" + removeFirstCharacter(snmpValuePrefix) + routerSNMPID + "_mbin' class='sensorbox_ping_value'>...</div>";
