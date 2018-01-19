@@ -95,8 +95,8 @@ setInterval(function() {
 
 function InitializeAllLocationBoxes() {
     // Main firewall boxes
-    InitializeDetailedSNMPBox("CORE1","Core Switch - Port 15",1000,1);
-    InitializeDetailedSNMPBox("CORE2","Core Switch - Port 16",1000,2);
+    InitializeDetailedSNMPBox("CORE1","Core Switch - Port 15",1000,1, true);
+    InitializeDetailedSNMPBox("CORE2","Core Switch - Port 16",1000,2, true);
 
     // Internal server boxes
 

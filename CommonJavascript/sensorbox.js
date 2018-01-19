@@ -128,12 +128,24 @@ function UpdateAllSensorGraphs() {
 			}
 		}
 
+		var snmpGraphURL = strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + routerSNMPID + "&showworkday=true&height=40&width=346&hours=" + graphHoursToPull + "&graphstyle=filledline&maxvalue=" + graphMax + "&showhours=true&preventCache=" + timestamp;
+		var snmpDetailedGraphURL = strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + routerSNMPID + "&showworkday=true&height=80&width=400&hours=" + graphHoursToPull + "&graphstyle=bar&maxvalue=" + graphMax + "&showhours=true&preventCache=" + timestamp;
+
 		if ($(snmpGraphPrefix + routerSNMPID).length !== 0) {
-			$(snmpGraphPrefix + routerSNMPID).attr("src",strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + routerSNMPID + "&showworkday=true&height=40&width=346&hours=" + graphHoursToPull + "&graphstyle=filledline&maxvalue=" + graphMax + "&showhours=true&preventCache=" + timestamp);
+			$(snmpGraphPrefix + routerSNMPID).attr("src",snmpGraphURL);
 		}
 
 		if ($(snmpLargeGraphPrefix + routerSNMPID).length !== 0) {
-			$(snmpLargeGraphPrefix + routerSNMPID).attr("src",strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + routerSNMPID + "&showworkday=true&height=80&width=400&hours=" + graphHoursToPull + "&graphstyle=bar&maxvalue=" + graphMax + "&showhours=true&preventCache=" + timestamp);
+			$(snmpLargeGraphPrefix + routerSNMPID).attr("src",snmpDetailedGraphURL);
+		}
+
+		// Inverted graphs
+		if ($(snmpGraphPrefix + routerSNMPID + "_invert").length !== 0) {
+			$(snmpGraphPrefix + routerSNMPID + "_invert").attr("src",snmpGraphURL + "&swapInAndOutColors=true");
+		}
+
+		if ($(snmpLargeGraphPrefix + routerSNMPID + "_invert").length !== 0) {
+			$(snmpLargeGraphPrefix + routerSNMPID + "_invert").attr("src",snmpDetailedGraphURL + "&swapInAndOutColors=true");
 		}
 
 
@@ -151,13 +163,13 @@ function UpdateAllSensorGraphs() {
 }
 
 
-function InitializeFacilitySensorBox(divName,locationName,SNMPGraphMax,HostID,routerSNMPID,serverPingID,TycoPingID,RoverPingID,MacMiniID,MacMini2ID,UTEC) {
+function InitializeFacilitySensorBox(divName,locationName,SNMPGraphMax,swapinandout,HostID,routerSNMPID,serverPingID,TycoPingID,RoverPingID,MacMiniID,MacMini2ID,UTEC) {
 	var adjustedDivName = divPrefix + divName;
 	// Check if the div exists, or if we have to create it
 
 	if (!($(adjustedDivName).length !== 0)) {
 		// No div, create a new one
-		AddFacilitySensorBox(adjustedDivName,locationName,SNMPGraphMax,HostID,routerSNMPID,serverPingID,TycoPingID,RoverPingID,MacMiniID,MacMini2ID,UTEC);
+		AddFacilitySensorBox(adjustedDivName,locationName,SNMPGraphMax,swapinandout,HostID,routerSNMPID,serverPingID,TycoPingID,RoverPingID,MacMiniID,MacMini2ID,UTEC);
 	}
 }
 
@@ -183,7 +195,7 @@ function AddToArray(existingarray,newitem) {
 	existingarray.push(newitem);
 }
 
-function AddFacilitySensorBox(divName,locationName,SNMPGraphMax,HostID,routerSNMPID,serverPingID,TycoPingID,RoverPingID,MacMiniID,MacMini2ID,UTEC) {
+function AddFacilitySensorBox(divName,locationName,SNMPGraphMax,swapinandout,HostID,routerSNMPID,serverPingID,TycoPingID,RoverPingID,MacMiniID,MacMini2ID,UTEC) {
 	var adjustedDivName=removeFirstCharacter(divName);
 
 	var snmpGraphID = removeFirstCharacter(snmpGraphPrefix) + routerSNMPID;
@@ -203,6 +215,15 @@ function AddFacilitySensorBox(divName,locationName,SNMPGraphMax,HostID,routerSNM
 	}
 
 	SNMPMaxValues.push({ id: routerSNMPID, max: SNMPGraphMax });
+
+
+	var inString = "in";
+	var outString = "out";
+	if (swapinandout === true) {
+		inString = "out";
+		outString = "in";
+		snmpGraphID += "_invert";
+	}
 
 	var htmlCode = '';
 	htmlCode += "	<div class='sensorbox' id='"+adjustedDivName+"'>";
@@ -227,8 +248,8 @@ function AddFacilitySensorBox(divName,locationName,SNMPGraphMax,HostID,routerSNM
 		htmlCode += "            		<td><div class='sensorbox_snmp_title'>OUT</div></td>";
 		htmlCode += "            	</tr>";
 		htmlCode += "           	 <tr>";
-		htmlCode += "            		<td><div id='" + removeFirstCharacter(snmpValuePrefix) + routerSNMPID + "_in' class='snmp_value'>...</div></td>";
-		htmlCode += "            		<td><div id='" + removeFirstCharacter(snmpValuePrefix) + routerSNMPID + "_out' class='snmp_value'>...</div></td>";
+		htmlCode += "            		<td><div id='" + removeFirstCharacter(snmpValuePrefix) + routerSNMPID + "_" + inString + "' class='snmp_value'>...</div></td>";
+		htmlCode += "            		<td><div id='" + removeFirstCharacter(snmpValuePrefix) + routerSNMPID + "_" + outString + "' class='snmp_value'>...</div></td>";
 		htmlCode += "            	</tr>";
 		htmlCode += "            </table>";
 		htmlCode += "        </div>";
@@ -280,19 +301,20 @@ function removeFirstCharacter(str) {
 }
 
 
-function InitializeDetailedSNMPBox(divName,locationName,SNMPGraphMax,snmpsensorid) {
+function InitializeDetailedSNMPBox(divName,locationName,SNMPGraphMax,snmpsensorid, swapinandout) {
 	var adjustedDivName = divPrefix + divName;
 	// Check if the div exists, or if we have to create it
 
 	if (!($(adjustedDivName).length !== 0)) {
 		// No div, create a new one
-		AddDetailedSNMPSensorBox(adjustedDivName,locationName,SNMPGraphMax,snmpsensorid);
+		AddDetailedSNMPSensorBox(adjustedDivName,locationName,SNMPGraphMax,snmpsensorid, swapinandout);
 	}
 }
 
-function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid) {
+function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid, swapinandout) {
 	var adjustedDivName=removeFirstCharacter(divName);
 	var snmpGraphID = removeFirstCharacter(snmpLargeGraphPrefix) + snmpsensorid;
+
 
 	if (snmpsensorid > 0) {
 		// Check to see if we know about this ID already
@@ -306,6 +328,16 @@ function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid
 	}
 
 	SNMPMaxValues.push({ id: snmpsensorid, max: SNMPGraphMax });
+
+	// Some SNMP sensors show data that is reversed (in is out and out is in), so check
+	// to see if we need to reverse them here so the graphs make sense
+	var inString = "in";
+	var outString = "out";
+	if (swapinandout === true) {
+		inString = "out";
+		outString = "in";
+		snmpGraphID += "_invert";
+	}
 
 	var htmlCode = '';
 	htmlCode += "	<div class='detailed_sensorbox' id='"+adjustedDivName+"'>";
@@ -326,12 +358,12 @@ function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid
 	htmlCode += "            <table border=0 cellpadding=0 cellspacing=0 class='sensorbox_snmp_container_table_detailed'>";
 	htmlCode += "            	<tr>";
 	htmlCode += "            		<td align=center width=50 valign=middle><div class='sensorbox_snmp_title'>IN</div></td>";
-	htmlCode += "            		<td width=225 valign=middle><div id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_in' class='sensorbox_snmp_value_detailed'>...</div></td>";
+	htmlCode += "            		<td width=225 valign=middle><div id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_" + inString + "' class='sensorbox_snmp_value_detailed'>...</div></td>";
 	htmlCode += "            		<td width=* rowspan=2 valign=bottom><img id='" + snmpGraphID + "' class='sensorbox_snmp_graph_detailed'></td>";
 	htmlCode += "            	</tr>";
 	htmlCode += "           	 <tr>";
 	htmlCode += "            		<td align=center valign=middle><div class='sensorbox_snmp_title'>OUT</div></td>";
-	htmlCode += "            		<td valign=middle><div id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_out' class='sensorbox_snmp_value_detailed'>...</div></td>";
+	htmlCode += "            		<td valign=middle><div id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_" + outString + "' class='sensorbox_snmp_value_detailed'>...</div></td>";
 	htmlCode += "            	</tr>";
 	htmlCode += "            </table>";
 	htmlCode += "        </div>";
@@ -347,10 +379,10 @@ function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid
 	htmlCode += "    			<td width='25%'><div class='sensorbox_details_snmp_title'>Peak out</div></td>";
 	htmlCode += "    		</tr>";
 	htmlCode += "    		<tr>";
-	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mbin_day'>...</div></td>";
-	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mbout_day'>...</div></td>";
-	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peakin_day'>...</div></td>";
-	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peakout_day'>...</div></td>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mb" + inString + "_day'>...</div></td>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mb" + outString + "_day'>...</div></td>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peak" + inString + "_day'>...</div></td>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peak" + outString + "_day'>...</div></td>";
 	htmlCode += "    		</tr>";
 	htmlCode += "    	</table>";
 	htmlCode += "    </div>";
@@ -366,10 +398,10 @@ function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid
 	htmlCode += "    			<td width='25%'><div class='sensorbox_details_snmp_title'>Peak out</div></td>";
 	htmlCode += "    		</tr>";
 	htmlCode += "    		<tr>";
-	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mbin_month'>...</div></td>";
-	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mbout_month'>...</div></td>";
-	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peakin_month'>...</div></td>";
-	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peakout_month'>...</div></td>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mb" + inString + "_month'>...</div></td>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mb" + outString + "_month'>...</div></td>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peak" + inString + "_month'>...</div></td>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peak" + outString + "month'>...</div></td>";
 	htmlCode += "    		</tr>";
 	htmlCode += "    	</table>";
 	htmlCode += "    </div>";
