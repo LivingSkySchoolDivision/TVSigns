@@ -25,8 +25,7 @@
 
     <!-- Javascript unique to this dashboard -->
 	<script type="text/javascript" src="it_dashboard_2_settings.js"></script>
-    <script type="text/javascript" src="it_dashboard_2_map_general.js"></script>
-    <script type="text/javascript" src="it_dashboard_2_region_map.js"></script>
+    <script type="text/javascript" src="it_dashboard_2_map.js"></script>
     <script type="text/javascript" src="it_dashboard_2_city_map.js"></script>
     <script type="text/javascript" src="it_dashboard_2_common.js"></script>
     <script type="text/javascript" src="it_dashboard_2_autostart.js"></script>
@@ -38,52 +37,11 @@
 
 	<div class="page_container">
 	<div id="sensorbox_container"></div>
-	<table border=0 cellspacing="0" cellpadding="0" style="position: absolute; bottom: 0; right: 0;">
+	<table border=0 cellspacing="0" cellpadding="0" style="position: absolute; top: 0; right: 0;">
 		<tr>
 			<td valign="top"></td>
 			<td valign="top"><canvas id="region_map" /></td>
 			<td valign="top"><canvas id="city_map" /></td>
-		</tr>
-		<tr>
-			<td colspan=3 id="sidebar_bottom" align="center">
-				<table border=0 cellpadding=0 cellspacing=0 width="100%">
-					<tr>
-						<td id="sidebar_bottom_left">
-							<div class="total_traffic_node" id="TOTAL_DATA_TODAY_NODE">
-								<div class="total_traffic_title" id="TOTAL_DATA_title">Today's Internet Traffic</div>
-								<table border=0 cellpadding=0 cellspacing=2 class="sensor_node_table">
-									<tr>
-										<td class="total_traffic_info" width="50">inbound</td>
-										<td class="total_traffic_info" width="50">outbound</td>
-									</tr>
-                                    <tr>
-                                        <td class="total_traffic_data" width="112" id="TOTAL_DATA_in"><i class="fa fa-spinner fa-spin semitrans"></i></td>
-                                        <td class="total_traffic_data" width="112" id="TOTAL_DATA_out"><i class="fa fa-spinner fa-spin semitrans"></i></td>
-                                    </tr>
-								</table>
-							</div>
-						</td>
-						<td id="sidebar_bottom_middle" align="center" valign="top">
-							<div><img id="bandwidth_graph" src="" height="70" width="450"/></div>
-						</td>
-						<td id="sidebar_bottom_right">
-							<div class="total_traffic_node" id="TOTAL_DATA_MONTH_NODE">
-								<div class="total_traffic_title" id="TOTAL_DATA_MONTH_title">Internet Traffic for ...</div>
-								<table border=0 cellpadding=0 cellspacing=2 class="sensor_node_table">
-                                    <tr>
-                                        <td class="total_traffic_info" width="50">inbound</td>
-                                        <td class="total_traffic_info" width="50">outbound</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="total_traffic_data" width="112" id="TOTAL_DATA_MONTH_in"><i class="fa fa-spinner fa-spin semitrans"></i></td>
-                                        <td class="total_traffic_data" width="112" id="TOTAL_DATA_MONTH_out"><i class="fa fa-spinner fa-spin semitrans"></i></td>
-                                    </tr>
-								</table>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</td>
 		</tr>
 	</table>
 

@@ -9,16 +9,6 @@ $(document).ready(function() {
     // Does this have to be added and updated seperately as well? We'll find out
     updatePingSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
 
-    // Update total traffic counter
-    updateTotalTrafficToday(strendinMonitorJSONRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', strendinMonitorJSONRoot +'/JSON/bySNMPThroughputSensor.aspx?sensorid=2');
-    updateTotalTrafficThisMonth(strendinMonitorJSONRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', strendinMonitorJSONRoot +'/JSON/bySNMPThroughputSensor.aspx?sensorid=2');
-
-    // Update graph
-    updateBandwidthGraph(strendinMonitorJSONRoot + '/JSON/ByHost.aspx?hostid=1');
-
-    // Update communications errors
-    updateConnectionWarnings();
-
     // New stuff
     InitializeAllLocationBoxes();
     UpdateAllSensorGraphs();
@@ -63,35 +53,11 @@ setInterval(function() {
     location.reload();
 }, 7800000);  // Reload the page every hour ish (not exactly an hour, so its different throughout the day)
 
-// Update SNMP sensor nodes
-setInterval(function() {
-    //updateSNMPSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
-}, 60000);
 
 // Update ping sensor nodes
 setInterval(function() {
     updatePingSensorNodes(strendinMonitorJSONRoot + '/JSON/allsensors.aspx');
 }, 20000);
-
-
-// UPdate traffic counters
-setInterval(function() {
-    updateTotalTrafficToday(strendinMonitorJSONRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', strendinMonitorJSONRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=2');
-    updateTotalTrafficThisMonth(strendinMonitorJSONRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=1', strendinMonitorJSONRoot + '/JSON/bySNMPThroughputSensor.aspx?sensorid=2');
-}, 60000);
-
-// Update graph
-setInterval(function() {
-    updateBandwidthGraph(strendinMonitorJSONRoot + '/JSON/ByHost.aspx?hostid=1');
-}, 60000);
-
-// Check connectivity with internal sites and the internet
-//setInterval(function() {
-//    updateConnectionWarnings();
-//}, 300000);
-
-
-
 
 function InitializeAllLocationBoxes() {
     // Main firewall boxes
@@ -99,8 +65,8 @@ function InitializeAllLocationBoxes() {
     InitializeDetailedSNMPBox("CORE2","Core Switch - Port 16",1000,2, true);
 
     // Internal server boxes
-
+    InitializeButtonBox("InternalSites","",[82,83,84,86,87,88,138,90,122,123, 127, 128, 129, 130, 131, 133, 134, 135, 136, 137, 145 ],false);
 
     // External server boxes
-
+    InitializeButtonBox("ExternalSites","",[91],true);
 }

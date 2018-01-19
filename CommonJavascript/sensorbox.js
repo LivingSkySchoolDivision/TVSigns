@@ -16,7 +16,7 @@ var SNMPMaxValues = [];
 var DetailedSNMPIDs = [];
 
 function UpdateAllSensorValues() {
-// Get the JSON data for this host
+	// Get the JSON data for this host
 	// https://status.lskysd.ca/strendinmonitor/JSON/ByHost.aspx?hostid=5
 	// The DIV IDs should all be set up to receive data
 
@@ -55,6 +55,14 @@ function UpdateAllSensorValues() {
 			// Ping Statuses
 			if ($(statusDIVID).length !== 0) {
 				// For statuses, we just need to apply a CSS class appropriate to it's health
+
+				if ($(statusDIVID + "_name").length !== 0) {
+					$(statusDIVID + "_name").html(thisSensor.description);
+				}
+
+				if ($(statusDIVID + "_value").length !== 0) {
+					$(statusDIVID + "_value").html(thisSensor.lastroundtrip + "ms");
+				}
 
 				// Potential health values:
 				//   1			Healthy
@@ -128,8 +136,8 @@ function UpdateAllSensorGraphs() {
 			}
 		}
 
-		var snmpGraphURL = strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + routerSNMPID + "&showworkday=true&height=40&width=346&hours=" + graphHoursToPull + "&graphstyle=filledline&maxvalue=" + graphMax + "&showhours=true&preventCache=" + timestamp;
-		var snmpDetailedGraphURL = strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + routerSNMPID + "&showworkday=true&height=80&width=400&hours=" + graphHoursToPull + "&graphstyle=bar&maxvalue=" + graphMax + "&showhours=true&preventCache=" + timestamp;
+		var snmpGraphURL = strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + routerSNMPID + "&showworkday=true&height=40&width=346&hours=" + graphHoursToPull + "&graphstyle=filledline&semitrans=false&maxvalue=" + graphMax + "&preventCache=" + timestamp;
+		var snmpDetailedGraphURL = strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + routerSNMPID + "&showworkday=true&height=80&width=400&hours=" + graphHoursToPull + "&graphstyle=bar&maxvalue=" + graphMax + "&preventCache=" + timestamp;
 
 		if ($(snmpGraphPrefix + routerSNMPID).length !== 0) {
 			$(snmpGraphPrefix + routerSNMPID).attr("src",snmpGraphURL);
@@ -148,8 +156,6 @@ function UpdateAllSensorGraphs() {
 			$(snmpLargeGraphPrefix + routerSNMPID + "_invert").attr("src",snmpDetailedGraphURL + "&swapInAndOutColors=true");
 		}
 
-
-
 	};
 
 	for (var x = 0; x < KnownPingGraphIDs.length; x++) {
@@ -159,43 +165,67 @@ function UpdateAllSensorGraphs() {
 			$(divID).attr("src",strendinMonitorGraphRoot + "/Graphs/PingLatency.aspx?sensorid=" + serverPingID + "&showworkday=true&graphstyle=onoff&height=1&width=346&showhourlines=false&hours=" + graphHoursToPull + "");
 		}
 	}
-
 }
 
-
-function InitializeFacilitySensorBox(divName,locationName,SNMPGraphMax,swapinandout,HostID,routerSNMPID,serverPingID,TycoPingID,RoverPingID,MacMiniID,MacMini2ID,UTEC) {
+function InitializeFacilitySensorBox(divName,locationName,swapinandout,SNMPGraphMax,routerSNMPID,serverPingID, buttonPingIDs) {
 	var adjustedDivName = divPrefix + divName;
 	// Check if the div exists, or if we have to create it
 
 	if (!($(adjustedDivName).length !== 0)) {
 		// No div, create a new one
-		AddFacilitySensorBox(adjustedDivName,locationName,SNMPGraphMax,swapinandout,HostID,routerSNMPID,serverPingID,TycoPingID,RoverPingID,MacMiniID,MacMini2ID,UTEC);
+		AddFacilitySensorBox(adjustedDivName,locationName,SNMPGraphMax,swapinandout,routerSNMPID,serverPingID, buttonPingIDs);
 	}
 }
 
-/*
-var snmpGraphPrefix = "#SNMPGraph_";
-var pingGraphPrefix = "#PingGraph_";
-var snmpValuePrefix = "#SNMPValue_";
-var pingValuePrefix = "#PingValue_";
-var pingStatusPrefix = "#PingStatus_";
-*/
+function InitializeDetailedSNMPBox(divName,locationName,SNMPGraphMax,snmpsensorid, swapinandout) {
+	var adjustedDivName = divPrefix + divName;
+	// Check if the div exists, or if we have to create it
 
-function ArrayContains(haystack,needle) {
-	for (var x = 0; x < KnownSNMPGraphIDs.length; x++) {
-		if (haystack[x] == needle) {
-			return true;
+	if (!($(adjustedDivName).length !== 0)) {
+		// No div, create a new one
+		AddDetailedSNMPSensorBox(adjustedDivName,locationName,SNMPGraphMax,snmpsensorid, swapinandout);
+	}
+}
+
+function InitializeButtonBox(divName,locationName,pingSensorIDs,showPingValues) {
+	var adjustedDivName = "BB_" + divPrefix + divName;
+	// Check if the div exists, or if we have to create it
+
+	if (!($(adjustedDivName).length !== 0)) {
+		// No div, create a new one
+		AddButtonBox(adjustedDivName,locationName,pingSensorIDs,showPingValues);
+	}
+}
+function AddButtonBox(divName,locationName,pingSensorIDs,showPingValues) {
+	var adjustedDivName=removeFirstCharacter(divName);
+
+	var htmlCode = '';
+	htmlCode += "	<div class='sensorbox_buttonbox' id='"+adjustedDivName+"'>";
+
+	if (locationName.length > 0) {
+		htmlCode += "        <div class='sensorbox_name'>" + locationName + "</div>";
+	}
+
+	for (var x = 0; x < pingSensorIDs.length; x++ ) {
+		var sensorID = pingSensorIDs[x];
+
+		htmlCode += "<div class='sensorbox_buttonbox_button' id='" + removeFirstCharacter(pingStatusPrefix) + sensorID + "'>";
+		htmlCode += "	<div class='sensorbox_buttonbox_button_name' id='" + removeFirstCharacter(pingStatusPrefix) + sensorID + "_name'></div>";
+		if (showPingValues) {
+			htmlCode += "	<div class='sensorbox_buttonbox_button_value' id='" + removeFirstCharacter(pingStatusPrefix) + sensorID + "_value'></div>";
 		}
+		htmlCode += "</div>";
+
+
+
 	}
-	return false;
+
+	htmlCode += "        </div>";
+	htmlCode += "    </div>";
+
+	$(locationDivContainerName).append(htmlCode);
 }
-
-
-function AddToArray(existingarray,newitem) {
-	existingarray.push(newitem);
-}
-
-function AddFacilitySensorBox(divName,locationName,SNMPGraphMax,swapinandout,HostID,routerSNMPID,serverPingID,TycoPingID,RoverPingID,MacMiniID,MacMini2ID,UTEC) {
+function AddFacilitySensorBox(divName,locationName,SNMPGraphMax,swapinandout,routerSNMPID,serverPingID,buttonPingIDs) {
 	var adjustedDivName=removeFirstCharacter(divName);
 
 	var snmpGraphID = removeFirstCharacter(snmpGraphPrefix) + routerSNMPID;
@@ -255,9 +285,7 @@ function AddFacilitySensorBox(divName,locationName,SNMPGraphMax,swapinandout,Hos
 		htmlCode += "        </div>";
 		htmlCode += "            <img id='" + snmpGraphID + "' class='sensorbox_snmp_graph'>";
 		htmlCode += "    </div>";
-
 	}
-
 
 	if (serverPingID > 0) {
 		htmlCode += "        <!-- Ping -->";
@@ -265,50 +293,22 @@ function AddFacilitySensorBox(divName,locationName,SNMPGraphMax,swapinandout,Hos
 		htmlCode += "            <img class='sensorbox_ping_graph' id='" + pingGraphID + "'>";
 		htmlCode += "            <div class='sensorbox_ping_title'>";
 		htmlCode += "            	<div id='" + removeFirstCharacter(pingValuePrefix) + serverPingID + "' class='sensorbox_ping_value'>...</div>";
-		/*
-		if (routerSNMPID > 0) {
-			htmlCode += "            	24 hr Traffic in: <div id='" + removeFirstCharacter(snmpValuePrefix) + routerSNMPID + "_mbin' class='sensorbox_ping_value'>...</div>";
-			htmlCode += "            	24 hr Traffic out: <div id='" + removeFirstCharacter(snmpValuePrefix) + routerSNMPID + "_mbout' class='sensorbox_ping_value'>...</div>";
-		}*/
 		htmlCode += "          	 </div>";
 		htmlCode += "        </div>";
 	}
 	htmlCode += "        <!-- Other stuff -->";
 	htmlCode += "        <div class='sensorbox_misc_section'>";
-	if (TycoPingID > 0) {
-		htmlCode += "            <div id='" + removeFirstCharacter(pingStatusPrefix) + TycoPingID + "' class='sensorbox_up_or_down_button'>TYCO</div>";
+
+	for (var x = 0; x < buttonPingIDs.length; x++) {
+		var id = buttonPingIDs[x].id;
+		var name = buttonPingIDs[x].name;
+		htmlCode += "<div id='" + removeFirstCharacter(pingStatusPrefix) + id + "' class='sensorbox_up_or_down_button'>" + name + "</div>";
 	}
-	if (RoverPingID > 0) {
-		htmlCode += "            <div id='" + removeFirstCharacter(pingStatusPrefix) + RoverPingID + "' class='sensorbox_up_or_down_button'>ROVER</div>";
-	}
-	if (MacMiniID > 0) {
-		htmlCode += "            <div id='" + removeFirstCharacter(pingStatusPrefix) + MacMiniID + "' class='sensorbox_up_or_down_button'>MACMINI</div>";
-	}
-	if (MacMini2ID > 0) {
-		htmlCode += "            <div id='" + removeFirstCharacter(pingStatusPrefix) + MacMini2ID + "' class='sensorbox_up_or_down_button'>MACMINI2</div>";
-	}
-	if (UTEC > 0) {
-		htmlCode += "            <div id='" + removeFirstCharacter(pingStatusPrefix) + UTEC + "' class='sensorbox_up_or_down_button'>UTEC</div>";
-	}
+
 	htmlCode += "        </div>";
 	htmlCode += "    </div>";
 
 	$(locationDivContainerName).append(htmlCode);
-}
-
-function removeFirstCharacter(str) {
-	return str.substr(1);
-}
-
-
-function InitializeDetailedSNMPBox(divName,locationName,SNMPGraphMax,snmpsensorid, swapinandout) {
-	var adjustedDivName = divPrefix + divName;
-	// Check if the div exists, or if we have to create it
-
-	if (!($(adjustedDivName).length !== 0)) {
-		// No div, create a new one
-		AddDetailedSNMPSensorBox(adjustedDivName,locationName,SNMPGraphMax,snmpsensorid, swapinandout);
-	}
 }
 
 function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid, swapinandout) {
@@ -368,6 +368,25 @@ function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid
 	htmlCode += "            </table>";
 	htmlCode += "        </div>";
 
+	htmlCode += "    <!-- Last 1 hour -->";
+	htmlCode += "    <div class='sensorbox_details_section'>";
+	htmlCode += "    	<div class='sensorbox_details_title'>Last hour</div>";
+	htmlCode += "    	<table border=0 cellpadding=0 cellspacing=0 class='sensorbox_details_table'>";
+	htmlCode += "    		<tr>";
+	htmlCode += "    			<td width='25%'><div class='sensorbox_details_snmp_title'>MB in</div></td>";
+	htmlCode += "    			<td width='25%'><div class='sensorbox_details_snmp_title'>MB out</div></td>";
+	htmlCode += "    			<td width='25%'><div class='sensorbox_details_snmp_title'></div></td>";
+	htmlCode += "    			<td width='25%'><div class='sensorbox_details_snmp_title'></div></td>";
+	htmlCode += "    		</tr>";
+	htmlCode += "    		<tr>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mb" + inString + "_hour'>...</div></td>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mb" + outString + "_hour'>...</div></td>";
+	htmlCode += "    			<td></td>";
+	htmlCode += "    			<td></td>";
+	htmlCode += "    		</tr>";
+	htmlCode += "    	</table>";
+	htmlCode += "    </div>";
+
 	htmlCode += "    <!-- Last 24 hours -->";
 	htmlCode += "    <div class='sensorbox_details_section'>";
 	htmlCode += "    	<div class='sensorbox_details_title'>Last 24 hours</div>";
@@ -401,7 +420,7 @@ function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid
 	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mb" + inString + "_month'>...</div></td>";
 	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_mb" + outString + "_month'>...</div></td>";
 	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peak" + inString + "_month'>...</div></td>";
-	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peak" + outString + "month'>...</div></td>";
+	htmlCode += "    			<td><div class='sensorbox_details_snmp_value' id='" + removeFirstCharacter(snmpValuePrefix) + snmpsensorid + "_peak" + outString + "_month'>...</div></td>";
 	htmlCode += "    		</tr>";
 	htmlCode += "    	</table>";
 	htmlCode += "    </div>";
@@ -429,6 +448,10 @@ function UpdateDetailedSNMPValues() {
 		$.getJSON(JSONPath, function(thisSensor) {
 			var divID = snmpValuePrefix + thisSensor.id
 
+			// last hour
+			if ($(divID + "_mbin_hour").length !== 0) { $(divID + "_mbin_hour").html(mbToFriendlyString(thisSensor.mbinlasthour)); }
+			if ($(divID + "_mbout_hour").length !== 0) { $(divID + "_mbout_hour").html(mbToFriendlyString(thisSensor.mboutlasthour)); }
+
 			// last day
 			if ($(divID + "_mbin_day").length !== 0) { $(divID + "_mbin_day").html(mbToFriendlyString(thisSensor.mbinlastday)); }
 			if ($(divID + "_mbout_day").length !== 0) { $(divID + "_mbout_day").html(mbToFriendlyString(thisSensor.mboutlastday)); }
@@ -442,10 +465,24 @@ function UpdateDetailedSNMPValues() {
 			if ($(divID + "_peakout_month").length !== 0) { $(divID + "_peakout_month").html(bpsToFriendlyString(thisSensor.peakbpsoutlastmonth)); }
 
 		});
-
-
 	}
+}
 
+function AddToArray(existingarray,newitem) {
+	existingarray.push(newitem);
+}
+
+function ArrayContains(haystack,needle) {
+	for (var x = 0; x < KnownSNMPGraphIDs.length; x++) {
+		if (haystack[x] == needle) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function removeFirstCharacter(str) {
+	return str.substr(1);
 }
 
 function bpsToFriendlyString(bitsPerSecond) {
@@ -465,8 +502,6 @@ function bpsToFriendlyString(bitsPerSecond) {
 	}
 
 	return parseFloat(Math.round(len * 100) / 100).toFixed(1) + " " + sizes[order];
-
-
 }
 
 function mbToFriendlyString(megabytes) {
@@ -486,6 +521,5 @@ function mbToFriendlyString(megabytes) {
 	}
 
 	return parseFloat(Math.round(len * 100) / 100).toFixed(1) + " " + sizes[order];
-
-
 }
+
