@@ -13,7 +13,7 @@
 
     <!-- Stylesheets unique to this dashboard -->
     <link rel="stylesheet" href="student_services.css"/>
-    <link rel="stylesheet" href="student_services_presence.css"/>
+    <link rel="stylesheet" href="../Stylesheets/inout_presence.css"/>
 
     <!-- Common javascript -->
     <script type="text/javascript" src="../CommonJavascript/jquery-1.10.2.js"></script>
@@ -25,13 +25,15 @@
     <script type="text/javascript" src="../CommonJavascript/piecharts.js"></script>
     <script type="text/javascript" src="../CommonJavascript/it_watchdog.js"></script>
     <script type="text/javascript" src="../CommonJavascript/dateandtimehandlers.js"></script>
+
+    <script type="text/javascript" src="../CommonJavascript/inout_presence.js"></script>
+
     <script type="text/javascript" src="../Seasonal/seasonal.js"></script>
 
     <!-- Javascript for this dashboard specifically -->
     <script type="text/javascript" src="student_services_settings.js"></script>
     <script type="text/javascript" src="student_services_spcalendars.js"></script>
     <script type="text/javascript" src="student_services_photo_gallery.js"></script>
-    <script type="text/javascript" src="student_services_presence.js"></script>
     <script type="text/javascript" src="student_services_common.js"></script>
     <script type="text/javascript" src="student_services_autostart.js"></script>
 
@@ -40,7 +42,6 @@
 <!-- colored bars for sizing on a 1080p TV screen -->
 <!-- <div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div><!-- -->
 <!-- <div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div><!-- -->
-
 <div class="page_container">
     <table align="center" border=0 cellpadding=0 cellspacing=7 class="tile_table" style="width: 1920px;">
         <tr>
@@ -77,7 +78,8 @@
 
         <tr>
             <td class="tile tilewidth_2 gray" rowspan=2 colspan=3 style="vertical-align: top;">
-                <div id="presence_content"></div>
+                <div id="inout_container"></div>
+                <div id="inout_lastupdated" style="font-size: 8pt; position: absolute; bottom: 0; right: 0; color: rgba(255,255,255,0.1);"></div>
             </td>
             <!--
                         <td class="tile tilewidth_2 tileheight_2" colspan=2 rowspan=2 style="vertical-align: top;">

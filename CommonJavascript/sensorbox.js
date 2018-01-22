@@ -1,4 +1,4 @@
-var locationDivContainerName = "#sensorbox_container";
+var sensorBoxContainerDivName = "#sensorbox_container";
 var divPrefix = "#location_";
 var snmpGraphPrefix = "#SNMPGraph_";
 var snmpLargeGraphPrefix = "#SNMPLargeGraph_";
@@ -223,7 +223,7 @@ function AddButtonBox(divName,locationName,pingSensorIDs,showPingValues) {
 	htmlCode += "        </div>";
 	htmlCode += "    </div>";
 
-	$(locationDivContainerName).append(htmlCode);
+	$(sensorBoxContainerDivName).append(htmlCode);
 }
 function AddFacilitySensorBox(divName,locationName,SNMPGraphMax,swapinandout,routerSNMPID,serverPingID,buttonPingIDs) {
 	var adjustedDivName=removeFirstCharacter(divName);
@@ -308,7 +308,7 @@ function AddFacilitySensorBox(divName,locationName,SNMPGraphMax,swapinandout,rou
 	htmlCode += "        </div>";
 	htmlCode += "    </div>";
 
-	$(locationDivContainerName).append(htmlCode);
+	$(sensorBoxContainerDivName).append(htmlCode);
 }
 
 function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid, swapinandout) {
@@ -430,7 +430,7 @@ function AddDetailedSNMPSensorBox(divName,locationName,SNMPGraphMax,snmpsensorid
 
 	htmlCode += "    </div>";
 
-	$(locationDivContainerName).append(htmlCode);
+	$(sensorBoxContainerDivName).append(htmlCode);
 }
 
 function UpdateDetailedSNMPValues() {

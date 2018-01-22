@@ -20,7 +20,7 @@ function UpdatePhotoList(JSONURL, div) {
         console.log("Preloading images");
         // Preload the images in the browser
         for (var x = 0; x < imageArray.length; x++) {
-            console.log("> " + imageArray[x]);
+            //console.log("> " + imageArray[x]);
             var imageObject = new Image();
             imageObject.src = imageArray[x];
         }
@@ -67,7 +67,7 @@ var imageIndex = 0;
 function NextGalleryImage() {
     // Cycles to the next image
 
-    console.log("PHOTO GALLERY: Transitioning to " + imageArray[imageIndex]);
+    //console.log("PHOTO GALLERY: Transitioning to " + imageArray[imageIndex]);
 
     !$("#photo_tile").css("background-image", "url(" + imageArray[imageIndex] + ")");
 
