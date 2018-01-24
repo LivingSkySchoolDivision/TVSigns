@@ -438,6 +438,10 @@ td {
     color: rgba(255,255,255,0.6);
 }
 
+.presence_user_in .presence_user_name{
+    color: white !important;;
+}
+
 .presence_user_in .presence_user_presence_inout_container{
     background-color: rgba(0,160,0,0.6) !important;;
     color: white !important;;
