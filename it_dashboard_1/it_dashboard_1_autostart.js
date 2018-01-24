@@ -10,6 +10,7 @@ $(document).ready(function(){
     updateTicketCounts();
     UpdateTicketsPerSchool();
     UpdateGuestAccounts();
+    InitializeInOut();
 });
 
 
@@ -26,6 +27,11 @@ $(document).ready(function(){
  1800000     30 mins
  3600000     1 hour
  */
+
+
+setInterval(function() {
+    UpdateAllInOutPresence();
+}, 25000);
 
 setInterval(function() {
     UpdateGuestAccounts();
@@ -73,3 +79,7 @@ setInterval(function() {
 setInterval(function() {
     location.reload();
 }, 4500000);
+
+function InitializeInOut() {
+    InitializeInOutPresenceForGroup(5);
+}

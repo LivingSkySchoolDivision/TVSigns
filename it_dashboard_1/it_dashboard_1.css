@@ -376,3 +376,92 @@ td {
         background-color: #FFAA73;
     }
 }
+
+#inout_container {
+    text-align: center;
+}
+
+.presence_user {
+    float: left;
+    position: relative;
+    border-radius: 5px;
+    width: 45%;
+    margin: 5px;
+    margin-left: 16px;
+    padding: 0;
+    border: 3px solid rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.8);
+}
+
+.presence_user_presence_inout_container {
+    background-color: rgba(255,255,255,0.8);
+    color: #3C3637;
+    height: 100%;
+    display: table;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 75px;
+}
+
+.presence_user_presence_inout {
+    font-size: 20pt;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.presence_user_name {
+    font-size: 18pt;
+    float: none;
+    padding: 4;
+    margin: 3;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: left;
+}
+
+.presence_user_presence {
+    font-size: 14pt;
+    float: none;
+    font-style: italic;
+    padding: 3;
+    margin: 3;
+    text-align: left;
+}
+
+.presence_user_in .presence_user_presence_inout_container{
+    background-color: green !important;;
+    color: white !important;;
+}
+
+.presence_user_in {
+    border-color: green !important;;
+    color: white !important;
+}
+
+.presence_user_out {
+    border: 3px solid rgba(255,255,255,0.1) !important;
+    color: rgba(255,255,255,0.1) !important;
+}
+
+.presence_user_out .presence_user_presence_inout_container{
+    background-color: rgba(255,255,255,0.1) !important;
+    color: rgba(255,255,255,0.5) !important;
+}
+
+
+
+.presence_user_busy {
+    border: 3px solid rgba(255,0,0,0.7) !important;
+    color: rgba(255,255,255,0.8) !important;;
+}
+
+.presence_user_busy .presence_user_presence_inout_container{
+    background-color: rgba(255,0,0,0.7) !important;
+    color: rgba(255,255,255,0.5) !important;
+}

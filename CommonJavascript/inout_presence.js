@@ -24,8 +24,7 @@ function logThis(str) {
 }
 
 function updateAllInOutPresenceWithData(data) {
-
-	$.each(data.Statuses, function(i, trackedUser) {
+	$.each(data.Users, function(i, trackedUser) {
 		logThis(">>> Updating user " + trackedUser.Name + " (" + trackedUser.ID + ")");
     	var userDivName = inOutDivPrefix + trackedUser.ID;
 		if ($(userDivName).length !== 0) {
@@ -35,11 +34,30 @@ function updateAllInOutPresenceWithData(data) {
 			}
 
 			if ($(userDivName + "_inorout").length !== 0) {
-				$(userDivName + "_inorout").html(trackedUser.InOrOut);
+				$(userDivName + "_inorout").html(trackedUser.ActiveStatus.InOrOut);
 			}
 
 			if ($(userDivName + "_status").length !== 0) {
-				$(userDivName + "_status").html(trackedUser.Status);
+				$(userDivName + "_status").html(trackedUser.ActiveStatus.Name + '&nbsp;');
+			}
+
+			if ($(userDivName).length !== 0) {
+				if (trackedUser.ActiveStatus.IsBusy == "True") {
+					$(userDivName).addClass("presence_user_busy");
+				} else {
+					$(userDivName).removeClass("presence_user_busy");
+					if (trackedUser.ActiveStatus.InOrOut == "IN") {
+						$(userDivName).addClass("presence_user_in");
+					} else {
+						$(userDivName).removeClass("presence_user_in");
+					}
+
+					if (trackedUser.ActiveStatus.InOrOut == "OUT") {
+						$(userDivName).addClass("presence_user_out");
+					} else {
+						$(userDivName).removeClass("presence_user_out");
+					}
+				}
 			}
 		}
     });
@@ -52,7 +70,7 @@ function InitializeInOutPresenceForGroup(groupID) {
 
 	$.getJSON(JSONURL, function(data) {
 		logThis("Got data");
-        $.each(data.Statuses, function(i, trackedUser) {
+        $.each(data.Users, function(i, trackedUser) {
         	logThis("> Initializing for " + trackedUser.Name);
         	var adjustedDivName = inOutDivPrefix + trackedUser.ID;
 			if (!$(adjustedDivName).length !== 0) {
@@ -76,7 +94,9 @@ function addLargePresenceSection(containerDivName, adjustedDivName, user) {
 	var htmlCode = "";
 	htmlCode += "<div class=\"presence_user\" id=\"" + removeFirstCharacter(adjustedDivName) + "\">";
 	htmlCode += "<div class=\"presence_user_name\" id=\"" + removeFirstCharacter(adjustedDivName) + "_name\">" + removeFirstCharacter(adjustedDivName) + "</div>";
+	htmlCode += "<div class=\"presence_user_presence_inout_container\">";
 	htmlCode += "<div class=\"presence_user_presence_inout\" id=\"" + removeFirstCharacter(adjustedDivName) + "_inorout\">...</div>";
+	htmlCode += "</div>";
 	htmlCode += "<div class=\"presence_user_presence\" id=\"" + removeFirstCharacter(adjustedDivName) + "_status\">...</div>";
 	htmlCode += "</div>";
 	$(containerDivName).append(htmlCode);
