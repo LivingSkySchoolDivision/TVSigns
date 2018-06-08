@@ -16,6 +16,8 @@ function add_pie_image(context) {
     // Leave this line here */
 }
 
+//var pie_chart_color_1 = '#6CA870';
+//var pie_chart_color_2 = '#2966B8';
 
 // Check the date, and if there is a special occasion, apply the stylesheet for it
 var currentDate = new Date();
@@ -61,9 +63,8 @@ if (currentMonth == 10) {
     if ((currentDay >= 10) && (currentDay <= 31)) {
         console.log("Loading Halloween stylesheets");
         LoadCSSFile("../Seasonal/Halloween/seasonal.css");
-
-        var pie_chart_color_1 = '#EA8825';
-        var pie_chart_color_2 = '#C46200';
+        pie_chart_color_1 = '#EA8825';
+        pie_chart_color_2 = '#C46200';
     }
 }
 
@@ -89,6 +90,28 @@ if (currentMonth == 6) {
         console.log("Loading summer solstice stylesheets");
         LoadCSSFile("../Seasonal/SummerSolstice/seasonal.css");
     }
+}
+
+if ((currentMonth == 6) && (currentDay == 21)) {
+        console.log("Loading summer solstice stylesheets");
+        LoadCSSFile("../Seasonal/SummerSolstice/seasonal.css");
+        pie_chart_color_1 = "#f405a0";
+        pie_chart_color_2 = "#ff4546";
+        pie_chart_overlay_image = '../Seasonal/SummerSolstice/sun.png';
+}
+
+
+// Canada Day
+if (
+    ((currentMonth == 6) && (currentDay >= 22) && (currentDay <= 31)) ||
+    ((currentMonth == 7) && (currentDay == 1))
+    ) {
+        console.log("Loading canada day stylesheets");
+        LoadCSSFile("../Seasonal/CanadaDay/seasonal.css");
+
+        pie_chart_color_2 = "#b80000";
+        pie_chart_color_1 = "#F0F0F0";
+        pie_chart_overlay_image = '../Seasonal/CanadaDay/mapleleaf.png';
 }
 
 // Autumnal Equinox

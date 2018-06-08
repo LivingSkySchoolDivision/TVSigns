@@ -8,3 +8,4 @@ syntax: glob
 .idea/
 
 *\thumbs.db
+Thumbs.db

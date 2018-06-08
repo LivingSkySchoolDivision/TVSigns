@@ -5,8 +5,15 @@ Halloween:      EA8825, C46200
 Christmas:      990021, 006d4c
 */
 
-var pie_chart_color_1 = '#6CA870';
-var pie_chart_color_2 = '#2966B8';
+if (typeof pie_chart_color_1 === 'undefined') {
+    var pie_chart_color_1 = '#6CA870';
+}
+
+if (typeof pie_chart_color_2 === 'undefined') {
+    var pie_chart_color_2 = '#2966B8';
+}
+
+
 
 function drawTicketsPieChart(opened, closed, canvasid) {
     var canvas = document.getElementById(canvasid);
