@@ -7,7 +7,6 @@ var snmpValuePrefix = "#SNMPValue_";
 var pingValuePrefix = "#PingValue_";
 var pingStatusPrefix = "#PingStatus_";
 var snmpSectionPrefix = "#SNMPSection_";
-var timestamp = (new Date()).getTime();
 var graphHoursToPull = 8;
 
 var KnownSNMPGraphIDs = [];
@@ -22,6 +21,7 @@ function UpdateAllSensorValues() {
 
 	//var JSONPath = strendinMonitorJSONRoot + "/JSON/ByHost.aspx?hostid=" + HostID;
 	// https://status.lskysd.ca/strendinmonitor/JSON/allSensors.aspx
+	console.log("Updating sensor values...");
 
 	var JSONPath = strendinMonitorJSONRoot + "/JSON/allSensors.aspx";
 	console.log("Fetching " + JSONPath);
@@ -124,7 +124,8 @@ function UpdateAllSensorValues() {
 function UpdateAllSensorGraphs() {
 	// For each graph we know about (from the initilization function storing them in a list):
 	//  - Check to see if a graph with that ID exists
-	//  - If one does, reload it's source
+	//  - If one does, reload it's source 
+	console.log(new Date() + "Updating sensor graphs...");
 
 	for (var x = 0; x < KnownSNMPGraphIDs.length; x++) {
 		var routerSNMPID = KnownSNMPGraphIDs[x];
@@ -136,8 +137,11 @@ function UpdateAllSensorGraphs() {
 			}
 		}
 
-		var snmpGraphURL = strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + routerSNMPID + "&showworkday=true&height=40&width=346&hours=" + graphHoursToPull + "&graphstyle=filledline&semitrans=false&maxvalue=" + graphMax + "&preventCache=" + timestamp;
-		var snmpDetailedGraphURL = strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?sensorid=" + routerSNMPID + "&showworkday=true&height=80&width=400&hours=" + graphHoursToPull + "&graphstyle=bar&maxvalue=" + graphMax + "&preventCache=" + timestamp;
+		var d = new Date();
+		var snmpGraphURL = strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?t=" + d.getTime() + "&sensorid=" + routerSNMPID + "&showworkday=true&height=40&width=346&hours=" + graphHoursToPull + "&graphstyle=filledline&semitrans=false&maxvalue=" + graphMax;
+		var snmpDetailedGraphURL = strendinMonitorGraphRoot + "/Graphs/SNMPThroughput.aspx?t=" + d.getTime() + "&sensorid=" + routerSNMPID + "&showworkday=true&height=80&width=400&hours=" + graphHoursToPull + "&graphstyle=bar&maxvalue=" + graphMax;
+
+		console.log("Fetching graph: " + snmpGraphURL);
 
 		if ($(snmpGraphPrefix + routerSNMPID).length !== 0) {
 			$(snmpGraphPrefix + routerSNMPID).attr("src",snmpGraphURL);
