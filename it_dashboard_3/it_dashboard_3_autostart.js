@@ -31,12 +31,12 @@ setInterval(function() {
 // Every 5 minutes, updadate the graphs
 setInterval(function() {
     UpdateAllSensorGraphs();
-}, (10000));
+}, (300000));
 
 // Every 4 minutes, update the values
 setInterval(function() {
     UpdateAllSensorValues();
-}, (30000));
+}, (300000));
 
 
 function InitializeAllLocationBoxes() {
