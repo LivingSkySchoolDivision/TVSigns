@@ -60,11 +60,23 @@ if (
 
 // Halloween
 if (currentMonth == 10) {
-    if ((currentDay >= 10) && (currentDay <= 31)) {
+    if ((currentDay >= 2) && (currentDay <= 31)) {
         console.log("Loading Halloween stylesheets");
         LoadCSSFile("../Seasonal/Halloween/seasonal.css");
         pie_chart_color_1 = '#EA8825';
         pie_chart_color_2 = '#C46200';
+    }
+}
+
+// Day of the dead
+// 2018 - Friday Nov 2
+if (currentMonth == 11) {
+    if (currentDay == 2) {
+        console.log("Loading day of the dead stylesheets");
+        LoadCSSFile("../Seasonal/DayOfTheDead/seasonal.css");
+        pie_chart_overlay_image = '../Seasonal/DayOfTheDead/DOD_Skull_1.png';
+        pie_chart_color_1 = '#e484a0';
+        pie_chart_color_2 = '#6bc4c8';
     }
 }
 
