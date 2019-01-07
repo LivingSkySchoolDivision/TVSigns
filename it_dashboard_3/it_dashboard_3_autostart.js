@@ -89,7 +89,7 @@ function InitializeAllLocationBoxes() {
 
     InitializeFacilitySensorBox("Cando","Cando",false,25,11,10,[
         { name:'TYCO', id:42 },
-        { name:'MACMINI', id:62 },
+        { name:'ROVER', id:62 },
         { name:'MACMINI', id:100 },
         { name:'IDRAC', id:152 },
         { name:'ESXI', id:153 },
