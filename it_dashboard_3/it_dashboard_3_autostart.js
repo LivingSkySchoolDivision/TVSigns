@@ -171,7 +171,7 @@ function InitializeAllLocationBoxes() {
         { name:'PRINT', id:220 }
         ]);
 
-    InitializeFacilitySensorBox("Luseland","Luseland",false,25,20,19,[
+    InitializeFacilitySensorBox("Luseland","Luseland",false,100,20,19,[
         { name:'TYCO', id:35 },
         { name:'ROVER', id:69 },
         { name:'MACMINI', id:109 },
@@ -219,7 +219,7 @@ function InitializeAllLocationBoxes() {
         { name:'PRINT', id:224 }
         ]);
 
-    InitializeFacilitySensorBox("Medstead","Medstead",false,25,26,24,[
+    InitializeFacilitySensorBox("Medstead","Medstead",false,100,26,24,[
         { name:'TYCO', id:51 },
         { name:'ROVER', id:75 },
         { name:'MACMINI', id:115 },
@@ -276,7 +276,7 @@ function InitializeAllLocationBoxes() {
         { name:'PRINT', id:214 }
         ]);
 
-    InitializeFacilitySensorBox("UPS","Unity Public",false,25,32,30,[
+    InitializeFacilitySensorBox("UPS","Unity Public",false,100,32,30,[
         { name:'TYCO', id:55 },
         { name:'ROVER', id:73 },
         { name:'MACMINI', id:120 },
