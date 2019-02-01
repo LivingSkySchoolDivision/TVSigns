@@ -321,7 +321,7 @@ function updateBandwidthGauge() {
             mbpsInValue = '<1';
         }
 
-        drawBandwidthGauge(mbpsOutValue, peakbpsout, peakdate_out, "500", "Inbound", mbpsInValue, peakbpsin, peakdate_in, "500", "Outbound", "bandwidth_meter");
+        drawBandwidthGauge(mbpsOutValue, peakbpsout, peakdate_out, "1000", "Inbound", mbpsInValue, peakbpsin, peakdate_in, "1000", "Outbound", "bandwidth_meter");
         //drawBandwidthGauge("999", "100", "Traffic In", "999", "100", "Traffic Out", "bandwidth_meter");
 
     });
