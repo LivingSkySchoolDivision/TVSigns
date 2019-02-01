@@ -35,9 +35,12 @@ function drawLargeGauge(value, peak, peakdate, maxvalue, label, canvasid)
     //alert(filledBarInDegrees);
 
     var color_background = "rgba(255,255,255,0.25)"; /* 6CA870 */
-    var color_fill = "rgba(255,255,255, 1)"; /* 2966B8 */
     var color_peak = "rgba(255, 255, 255, 0.25)";
+
+    var color_fill = "rgba(255,255,255, 1)"; /* 2966B8 */
     var color_maxed = "rgba(255, 0, 0, 0.8)";
+    var color_warning = "rgba(255, 127, 80, 1)";
+    var color_good = "rgba(255,255,255, 1)";    
 
     /* Draw the background */
     var emptyBarStartDegrees = 360-barSize; // 360 represents the very top
@@ -58,8 +61,14 @@ function drawLargeGauge(value, peak, peakdate, maxvalue, label, canvasid)
     var filledBarStartRadians = degreesToRadiansRotated(filledBarStartDegrees);
     var filledBarEndRadians = degreesToRadiansRotated(filledBarEndDegrees);
 
-    context.fillStyle = color_fill;
-    if (value >= maxvalue)
+    context.fillStyle = color_good;
+    var value_warning = maxvalue * 0.75;
+    var value_max = maxvalue * 0.95;    
+    if (value >= value_warning)
+    {
+        context.fillStyle = color_warning;
+    }
+    if (value >= value_max)
     {
         context.fillStyle = color_maxed;
     }
@@ -156,10 +165,10 @@ function drawSmallGauge(value, peak, peakdate, maxvalue, label, canvasid)
     var color_background = "rgba(255,255,255,0.25)"; /* 6CA870 */
     var color_fill = "rgba(255,255,255,1)"; /* 2966B8 */
     var color_peak = "rgba(255, 255, 255, 0.25)";
+
     var color_maxed = "rgba(255, 0, 0, 0.8)";
-
-
-
+    var color_warning = "rgba(255, 127, 80, 0.8)";
+    var color_good = "rgba(255, 127, 80, 0.8)";    
 
     /* Draw the background */
     context.fillStyle = color_background;
@@ -169,9 +178,15 @@ function drawSmallGauge(value, peak, peakdate, maxvalue, label, canvasid)
     context.closePath();
     context.fill();
 
-    /* Draw the filled area */
+    /* Draw the filled area */    
+    var value_warning = maxvalue * 0.75;
+    var value_max = maxvalue * 0.95;
     context.fillStyle = color_fill;
-    if (value >= maxvalue)
+    if (value >= value_warning)
+    {
+        context.fillStyle = color_warning;
+    }
+    if (value >= value_max)
     {
         context.fillStyle = color_maxed;
     }
