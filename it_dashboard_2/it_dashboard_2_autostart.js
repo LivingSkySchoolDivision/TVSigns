@@ -65,7 +65,7 @@ function InitializeAllLocationBoxes() {
     InitializeDetailedSNMPBox("CORE2","Core Switch - Port 16",1000,2, true);
 
     // Internal server boxes
-    InitializeButtonBox("InternalSites","",[82,83,84,86,87,88,138,90,122,123, 127, 128, 129, 130, 131, 133, 134, 135, 136, 137, 145 ],false);
+    InitializeButtonBox("InternalSites","",[82,83,84,86,87,88,138,90,122,123, 127, 128, 129, 130, 233, 133, 134, 135, 136, 137, 145 ],false);
 
     // External server boxes
     InitializeButtonBox("ExternalSites","",[91],true);
