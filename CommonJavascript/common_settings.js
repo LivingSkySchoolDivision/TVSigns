@@ -8,8 +8,8 @@ var proxyPath = "/LSKYDashboardDataCollector/Proxy/JSON.aspx?SKIPCACHE=Yes&url="
 
 // Path to StrendinMonitor, relative to this dashboard
 // Keep in mind that JQuery won't allow ajax requests from other domains
-var strendinMonitorJSONRoot = proxyPath + "https://status.lskysd.ca/strendinmonitor";
-var strendinMonitorGraphRoot = "https://status.lskysd.ca/strendinmonitor";
+var strendinMonitorJSONRoot = proxyPath + "https://strendinmonitor.lskysd.ca";
+var strendinMonitorGraphRoot = "https://strendinmonitor.lskysd.ca";
 
 
 var inOutJSONRoot = proxyPath + "https://dashboard.lskysd.ca/inout/JSON/";
