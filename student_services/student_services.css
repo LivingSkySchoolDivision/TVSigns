@@ -464,3 +464,7 @@ td {
 .presence_user_out {
     color: rgba(255,255,255,0.1) !important;
 }
+
+.presence_user_unknown {
+    opacity: 0.5;
+}

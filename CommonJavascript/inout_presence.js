@@ -8,12 +8,12 @@ var lastUpdatedDiv = "#inout_lastupdated";
 function UpdateAllInOutPresence() {
 	logThis("Updating...");
 	try {
-	var JSONURL = inOutJSONRoot;
-	$.getJSON(JSONURL, function(data) {
-        updateAllInOutPresenceWithData(data);
-    });
+		var JSONURL = inOutJSONRoot + "/People";
+		$.getJSON(JSONURL, function(data) {
+	        updateAllInOutPresenceWithData(data);
+	    });
 	} catch(ex) {
-		document.write("<B style='color: red; position: absolute; top: 0; left: 0;'>" + ex.message + "</b>");
+		console.log(ex);
 	}
 }
 
@@ -21,63 +21,81 @@ function logThis(str) {
 	if ($(logDiv).length !== 0) {
 		$(logDiv).append(str + "<BR>");
 	}
+	console.log(str);
 }
 
-function updateAllInOutPresenceWithData(data) {
-	$.each(data.Users, function(i, trackedUser) {
-		logThis(">>> Updating user " + trackedUser.Name + " (" + trackedUser.ID + ")");
-    	var userDivName = inOutDivPrefix + trackedUser.ID;
+function updateAllInOutPresenceWithData(data) {	
+	$.each(data, function(i, person) {		
+    	var userDivName = inOutDivPrefix + person.ID;
 		if ($(userDivName).length !== 0) {
-
 			if ($(userDivName + "_name").length !== 0) {
-				$(userDivName + "_name").html(trackedUser.Name);
-			}
 
-			if ($(userDivName + "_inorout").length !== 0) {
-				$(userDivName + "_inorout").html(trackedUser.ActiveStatus.InOrOut);
-			}
+				console.log("updating data for " + person.ID);
+				// Update user's name
+				$(userDivName + "_name").html(person.DisplayName);
 
-			if ($(userDivName + "_status").length !== 0) {
-				$(userDivName + "_status").html(trackedUser.ActiveStatus.Name + '&nbsp;');
-			}
+				// Clear previous styles
+				$(userDivName).removeClass("presence_user_busy");
+				$(userDivName).removeClass("presence_user_in");
+				$(userDivName).removeClass("presence_user_out");
+				$(userDivName).removeClass("presence_user_unknown");
+				$(userDivName + "_inorout").text("?");
+				$(userDivName + "_status").html('&nbsp;');
 
-			if ($(userDivName).length !== 0) {
-				if (trackedUser.ActiveStatus.IsBusy == "True") {
-					$(userDivName).addClass("presence_user_busy");
+				// Update the user's status, if there is one
+				if (person.HasStatus == true) {
+					$(userDivName + "_status").html(person.CurrentStatus.Content + '&nbsp;');
+
+					// Color styles
+					switch(person.CurrentStatus.StatusType) {
+						case 0:	
+							$(userDivName).addClass("presence_user_unknown");
+							$(userDivName + "_inorout").text("??");
+							break;						
+						case 1:
+							$(userDivName).addClass("presence_user_in");
+							$(userDivName + "_inorout").text("IN");
+							break;
+						case 2:
+							$(userDivName).addClass("presence_user_out");
+							$(userDivName + "_inorout").text("OUT");
+							break;
+						case 3:
+							$(userDivName + "_inorout").text("BUSY");
+							$(userDivName).addClass("presence_user_busy");
+							break;
+						default:
+							$(userDivName).addClass("presence_user_unknown");
+							$(userDivName + "_inorout").text("??");
+							break;	
+					}
 				} else {
-					$(userDivName).removeClass("presence_user_busy");
-					if (trackedUser.ActiveStatus.InOrOut == "IN") {
-						$(userDivName).addClass("presence_user_in");
-					} else {
-						$(userDivName).removeClass("presence_user_in");
-					}
+					$(userDivName).addClass("presence_user_unknown");
+				}	
 
-					if (trackedUser.ActiveStatus.InOrOut == "OUT") {
-						$(userDivName).addClass("presence_user_out");
-					} else {
-						$(userDivName).removeClass("presence_user_out");
-					}
-				}
+
+
+
+
 			}
+
 		}
     });
 }
 
-function InitializeInOutPresenceForGroup(groupID) {
-	var JSONURL = inOutJSONRoot + "?groupid=" + groupID;
+function InitializeInOutPresenceForGroup(groupID) {	
+	var JSONURL = inOutJSONRoot + "/GroupMembers/" + groupID;
 
 	logThis("Loading group data from " + JSONURL);
 
-	$.getJSON(JSONURL, function(data) {
-		logThis("Got data");
-        $.each(data.Users, function(i, trackedUser) {
-        	logThis("> Initializing for " + trackedUser.Name);
-        	var adjustedDivName = inOutDivPrefix + trackedUser.ID;
+	$.getJSON(JSONURL, function(data) {			
+        $.each(data, function(index, person) {        	
+        	var adjustedDivName = inOutDivPrefix + person.ID;
 			if (!$(adjustedDivName).length !== 0) {
 				addLargePresenceSection(inOutDivContainer, adjustedDivName);
 			}
         });
-
+        console.log("Done initializing presence divs");
         updateAllInOutPresenceWithData(data);
     });
 }

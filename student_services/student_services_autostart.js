@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 setInterval(function() {
     UpdateAllInOutPresence();
-}, 25000);
+}, 10000);
 
 
 setInterval(function() {
