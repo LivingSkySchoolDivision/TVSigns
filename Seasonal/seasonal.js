@@ -88,6 +88,17 @@ if (currentMonth == 11) {
     }
 }
 
+// Pancake Day (Shrove Tuesday)
+if (
+    ((currentYear == 2019) && (currentMonth == 3) && (currentDay == 5)) ||
+    ((currentYear == 2020) && (currentMonth == 2) && (currentDay == 25)) ||
+    ((currentYear == 2021) && (currentMonth == 2) && (currentDay == 16))
+    ) {
+    console.log("Loading pancake stylesheets");
+    LoadCSSFile("../Seasonal/PancakeDay/seasonal.css");
+}
+
+
 // Spring/Vernal equinox
 if (currentMonth == 3) {
     if ((currentDay >= 20) && (currentDay <= 20)) {
