@@ -77,7 +77,7 @@ function InitializeAllLocationBoxes() {
         { name:'PRINT', id:216 }
         ]);
 
-    InitializeFacilitySensorBox("CKHS","CutKnife High",false,25,13,12,[
+    InitializeFacilitySensorBox("CKHS","CutKnife High",false,100,13,12,[
         { name:'TYCO', id:41 },
         { name:'ROVER', id:71 },
         { name:'MACMINI', id:99 },
@@ -115,7 +115,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:156 }
         ]);
 
-    InitializeFacilitySensorBox("Hafford","Hafford",false,25,15,14,[
+    InitializeFacilitySensorBox("Hafford","Hafford",false,100,15,14,[
         { name:'TYCO', id:45 },
         { name:'ROVER', id:64 },
         { name:'MACMINI', id:103 },
@@ -269,7 +269,6 @@ function InitializeAllLocationBoxes() {
     InitializeFacilitySensorBox("UCHS","Unity High",false,100,31,29,[
         { name:'TYCO', id:39 },
         { name:'MACMINI', id:119 },
-        { name:'UTEC', id:81 },
         { name:'IDRAC', id:208 },
         { name:'ESXI', id:209 },
         { name:'SCCM', id:210 },
