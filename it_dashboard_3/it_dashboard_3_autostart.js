@@ -51,7 +51,6 @@ function InitializeAllLocationBoxes() {
     InitializeFacilitySensorBox("BCS","Battleford Central",false,100,9,8,[
         { name:'TYCO', id:37 },
         { name:'MACMINI', id:94 },
-        { name:'MACMINI', id:95 },
         { name:'IDRAC', id:139 },
         { name:'ESXI', id:140 },
         { name:'SCCM', id:141 }
@@ -70,7 +69,6 @@ function InitializeAllLocationBoxes() {
     InitializeFacilitySensorBox("CKES","CutKnife Elementary",false,25,12,11,[
         { name:'TYCO', id:57 },
         { name:'MACMINI', id:97 },
-        { name:'MACMINI', id:98 },
         { name:'IDRAC', id:146 },
         { name:'ESXI', id:147 },
         { name:'SCCM', id:148 },
@@ -101,7 +99,6 @@ function InitializeAllLocationBoxes() {
         { name:'TYCO', id:44 },
         { name:'ROVER', id:63 },
         { name:'MACMINI', id:101 },
-        { name:'MACMINI', id:102 },
         { name:'IDRAC', id:157 },
         { name:'ESXI', id:158 },
         { name:'SCCM', id:159 }
@@ -110,7 +107,6 @@ function InitializeAllLocationBoxes() {
     InitializeFacilitySensorBox("DivisionOffice","Division Office",false,300,5,6,[
         { name:'TYCO', id:40 },
         { name:'MACMINI', id:92 },
-        { name:'MACMINI', id:93 },
         { name:'DEPLOY', id:155 },
         { name:'SCCM', id:156 }
         ]);
@@ -203,7 +199,6 @@ function InitializeAllLocationBoxes() {
     InitializeFacilitySensorBox("McKitrick","McKitrick",false,100,24,22,[
         { name:'TYCO', id:47 },
         { name:'MACMINI', id:112 },
-        { name:'MACMINI', id:113 },
         { name:'IDRAC', id:187 },
         { name:'ESXI', id:188 },
         { name:'SCCM', id:189 }
@@ -278,7 +273,6 @@ function InitializeAllLocationBoxes() {
     InitializeFacilitySensorBox("UPS","Unity Public",false,100,32,30,[
         { name:'TYCO', id:55 },
         { name:'ROVER', id:73 },
-        { name:'MACMINI', id:120 },
         { name:'MACMINI', id:121 },
         { name:'IDRAC', id:211 },
         { name:'ESXI', id:212 },

@@ -314,15 +314,10 @@ function draw_region_map(JSONPath, canvasid) {
                 addPingNode(canvasid, 190,498,"UCHS",thisSensor.lastsuccessfulroundtrip, thisSensor.health, true, true, true);
             }
 
-            // UCHS UTEC
-            if (thisSensor.id == 81) {
-                addPingNode(canvasid, 190,473,"UCHS UTEC",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, true, true);
-            }
-
 
             if (thisSensor.id == 30) {
                 // UPS 190 473
-                addPingNode(canvasid, 190,448,"UPS",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, true, true);
+                addPingNode(canvasid, 190,473,"UPS",thisSensor.lastsuccessfulroundtrip, thisSensor.health, false, true, true);
             }
 
 
