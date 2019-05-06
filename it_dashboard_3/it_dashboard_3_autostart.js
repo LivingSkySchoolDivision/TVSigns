@@ -39,6 +39,7 @@ setInterval(function() {
 }, (300000));
 
 
+
 function InitializeAllLocationBoxes() {
     // IDs are from https://status.lskysd.ca/strendinmonitor/
     // InitializeFacilitySensorBox(divName,locationName,swapinandout,SNMPGraphMax,routerSNMPID,serverPingID, buttonPingIDs) {
@@ -186,7 +187,7 @@ function InitializeAllLocationBoxes() {
         { name:'PRINT', id:222 }
         ]);
 
-    InitializeFacilitySensorBox("Maymont","Maymont",false,100,23,21,[
+    InitializeFacilitySensorBox("Maymont","Maymont",false,25,23,21,[
         { name:'TYCO', id:46 },
         { name:'ROVER', id:74 },
         { name:'MACMINI', id:111 },
@@ -204,7 +205,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:189 }
         ]);
 
-    InitializeFacilitySensorBox("McLurg","McLurg",false,100,25,23,[
+    InitializeFacilitySensorBox("McLurg","McLurg",false,25,25,23,[
         { name:'TYCO', id:50 },
         { name:'ROVER', id:72 },
         { name:'MACMINI', id:114 },

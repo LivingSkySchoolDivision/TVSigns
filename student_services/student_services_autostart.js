@@ -5,6 +5,7 @@ $(document).ready(function(){
     updateWeather();
     updateDateAndTime();
     InitializeInOut();
+    InitializeWeather();
 
     updateCalendarStatus_MeetingRooms('room_board', sharepointJSONPath +'https://portal.lskysd.ca/office&guid={72452b73-24d2-4291-b7db-4e9f65cc4d9e}');
     updateCalendarStatus_MeetingRooms('room_meeting', sharepointJSONPath +'https://portal.lskysd.ca/office&guid={3811d3ab-5e47-4ce7-b1de-16a36905f589}');
@@ -51,7 +52,7 @@ setInterval(function() {
 
 setInterval(function() {
     updateWeather();
-}, 60000);
+}, 300000);
 
 setInterval(function() {
     UpdatePhotoList("/LSKYDashboardDataCollector/FileSystem/PhotoGallery.aspx?gallery=StudentServices");
@@ -87,4 +88,8 @@ setInterval(function() {
 
 function InitializeInOut() {
     InitializeInOutPresenceForGroup(2);
+}
+function InitializeWeather() {
+    console.log("Initializing weather");
+    $("#weather_container").html(insertWeatherWidgetHTML());
 }

@@ -383,38 +383,57 @@ td {
 
 /* Weather */
 #weather_container {
+    border: 0;
     padding: 5px;
+    display: block;
 }
 
-#weather_conditions_container {
-    display: table-cell;
+#weather_row_1 {
+    display: block;
+    text-align: center;
+    width: 100%;
+
+}
+
+#weather_row_2 {
+    display: block;
+    width: 100%;
+}
+
+#weather_row_3 {
+    display: block;
+    width: 100%;
+}
+
+#weather_conditions_container {    
     vertical-align: middle;
     text-align: center;
     width: 64px;
-
+    display: inline-block;
 }
 
 #weather_temperature_container {
     width: 175px;
     text-align: center;
-    display: table-cell;
     vertical-align: middle;
+    display: inline-block;
 }
 
 #weather_details_container {
-    width: 150px;
-    text-align: left;
-    display: table-cell;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    display: inline-block;
     vertical-align: middle;
+    margin-top: 5px;
 }
 
 #weather_detail_description {
     text-align: center;
+    font-weight: bold;
 }
 
 #weather_temp {
     font-size: 40pt;
-    font-weight: bold;
 }
 
 #weather_detail_icon {
@@ -423,6 +442,7 @@ td {
 
 .weather_detail {
     font-size: 10pt;
+    display: inline;
 }
 
 

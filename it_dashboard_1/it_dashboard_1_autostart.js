@@ -11,6 +11,7 @@ $(document).ready(function(){
     UpdateTicketsPerSchool();
     UpdateGuestAccounts();
     InitializeInOut();
+    InitializeWeather();
 });
 
 
@@ -53,7 +54,7 @@ setInterval(function() {
 /* Update weather */
 setInterval(function() {
     updateWeather();
-}, 60000);
+}, 300000);
 
 /* Update wireless count */
 setInterval(function() {
@@ -82,4 +83,9 @@ setInterval(function() {
 
 function InitializeInOut() {
     InitializeInOutPresenceForGroup(5);
+}
+
+function InitializeWeather() {
+    console.log("Initializing weather");
+    $("#weather_container").html(insertWeatherWidgetHTML());
 }

@@ -8,57 +8,66 @@ function convertHTTPtoHTTPS(thisHTTPURL) {
     return thisHTTPURL.replace("http","https")
 }
 
-function updateWeather(JSONPath) {
-    /* Weather underground API key: bb5a09f62da58b68 */
-    /* Use this section for wunderground */
+function insertWeatherWidgetHTML() {
+    var returnMe = "";
+    returnMe += "<div id=\"weather\">";
+    returnMe += "<div id=\"weather_row_1\">";
+    returnMe += "<div id=\"weather_conditions_container\">";
+    returnMe += "    <div id=\"weather_detail_icon\"><img src=\"\" style=\"width: 64px; height: 64px;\"></div>";    
+    returnMe += "</div>";
+    returnMe += "<div id=\"weather_temperature_container\">";
+    returnMe += "    <div id=\"weather_temp\"></div>";
+    returnMe += "</div>";
+    returnMe += "</div>";
+    returnMe += "<div id=\"weather_row_2\">";
+    returnMe += "  <div id=\"weather_detail_description\"></div>";
+    returnMe += "</div>";
+    returnMe += "<div id=\"weather_row_3\">";
+    returnMe += "<div id=\"weather_details_container\">";    
+    returnMe += "    <div class=\"weather_detail\"><b>Humid: </b><div style=\"display: inline;\" id=\"weather_temp_humid\"></div></div>";    
+    returnMe += "    <div class=\"weather_detail\"><b>Wind: </b><div style=\"display: inline;\" id=\"weather_wind\"></div></div>";    
+    returnMe += "</div>";
+    returnMe += "</div>";
+    returnMe += "</div>";
+    return returnMe;
+}
+
+function updateWeather(JSONPath) {    
     $.ajax({
-        url : dashboardDataCollectorRoot + "/Proxy/JSON.aspx?url=https://api.wunderground.com/api/bb5a09f62da58b68/geolookup/conditions/q/North_Battleford.json",
+        url: "https://strendinecweatherfunction.azurewebsites.net/api/GetWeather/sk-34",
         dataType : "json",
         success : function(parsed_json)
-            {
-                var location = parsed_json['location']['city'];
-                var temp_c = parsed_json['current_observation']['temp_c'];
-                var temp_feels = parsed_json['current_observation']['feelslike_c'];
-                var description = parsed_json['current_observation']['weather'];
-                var icon_url = convertHTTPtoHTTPS(parsed_json['current_observation']['icon_url']);
-                var precip = parsed_json['current_observation']['precip_today_metric'];
+        {
+            console.log(parsed_json);
+            var location = parsed_json['locationName'];            
+            var temp_c = parsed_json['temperatureCelsius'];            
+            var conditions = parsed_json['conditions'];
+            var humidity = parsed_json['humidity'];
+            var wind = parsed_json['wind'];
+            var visibility = parsed_json['visibility'];
 
-                var wind_direction = parsed_json['current_observation']['wind_dir'];
-                var wind_kph = parsed_json['current_observation']['wind_kph'];
-                var wind_string = wind_kph + ' KPH ' + wind_direction;
+            //var icon_url = convertHTTPtoHTTPS(parsed_json['current_observation']['icon_url']);
+            //var precip = parsed_json['current_observation']['precip_today_metric'];
 
-                var humidity = parsed_json['current_observation']['relative_humidity'];
-
-                $('#weather_temp').html(temp_c + "&deg;");
-                $('#weather_temp_feelslike').html(temp_feels + "&deg;");
-                $('#weather_detail_description').html(description);
-                $('#weather_wind').html(wind_string);
-                $('#weather_detail_icon').html("<img src=\"" + icon_url + "\">");
-                $('#weather_temp_precip').html(precip + " mm");
-                $('#weather_temp_humid').html(humidity);
-            }
+            //var wind_direction = parsed_json['current_observation']['wind_dir'];
+            //var wind_kph = parsed_json['current_observation']['wind_kph'];
+            //var wind_string = wind_kph + ' KPH ' + wind_direction;
+            
+            $('#weather_temp').html(temp_c + "&deg;");
+            $('#weather_detail_icon').html("<img src=\"../images/WeatherIcons/" + getWeatherIcon(conditions) + "\">");
+            $('#weather_detail_description').html(conditions);
+            $('#weather_wind').html(wind);
+            $('#weather_temp_humid').html(humidity);
+            $('#weather_visibility').html(visibility);
+            
+            //$('#weather_temp_feelslike').html(temp_feels + "&deg;");
+            
+            //$('#weather_temp_precip').html(precip + " mm");
+            
+        }
         });
+}
 
-
-    /* Use this section for openweathermap API */
-    /*
-    var JSONPath = dashboardDataCollectorRoot + "/Proxy/JSON.aspx?url=http://api.openweathermap.org/data/2.5/weather?q=North%20Battleford,%20SK"
-    $.getJSON(JSONPath, function(data) {
-        $('#weather_temp').html(convertKToCelcius(data.main.temp) + "&deg;C&nbsp;");
-        //$('#weather_detail_description').html(data.weather[0].main);
-        $('#weather_detail_description').html(data.weather[0].description);
-        $('#weather_detail_icon').html("<img src=\"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png\">");
-
-        /*
-        if ((convertKToCelcius(data.main.temp) > 35) || (convertKToCelcius(data.main.temp) < -30))
-        {
-            $('#weather_temp').addClass("weather_alert");
-        }
-        else
-        {
-            $('#weather_temp').removeClass("weather_alert");
-        }
-
-    });
-*/
+function getWeatherIcon(conditions) {
+    return conditions.toLowerCase().replace(/\s/g, '') + ".png";
 }
