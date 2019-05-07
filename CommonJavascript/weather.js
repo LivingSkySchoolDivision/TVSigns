@@ -40,7 +40,7 @@ function updateWeather(JSONPath) {
         {
             console.log(parsed_json);
             var location = parsed_json['locationName'];            
-            var temp_c = parsed_json['temperatureCelsius'];            
+            var temp_c = parsed_json['temperatureCelsiusWithWindChill'];            
             var conditions = parsed_json['conditions'];
             var humidity = parsed_json['humidity'];
             var wind = parsed_json['wind'];
