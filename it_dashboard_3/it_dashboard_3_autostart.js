@@ -158,7 +158,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:174 }
         ]);
 
-    InitializeFacilitySensorBox("Leoville","Leoville",false,25,19,18,[
+    InitializeFacilitySensorBox("Leoville","Leoville",false,50,19,18,[
         { name:'TYCO', id:49 },
         { name:'ROVER', id:79 },
         { name:'MACMINI', id:108 },
