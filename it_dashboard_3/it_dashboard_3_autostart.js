@@ -98,7 +98,6 @@ function InitializeAllLocationBoxes() {
 
     InitializeFacilitySensorBox("Connaught","Connaught",false,100,14,13,[
         { name:'TYCO', id:44 },
-        { name:'ROVER', id:63 },
         { name:'MACMINI', id:101 },
         { name:'IDRAC', id:157 },
         { name:'ESXI', id:158 },
@@ -170,7 +169,6 @@ function InitializeAllLocationBoxes() {
 
     InitializeFacilitySensorBox("Luseland","Luseland",false,100,20,19,[
         { name:'TYCO', id:35 },
-        { name:'ROVER', id:69 },
         { name:'MACMINI', id:109 },
         { name:'IDRAC', id:178 },
         { name:'ESXI', id:179 },
@@ -207,7 +205,6 @@ function InitializeAllLocationBoxes() {
 
     InitializeFacilitySensorBox("McLurg","McLurg",false,25,25,23,[
         { name:'TYCO', id:50 },
-        { name:'ROVER', id:72 },
         { name:'MACMINI', id:114 },
         { name:'IDRAC', id:190 },
         { name:'ESXI', id:191 },
@@ -217,7 +214,6 @@ function InitializeAllLocationBoxes() {
 
     InitializeFacilitySensorBox("Medstead","Medstead",false,100,26,24,[
         { name:'TYCO', id:51 },
-        { name:'ROVER', id:75 },
         { name:'MACMINI', id:115 },
         { name:'IDRAC', id:193 },
         { name:'ESXI', id:194 },
@@ -255,7 +251,6 @@ function InitializeAllLocationBoxes() {
 
     InitializeFacilitySensorBox("StVital","St.Vital",false,100,33,31,[
         { name:'TYCO', id:43 },
-        { name:'ROVER', id:77 },
         { name:'MACMINI', id:118 },
         { name:'IDRAC', id:205 },
         { name:'ESXI', id:206 },
