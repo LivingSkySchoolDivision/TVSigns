@@ -86,7 +86,7 @@ function InitializeAllLocationBoxes() {
         { name:'PRINT', id:217 }
         ]);
 
-    InitializeFacilitySensorBox("Cando","Cando",false,25,11,10,[
+    InitializeFacilitySensorBox("Cando","Cando",false,50,11,10,[
         { name:'TYCO', id:42 },
         { name:'ROVER', id:62 },
         { name:'MACMINI', id:100 },
