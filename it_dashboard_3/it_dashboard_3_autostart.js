@@ -139,7 +139,7 @@ function InitializeAllLocationBoxes() {
         ]);
 
     InitializeFacilitySensorBox("Lawrence","Lawrence",false,100,3,3,[
-        { name:'TYCO', id:34 }
+        { name:'TYCO', id:34 },
         { name:'MACMINI', id:107 },
         { name:'IDRAC', id:172 },
         { name:'ESXI', id:173 },
