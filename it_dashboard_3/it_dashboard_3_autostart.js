@@ -227,8 +227,7 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:117 },
         { name:'IDRAC', id:202 },
         { name:'ESXI', id:203 },
-        { name:'SCCM', id:204 },
-        { name:'PRINT', id:227 }
+        { name:'SCCM', id:204 }
         ]);
 
     InitializeFacilitySensorBox("StVital","St.Vital",false,100,33,31,[
