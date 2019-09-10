@@ -323,7 +323,7 @@ function draw_region_map(JSONPath, canvasid) {
 
             if (thisSensor.id == 12) {
                 // CKHS 226 401
-                addPingNode(canvasid, 226,401,"CKHS",thisSensor.lastsuccessfulroundtrip, thisSensor.health, true, true, true);
+                addPingNode(canvasid, 226,401,"CKCS",thisSensor.lastsuccessfulroundtrip, thisSensor.health, true, true, true);
             }
 
 
