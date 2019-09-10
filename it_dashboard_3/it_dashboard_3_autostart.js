@@ -60,30 +60,25 @@ function InitializeAllLocationBoxes() {
 
     InitializeFacilitySensorBox("Bready","Bready",false,100,10,9,[
         { name:'TYCO', id:48 },
-        { name:'ROVER', id:61 },
         { name:'MACMINI', id:96 },
         { name:'IDRAC', id:142 },
         { name:'ESXI', id:143 },
         { name:'SCCM', id:144 }
         ]);
 
-    InitializeFacilitySensorBox("CKES","CutKnife Elementary",false,25,12,11,[
+    InitializeFacilitySensorBox("CKES","CKES",false,25,12,11,[
         { name:'TYCO', id:57 },
-        { name:'MACMINI', id:97 },
         { name:'IDRAC', id:146 },
         { name:'ESXI', id:147 },
         { name:'SCCM', id:148 },
-        { name:'PRINT', id:216 }
         ]);
 
-    InitializeFacilitySensorBox("CKHS","CutKnife High",false,100,13,12,[
+    InitializeFacilitySensorBox("CKCS","CutKnife",false,100,13,12,[
         { name:'TYCO', id:41 },
-        { name:'ROVER', id:71 },
         { name:'MACMINI', id:99 },
         { name:'IDRAC', id:149 },
         { name:'ESXI', id:150 },
-        { name:'SCCM', id:151 },
-        { name:'PRINT', id:217 }
+        { name:'SCCM', id:151 }
         ]);
 
     InitializeFacilitySensorBox("Cando","Cando",false,50,11,10,[
@@ -92,8 +87,7 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:100 },
         { name:'IDRAC', id:152 },
         { name:'ESXI', id:153 },
-        { name:'SCCM', id:154 },
-        { name:'PRINT', id:215 }
+        { name:'SCCM', id:154 }
         ]);
 
     InitializeFacilitySensorBox("Connaught","Connaught",false,100,14,13,[
@@ -113,12 +107,10 @@ function InitializeAllLocationBoxes() {
 
     InitializeFacilitySensorBox("Hafford","Hafford",false,100,15,14,[
         { name:'TYCO', id:45 },
-        { name:'ROVER', id:64 },
         { name:'MACMINI', id:103 },
         { name:'IDRAC', id:160 },
         { name:'ESXI', id:161 },
         { name:'SCCM', id:162 },
-        { name:'PRINT', id:218 }
         ]);
 
     InitializeFacilitySensorBox("HCES","Hartley Clark",false,10,16,15,[
@@ -127,8 +119,7 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:104 },
         { name:'IDRAC', id:163 },
         { name:'ESXI', id:164 },
-        { name:'SCCM', id:165 },
-        { name:'PRINT', id:228 }
+        { name:'SCCM', id:165 }
         ]);
 
     InitializeFacilitySensorBox("Heritage","Heritage",false,10,17,16,[
@@ -144,13 +135,11 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:106 },
         { name:'IDRAC', id:169 },
         { name:'ESXI', id:170 },
-        { name:'SCCM', id:171 },
-        { name:'PRINT', id:219 }
+        { name:'SCCM', id:171 }
         ]);
 
     InitializeFacilitySensorBox("Lawrence","Lawrence",false,100,3,3,[
-        { name:'TYCO', id:34 },
-        { name:'ROVER', id:67 },
+        { name:'TYCO', id:34 }
         { name:'MACMINI', id:107 },
         { name:'IDRAC', id:172 },
         { name:'ESXI', id:173 },
@@ -163,8 +152,7 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:108 },
         { name:'IDRAC', id:175 },
         { name:'ESXI', id:176 },
-        { name:'SCCM', id:177 },
-        { name:'PRINT', id:220 }
+        { name:'SCCM', id:177 }
         ]);
 
     InitializeFacilitySensorBox("Luseland","Luseland",false,100,20,19,[
@@ -172,8 +160,7 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:109 },
         { name:'IDRAC', id:178 },
         { name:'ESXI', id:179 },
-        { name:'SCCM', id:180 },
-        { name:'PRINT', id:221 }
+        { name:'SCCM', id:180 }
         ]);
 
     InitializeFacilitySensorBox("Macklin","Macklin",false,100,21,20,[
@@ -181,8 +168,7 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:110 },
         { name:'IDRAC', id:181 },
         { name:'ESXI', id:182 },
-        { name:'SCCM', id:183 },
-        { name:'PRINT', id:222 }
+        { name:'SCCM', id:183 }
         ]);
 
     InitializeFacilitySensorBox("Maymont","Maymont",false,25,23,21,[
@@ -191,8 +177,7 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:111 },
         { name:'IDRAC', id:184 },
         { name:'ESXI', id:185 },
-        { name:'SCCM', id:186 },
-        { name:'PRINT', id:223 }
+        { name:'SCCM', id:186 }
         ]);
 
     InitializeFacilitySensorBox("McKitrick","McKitrick",false,100,24,22,[
@@ -208,8 +193,7 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:114 },
         { name:'IDRAC', id:190 },
         { name:'ESXI', id:191 },
-        { name:'SCCM', id:192 },
-        { name:'PRINT', id:224 }
+        { name:'SCCM', id:192 }
         ]);
 
     InitializeFacilitySensorBox("Medstead","Medstead",false,100,26,24,[
@@ -217,8 +201,7 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:115 },
         { name:'IDRAC', id:193 },
         { name:'ESXI', id:194 },
-        { name:'SCCM', id:195 },
-        { name:'PRINT', id:225 }
+        { name:'SCCM', id:195 }
         ]);
 
     InitializeFacilitySensorBox("NBCHS","NBCHS",false,1000,27,25,[
@@ -236,8 +219,7 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:124 },
         { name:'IDRAC', id:199 },
         { name:'ESXI', id:200 },
-        { name:'SCCM', id:201 },
-        { name:'PRINT', id:226 }
+        { name:'SCCM', id:201 }
         ]);
 
     InitializeFacilitySensorBox("SHS","Spiritwood High",false,100,30,28,[
@@ -262,13 +244,11 @@ function InitializeAllLocationBoxes() {
         { name:'MACMINI', id:119 },
         { name:'IDRAC', id:208 },
         { name:'ESXI', id:209 },
-        { name:'SCCM', id:210 },
-        { name:'PRINT', id:214 }
+        { name:'SCCM', id:210 }
         ]);
 
     InitializeFacilitySensorBox("UPS","Unity Public",false,100,32,30,[
         { name:'TYCO', id:55 },
-        { name:'ROVER', id:73 },
         { name:'MACMINI', id:121 },
         { name:'IDRAC', id:211 },
         { name:'ESXI', id:212 },
