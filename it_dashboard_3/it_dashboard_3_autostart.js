@@ -73,7 +73,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:148 },
         ]);
 
-    InitializeFacilitySensorBox("CKCS","CutKnife",false,100,13,12,[
+    InitializeFacilitySensorBox("CKCS","Cut Knife",false,100,13,12,[
         { name:'TYCO', id:41 },
         { name:'MACMINI', id:99 },
         { name:'IDRAC', id:149 },
