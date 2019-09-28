@@ -1,0 +1,85 @@
+
+.titlebar {
+    background-image: url('heart_bg.png') !important;
+    background-color: #FFD1DC !important; /* FAAFBE */
+    color: black;
+}
+
+#spare_tile {
+
+}
+
+#current_date {
+  color: black;
+}
+
+#current_time {
+  color: black;
+}
+
+#time_second {
+  color: black;
+}
+
+#weather_temp {
+  color: black;
+}
+
+.weather_detail {
+  color: black;
+}
+
+#weather_detail_description {
+  color: black;
+}
+
+.blue{
+}
+
+#spare_tile {
+}
+
+@keyframes ghost {
+  10%  {
+    transform:scale(1) rotate(-2deg);
+    }
+
+  50%  {
+    transform:scale(1.1) rotate(6deg);
+    }
+
+  90%  {
+    transform:scale(1) rotate(-2deg);
+    }
+}
+
+@keyframes ghost2 {
+  10%  {
+    transform:scale(1) rotate(-7deg);
+    }
+
+  50%  {
+    transform:scale(1.2) rotate(3deg);
+    }
+
+  90%  {
+    transform:scale(1) rotate(-3deg);
+    }
+}
+
+@keyframes fadered {
+  0%  {
+     background-color: #000000;
+    }
+
+  25%  {
+    }
+  50%  {
+     background-color: #FF0000;
+    }
+  75%  {
+    }
+  100%  {
+     background-color: #000000;
+    }
+}

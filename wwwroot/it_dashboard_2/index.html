@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Living Sky IT Dashboard #2</title>
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META NAME="ROBOTS" CONTENT="NONE">
+
+    <!-- Common dashboard stylesheets -->
+	<link rel="stylesheet" href="../Stylesheets/colors.css"/>
+    <link rel="stylesheet" href="../Stylesheets/common.css"/>
+    <link rel="stylesheet" href="../Stylesheets/sensorbox.css"/>
+    <link rel="stylesheet" href="../Stylesheets/animations.css"/>
+
+	<!-- Stylesheets unique to this dashboard -->
+    <link rel="stylesheet" href="it_dashboard_2.css"/>
+
+    <!-- External styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Common javascript -->
+    <script type="text/javascript" src="../CommonJavascript/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/common_settings.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/helpers.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/sensorbox.js"></script>
+
+    <!-- Javascript unique to this dashboard -->
+	<script type="text/javascript" src="it_dashboard_2_settings.js"></script>
+    <script type="text/javascript" src="it_dashboard_2_map.js"></script>
+    <script type="text/javascript" src="it_dashboard_2_common.js"></script>
+    <script type="text/javascript" src="it_dashboard_2_autostart.js"></script>
+</head>
+<body id="body_it_2">
+    <!-- colored bars for sizing on a 1080p TV screen -->
+    <!--<div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div> -->
+	<!--<div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div> -->
+
+	<div class="page_container">
+	<div id="sensorbox_container"></div>
+	<table border=0 cellspacing="0" cellpadding="0" style="position: absolute; top: 0; right: 0;">
+		<tr>
+			<td valign="top"></td>
+			<td valign="top"><canvas id="region_map" /></td>
+			<td valign="top"><canvas id="city_map" /></td>
+		</tr>
+	</table>
+
+	</div>
+	<div id="comms_error_internal" class="intrusive_error hidden" style="margin-top: -200px;">CAN'T COMMUNICATE WITH DATACENTER</div>
+	<div id="comms_error_external" class="intrusive_error hidden">CAN'T COMMUNICATE WITH INTERNET</div>
+</body>
+</html>

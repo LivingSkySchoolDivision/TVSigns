@@ -1,0 +1,76 @@
+
+.titlebar {
+    background-image: url('bg.png') !important;
+    background-color: rgb(157, 198, 216) !important; /* FAAFBE */
+    color: black !important;
+}
+
+.weather_heading {
+    color: black;
+    border: 0;
+    border-bottom: 1px solid black;
+    font-size: 10pt;
+}
+
+#weather_temp_feelslike {
+    color: black;
+}
+#weather_detail_description {
+    color: black;
+}
+
+#weather_temp_feelslike {
+    color: black;
+}
+
+#weather_tile {
+    color: black;
+}
+
+#weather_temp {
+    color: black;
+}
+
+.weather_detail {
+    color: black;
+}
+
+#current_time {
+    color: black;
+}
+
+#time_second {
+    color: black !important;
+}
+
+/*
+ Positions:
+    left    top
+    1055    90      Bunny's head
+
+*/
+
+#easter_egg {
+    position: absolute;
+    z-index: 999;
+    top: 130px;
+    left: 1095px;
+    width: 19px;
+    height: 25px;
+    transform: rotate(25deg);
+    /* animation: ghost2 15s infinite linear; */
+}
+
+@keyframes ghost {
+  10%  {
+    transform:scale(1) rotate(-2deg);
+    }
+
+  50%  {
+    transform:scale(1.1) rotate(6deg);
+    }
+
+  90%  {
+    transform:scale(1) rotate(-2deg);
+    }
+}

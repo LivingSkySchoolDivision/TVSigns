@@ -1,0 +1,41 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  background: #151010;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  /* overflow: hidden; */
+  font-family: 'Droid Sans', sans-serif;
+  text-align: center;
+}
+
+.sideIndicator {
+  color: black;
+  font-weight: bold;
+  border: 0;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 8pt;
+}
+
+.sideInbound {
+  background-color: #086ca2;
+}
+
+.sideOutbound {
+  background-color: #ff8b00;
+}

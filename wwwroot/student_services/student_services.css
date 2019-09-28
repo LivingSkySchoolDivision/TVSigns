@@ -1,0 +1,470 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: #151010;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    /* overflow: hidden; */
+    font-family: 'Droid Sans', sans-serif;
+    text-align: center;
+    /*background-image: url('./penguin-wallpaper.jpg');*/
+}
+
+#spare_tile {
+    background-position: -250px -20px;
+    background-size: 800px 450px;
+    background-repeat: no-repeat;
+}
+
+td {
+    font-size: 14pt;
+    position: relative;
+}
+
+#ticker {
+    position: relative;
+    overflow: none;
+}
+
+#mean_time_to_repair {
+    font-size: 45pt;
+}
+
+#bandwidth_meter {
+    width: 300px;
+    height: 275px;
+}
+
+#small_bandwidth_meter {
+    width: 100px;
+    height: 75px;
+    background-color: red;
+}
+
+.traffic_heading {
+    font-size: 30pt;
+    font-weight: bold;
+    background-color: white;
+    color: #464041;
+    text-align: center;
+}
+
+.traffic_value {
+    font-size: 20pt;
+    padding: 5px;
+    text-align: center;
+}
+
+.traffic_container {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 3px solid white;
+}
+
+
+.guide_top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 1920px;
+    background-color: red;
+}
+
+.guide_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1080px;
+    width: 10px;
+    background-color: blue;
+}
+
+.smallPieChart {
+    width: 300px;
+    height: 250px;
+}
+
+
+.tile_number {
+    font-size: 110pt;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+}
+
+.tile_number_smaller {
+    font-size: 50pt;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+    padding-top: 10px;
+}
+
+.fullheight {
+    height: 100%;
+}
+
+.tile_content_container {
+    /*height: 100%;*/
+    /*padding: 20px;*/
+    /*width: 90%;*/
+    text-align: center;
+    position: relative;
+    margin: auto auto auto auto;
+    padding: 20px;
+}
+
+.tile_subtext {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.tile_subtext_larger {
+    font-size: 14pt;
+}
+
+.page_container{
+    /*
+    width:auto;
+    height:auto;
+    */
+    width: 1920px;
+    height: 1080px;
+    /*padding: 10px;*/
+    overflow: hidden;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.leftalign {
+    text-align: left;
+}
+
+
+.tile_skinny {
+    height: 150px;
+    font-size: 26pt;
+}
+
+.tile_bottom_small {
+    width: 350px;
+    height: 75px;
+    font-size: 26pt;
+}
+
+.tile_bottom {
+    width: 1870px;
+    height: 75px;
+    font-size: 26pt;
+}
+
+.tile_table {
+}
+
+.rounded_corners {
+    border-radius: 10px;
+}
+
+
+/* tiles and tile spacing */
+
+.tile {
+    position: relative;
+    /*padding: 2px;  */
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tileheight_half {
+    height: 150px;
+}
+
+.tilewidth_1 {
+    width: 375px;
+}
+
+.tilewidth_2 {
+    width: 750px;
+}
+
+
+
+.tileheight_1 {
+    height: 375px;
+}
+
+.tileheight_2 {
+    /* This needs to be tileheight_1's height PLUS (tile padding times two) */
+    height: 754px;
+}
+
+.tileheight_quarter {
+    height: 100px;
+}
+
+
+/* Tile contents */
+
+.tile_title {
+    font-size: 26pt;
+    font-weight: bold;
+}
+
+.centered {
+    text-align: center;
+    vertical-align: center;
+}
+
+.large_text {
+    font-size: 42pt;
+    font-weight: bold;
+}
+
+.total_count {
+    background-color: white;
+    color: #151010;
+    padding: 2px;
+    border-radius: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+
+}
+
+.loading{
+    color: white;
+    font-family: Arial;
+    font-size: 10pt;
+    font-weight: bold;
+    vertical-align: middle;
+    width: 100%;
+    text-align: center;
+    /*
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    */
+}
+
+#status_bar {
+    text-align: left;
+    color: #454040;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#ip_address {
+    text-align: right;
+    color: #454040;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#time_main {
+    display: inline;
+
+}
+
+#time_second {
+    display: inline;
+    color: rgba(255,255,255,0.5);
+    font-size: 30%;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+}
+
+#wireless_client_count {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+#current_date {
+    font-size: 125%;
+}
+
+#weather_detail_icon {
+}
+
+.weather_detail {
+    font-size: 10pt;
+}
+
+#weather_detail_description {
+    font-size: 12pt;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#weather_temp {
+}
+
+#Chart_TicketsByMonth {
+    width: 300px;
+    height: 250px;
+}
+
+.watchdog_temp_title {
+    font-size: 14pt;
+    text-align: center;
+    color: rgba(255,255,255,1);
+}
+
+.watchdog_temp_subtitle {
+    font-size: 10pt;
+    text-align: center;
+    color: rgba(255,255,255,0.25);
+}
+
+.watchdog_temp {
+    display: block;
+    width: 150px;
+    padding: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    vertical-align: middle;
+    font-size: 25pt;
+    color: rgb(255,255,255);
+
+    border: 2px solid rgba(255,255,255,0.05);
+    border-radius: 5px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+}
+
+.warning {
+    animation: fadeorange 3s infinite linear;
+    color: white;
+    border: 3px solid #FF6400;
+}
+
+.critical {
+    animation: fadered 3s infinite linear;
+    color: white;
+    border: 3px solid red;
+}
+
+#weather_table {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@keyframes fadered {
+    0%  {
+        background-color: #AA0114;
+    }
+
+    25%  {
+    }
+    50%  {
+        background-color: #FF0000;
+    }
+    75%  {
+    }
+    100%  {
+        background-color: #AA0114;
+    }
+}
+
+@keyframes fadeorange {
+    0%  {
+        background-color: #FFAA73;
+    }
+
+    25%  {
+    }
+    50%  {
+        background-color: #FF6400;
+    }
+    75%  {
+    }
+    100%  {
+        background-color: #FFAA73;
+    }
+}
+
+.meeting_room_title {
+    font-size: 10pt;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+}
+
+.meeting_room_status {
+    font-size: 10pt;
+}
+
+.meeting_room_available {
+    background-color: green;
+    text-align: center;
+    height: 100%;
+    margin: auto auto auto auto;
+}
+
+.meeting_room_unavailable {
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.vehicle_unavailable {
+    font-size: 14pt;
+    border: 0;
+}
+
+.vehicle_available {
+    font-size: 14pt;
+    border: 0;
+    background-color: rgb(0, 128, 0);
+    text-align: center;
+}
+
+.vehicle_status {
+    font-size: 14pt;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.vehicle_title {
+    font-size: 10pt;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+
+.presence_user_in {
+}
+
+.presence_user_busy .presence_user_presence{
+    color: red;
+}
+
+.presence_user_out {
+    color: rgba(255,255,255,0.1) !important;
+}
+
+.presence_user_unknown {
+    opacity: 0.5;
+}

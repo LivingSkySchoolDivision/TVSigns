@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Living Sky IT Dashboard #3</title>
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META NAME="ROBOTS" CONTENT="NONE">
+
+    <!-- Common dashboard stylesheets -->
+    <link rel="stylesheet" href="../Stylesheets/colors.css"/>
+    <link rel="stylesheet" href="../Stylesheets/common.css"/>
+    <link rel="stylesheet" href="../Stylesheets/sensorbox.css"/>
+    <link rel="stylesheet" href="../Stylesheets/animations.css"/>
+    <link rel="stylesheet" href="../Seasonal/seasonal.css"/>
+
+    <!-- Stylesheets unique to this dashboard -->
+    <link rel="stylesheet" href="it_dashboard_3.css"/>
+
+    <!-- Common javascript -->
+    <script type="text/javascript" src="../CommonJavascript/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/common_settings.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/helpers.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/emoticons.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/weather.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/speedometer.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/piecharts.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/sensorbox.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/it_watchdog.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/dateandtimehandlers.js"></script>
+    <script type="text/javascript" src="../Seasonal/seasonal.js"></script>
+
+    <!-- Javascript for this dashboard specifically -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <script type="text/javascript" src="it_dashboard_3_settings.js"></script>
+    <script type="text/javascript" src="it_dashboard_3_common.js"></script>
+    <script type="text/javascript" src="it_dashboard_3_autostart.js"></script>
+
+
+</head>
+<body>
+    <!-- colored bars for sizing on a 1080p TV screen -->
+    <!--<div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
+    <!--<div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
+
+    <div id="sensorbox_container">        
+    </div> <!-- page container -->
+    <div style="text-align: center;position: absolute;width: 400px; bottom: 20; left: 760px;">
+        <div class="sideIndicator sideInbound">INBOUND</div>
+        <div class="sideIndicator sideOutbound">OUTBOUND</div>
+    </div>
+</body>
+</html>

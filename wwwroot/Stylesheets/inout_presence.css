@@ -1,0 +1,47 @@
+.presence_user {
+	float: left;
+	width: 49%;
+	min-height: 75px;
+	max-height: 75px;
+	text-align: left;
+	display: flex;
+	position: relative;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.presence_user_name {
+	font-size: 24pt;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 10px;
+	padding-bottom: 0;
+}
+
+.presence_user_presence {
+	font-size: 18pt;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	padding-right: 20px;
+	padding-left: 20px;
+	color: rgba(255,255,255,0.5);
+}
+
+.presence_user_presence_inout {
+	position: absolute;
+	font-size: 35pt; /* 20 */
+	font-weight: bold;
+	top: 0;
+	right: 0;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+
+.presence_user_in {
+}
+
+.presence_user_out {
+}

@@ -1,0 +1,162 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Student Services Dashboard</title>
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META NAME="ROBOTS" CONTENT="NONE">
+
+    <!-- Common dashboard stylesheets -->
+    <link rel="stylesheet" href="../Stylesheets/colors.css"/>
+    <link rel="stylesheet" href="../Stylesheets/common.css"/>
+    <link rel="stylesheet" href="../Stylesheets/animations.css"/>
+    <link rel="stylesheet" href="../Seasonal/seasonal.css"/>
+    <link rel="stylesheet" href="../Stylesheets/inout_presence.css"/>
+
+    <!-- Stylesheets unique to this dashboard -->
+    <link rel="stylesheet" href="student_services.css"/>
+
+    <!-- Common javascript -->
+    <script type="text/javascript" src="../CommonJavascript/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/common_settings.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/helpers.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/emoticons.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/weather.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/speedometer.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/piecharts.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/it_watchdog.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/dateandtimehandlers.js"></script>
+    <script type="text/javascript" src="../CommonJavascript/inout_presence.js"></script>
+    <script type="text/javascript" src="../Seasonal/seasonal.js"></script>
+
+    <!-- Javascript for this dashboard specifically -->
+    <script type="text/javascript" src="student_services_settings.js"></script>
+    <script type="text/javascript" src="student_services_spcalendars.js"></script>
+    <script type="text/javascript" src="student_services_photo_gallery.js"></script>
+    <script type="text/javascript" src="student_services_common.js"></script>
+    <script type="text/javascript" src="student_services_autostart.js"></script>
+
+</head>
+<body id="body_ss">
+<!-- colored bars for sizing on a 1080p TV screen -->
+<!-- <div style="height: 2px; width: 1920px; background-color: red;position: absolute; top: 0; left: 0;"></div><!-- -->
+<!-- <div style="width: 2px; height: 1080px; background-color: red;position: absolute; top: 0; left: 0;"></div><!-- -->
+<div class="page_container">
+    <table align="center" border=0 cellpadding=0 cellspacing=7 class="tile_table" style="width: 1920px;">
+        <tr>
+            <td class="tile tileheight_half blue titlebar" id="titlebar_1" colspan=3>
+                    <div class="large_text centered">
+                        <div id="current_date"><div class="loading blink">LOADING</div></div>
+                    </div>
+            </td>
+            <td class="tile tileheight_half blue titlebar" id="titlebar_2">
+                    <div class="large_text">
+                        <div id="current_time"><div class="loading blink">LOADING</div></div>
+                    </div>
+            </td>
+            <td id="weather_tile" class="tile tileheight_half blue titlebar" id="titlebar_3">
+
+                    <div id="weather_container"><div class="loading blink">LOADING</div>
+                    </div>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td class="tile tilewidth_2 gray" rowspan=2 colspan=3 style="vertical-align: top;">
+                <div style="position: absolute; bottom: 0; right: 0; font-size: 10pt;color: rgba(255,255,255,0.5); padding: 5px;">
+                    Update your status at <b>inout.lskysd.ca</b>
+                </div>
+                <div id="inout_container"></div>
+                <div id="inout_lastupdated" style="font-size: 8pt; position: absolute; bottom: 0; right: 0; color: rgba(255,255,255,0.1);"></div>
+            </td>
+            <!--
+                        <td class="tile tilewidth_2 tileheight_2" colspan=2 rowspan=2 style="vertical-align: top;">
+
+                        </td>
+            -->
+            <td class="tile tilewidth_2 cobweb_right" colspan=2 style="background-color: rgba(0,0,0,0.5); height: 563px; vertical-align: middle; overflow: hidden;padding: 0;margin:0;">
+                <div style="width: 750px; height: 563px; background-size: contain; background-repeat: no-repeat; background-position: 50% 50%;background-image: url(../images/loading.png);" id="photo_tile"></div></td>
+            <!--
+            <td class="tile tilewidth_1 tileheight_1 gray">
+                <div class="tile_content_container" style="color: rgba(255,255,255,0.1)">
+                    Tile 2
+                </div>
+            </td>
+            -->
+
+        </tr>
+
+        <tr>
+
+            <td class="tile tilewidth_1 gray" style="height: 240px;vertical-align: top;">
+                <div class="tile_content_container">
+                    <div class="tile_title" style="font-size: 15pt;">Vehicle Bookings Today</div>
+                    <table border="0" cellpadding="5"  cellspacing="0" style="width: 100%; margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td width="33%" style="font-size: 10pt; text-align: center;"></td>
+                        </tr>
+                        <tr>
+                            <td class="vehicle_title" valign="bottom">Green Journey</div></td>
+                            <td class="vehicle_status" valign="bottom" id="veh_gj">...</td>
+                        </tr>
+                        <tr>
+                            <td class="vehicle_title" valign="bottom">Blue Journey </div></td>
+                            <td class="vehicle_status" valign="bottom" id="veh_bj">...</td>
+                        </tr>
+                        <tr>
+                            <td class="vehicle_title" valign="bottom">Silver Journey </div></td>
+                            <td class="vehicle_status" valign="bottom" id="veh_sj">...</td>
+                        </tr>
+                        <tr>
+                            <td class="vehicle_title" valign="bottom">Jeep</div></td>
+                            <td class="vehicle_status" valign="bottom" id="veh_jeep">...</td>
+                        </tr>
+                    </table> 
+                    <div style="font-size: 10pt; background-color: red;color: white;border-radius: 5px; margin-top: 5px; padding: 5px;">
+                        <b>NOTE:</b> This data may not be accurate. We are working on a fix. Check Sharepoint for more accurate information.</div>
+                </div>
+            </td>
+
+            <td class="tile tilewidth_1 gray" style="vertical-align: top;">
+                <div class="tile_content_container">
+                    <div class="tile_title" style="font-size: 15pt;">Meeting Rooms</div>
+                    <table border="0" cellpadding="5"  cellspacing="0" style="width: 100%; margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td width="43%" style="font-size: 10pt; text-align: center;"></td>
+                            <td width="33%" style="font-size: 10pt; text-align: center;">Now</td>
+                            <td width="23%" style="font-size: 10pt; text-align: center;"><div id="tomorrow_name_2">Tomorrow</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Student Services</div></td>
+                            <td><div class="meeting_room_status" id="room_ss"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="room_ss_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Board Room</div></td>
+                            <td><div class="meeting_room_status" id="room_board"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="room_board_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Workshop Room</div></td>
+                            <td><div class="meeting_room_status" id="room_meeting"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="room_meeting_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="meeting_room_title">Small Mtng Rm</div></td>
+                            <td><div class="meeting_room_status" id="room_smallmeeting"><div class="meeting_room_unavailable">...</div></div></td>
+                            <td><div class="meeting_room_status" id="room_smallmeeting_tomorrow"><div class="meeting_room_unavailable">...</div></div></td>
+                        </tr>
+                    </table>
+                    <div style="font-size: 10pt; background-color: red;color: white;border-radius: 5px; margin-top: 5px; padding: 5px;"><b>NOTE:</b> This data may not be accurate. We are working on a fix. Check Sharepoint for more accurate information.</div>
+                </div>
+                
+            </td>
+        </tr>
+
+    </table>
+    </div>
+</body>
+<img src="../Seasonal/Halloween/ghost.png" id="ghost" style="display: none;">
+<img src="../Seasonal/Halloween/ghost2.png" id="ghost2" style="display: none;">
+<img src="../Seasonal/PancakeDay/pancakes.png" id="pancakes" style="display: none;">
+</html>

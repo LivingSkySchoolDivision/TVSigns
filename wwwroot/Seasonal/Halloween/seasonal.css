@@ -1,0 +1,165 @@
+/*
+    This is the seasonal CSS file for Spring
+*/
+
+.titlebar {
+    background-image: url('jackolantern-tile.png') !important;
+    background-color: rgb(196, 98, 0) !important; /* FAAFBE */
+    color: white !important;
+    background-repeat:  repeat !important;
+    text-shadow:
+            1px 1px 0 #000,
+            1px 1px 0 #000,
+            1px 1px 0 #000,
+            1px 1px 0 #000
+;
+}
+
+#titlebar_1 {
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+}
+
+#titlebar_2 {
+    background-repeat: no-repeat;
+    background-position: -1152px 0px;
+
+}
+
+#weather_tile {
+    background-repeat: no-repeat;
+    background-position: -1536px 0px;
+}
+
+.weather_heading {
+    color: white;
+    border: 0;
+    border-bottom: 1px solid white;
+    font-size: 10pt;
+}
+
+#weather_temp_feelslike {
+    color: white;
+}
+#weather_detail_description {
+    color: white;
+}
+
+#weather_temp_feelslike {
+    color: white;
+}
+
+#weather_tile {
+    color: white;
+}
+
+#weather_temp {
+    color: white;
+}
+
+.weather_detail {
+    color: white;
+}
+
+#current_time {
+    color: white;
+}
+
+#time_second {
+    color: white !important;
+}
+
+#lync_tile {
+    background-image: url('cobweb_right.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+.cobweb_right {
+    background-image: url('cobweb_right.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+.cobweb {
+    background-image: url('cobweb.png');
+    background-repeat: no-repeat;
+}
+
+.pumpkin_tile {
+    background-image: url('jackolantern_trans.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#jack1 {
+     position: absolute;
+     bottom: 50px; /* 255 */
+     left: 35px; /* 425 */
+     display: inline-block !important;
+
+}
+
+#jack2 {
+     position: absolute;
+     bottom: 40px; /* 755 */
+     left: 35px; /* 425 */
+     display: inline-block !important;
+}
+
+#ghost {
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    animation: ghost 10s infinite linear;
+    display: inline-block !important;
+}
+
+#ghost2 {
+    position: absolute;
+    bottom: 10px; /* 20px */
+    right: 10px; /* 1040px */
+    width: 200px;
+    height: 200px;
+    animation: ghost2 15s infinite linear;
+    display: inline-block !important;
+}
+
+.transportation_page_container {
+    background-color: rgb(46, 19, 64) !important;
+    color: black !important;
+}
+
+.transportation_title {
+    color: white;
+}
+
+@keyframes ghost {
+  10%  {
+    transform:scale(1) rotate(-2deg);
+    }
+
+  50%  {
+    transform:scale(1.1) rotate(6deg);
+    }
+
+  90%  {
+    transform:scale(1) rotate(-2deg);
+    }
+}
+
+@keyframes ghost2 {
+  10%  {
+    transform:scale(1) rotate(-7deg);
+    }
+
+  50%  {
+    transform:scale(1.2) rotate(3deg);
+    }
+
+  90%  {
+    transform:scale(1) rotate(-3deg);
+    }
+}
