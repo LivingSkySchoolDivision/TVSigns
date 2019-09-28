@@ -92,7 +92,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:159 }
         ]);
 
-    InitializeFacilitySensorBox("DivisionOffice","Division Office",false,300,5,6,[
+    InitializeFacilitySensorBox("DivisionOffice","Division Office",false,1000,5,6,[
         { name:'TYCO', id:40 },
         { name:'MACMINI', id:92 },
         { name:'DEPLOY', id:155 },
@@ -107,7 +107,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:162 },
         ]);
 
-    InitializeFacilitySensorBox("HCES","Hartley Clark",false,10,16,15,[
+    InitializeFacilitySensorBox("HCES","Hartley Clark",false,50,16,15,[
         { name:'TYCO', id:56 },
         { name:'ROVER', id:65 },
         { name:'MACMINI', id:104 },
@@ -116,7 +116,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:165 }
         ]);
 
-    InitializeFacilitySensorBox("Heritage","Heritage",false,10,17,16,[
+    InitializeFacilitySensorBox("Heritage","Heritage",false,100,17,16,[
         { name:'ROVER', id:66 },
         { name:'MACMINI', id:105 },
         { name:'IDRAC', id:166 },
@@ -165,7 +165,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:183 }
         ]);
 
-    InitializeFacilitySensorBox("Maymont","Maymont",false,25,23,21,[
+    InitializeFacilitySensorBox("Maymont","Maymont",false,100,23,21,[
         { name:'TYCO', id:46 },
         { name:'ROVER', id:74 },
         { name:'MACMINI', id:111 },
@@ -182,7 +182,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:189 }
         ]);
 
-    InitializeFacilitySensorBox("McLurg","McLurg",false,25,25,23,[
+    InitializeFacilitySensorBox("McLurg","McLurg",false,100,25,23,[
         { name:'TYCO', id:50 },
         { name:'MACMINI', id:114 },
         { name:'IDRAC', id:190 },
@@ -207,7 +207,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:198 }
         ]);
 
-    InitializeFacilitySensorBox("NCES","NCES",false,10,28,26,[
+    InitializeFacilitySensorBox("NCES","NCES",false,50,28,26,[
         { name:'TYCO', id:52 },
         { name:'ROVER', id:76 },
         { name:'MACMINI', id:124 },
