@@ -66,9 +66,6 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:144 }
         ]);
 
-    InitializeFacilitySensorBox("CKES","CKES",false,25,12,0,[
-        { name:'TYCO', id:57 },
-        ]);
 
     InitializeFacilitySensorBox("CKCS","Cut Knife",false,100,13,12,[
         { name:'TYCO', id:41 },
@@ -251,4 +248,7 @@ function InitializeAllLocationBoxes() {
         { name:'SCCM', id:213 }
         ]);
 
+    InitializeFacilitySensorBox("CKES","CKES",false,25,12,0,[
+        { name:'TYCO', id:57 },
+        ]);
 }
