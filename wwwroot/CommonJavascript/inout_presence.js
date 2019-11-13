@@ -24,8 +24,8 @@ function logThis(str) {
 	console.log(str);
 }
 
-function updateAllInOutPresenceWithData(data) {	
-	$.each(data, function(i, person) {		
+function updateAllInOutPresenceWithData(data) {
+	$.each(data, function(i, person) {
     	var userDivName = inOutDivPrefix + person.ID;
 		if ($(userDivName).length !== 0) {
 			if ($(userDivName + "_name").length !== 0) {
@@ -48,10 +48,10 @@ function updateAllInOutPresenceWithData(data) {
 
 					// Color styles
 					switch(person.CurrentStatus.StatusType) {
-						case 0:	
+						case 0:
 							$(userDivName).addClass("presence_user_unknown");
 							$(userDivName + "_inorout").text("??");
-							break;						
+							break;
 						case 1:
 							$(userDivName).addClass("presence_user_in");
 							$(userDivName + "_inorout").text("IN");
@@ -67,11 +67,11 @@ function updateAllInOutPresenceWithData(data) {
 						default:
 							$(userDivName).addClass("presence_user_unknown");
 							$(userDivName + "_inorout").text("??");
-							break;	
+							break;
 					}
 				} else {
 					$(userDivName).addClass("presence_user_unknown");
-				}	
+				}
 
 
 
@@ -83,13 +83,13 @@ function updateAllInOutPresenceWithData(data) {
     });
 }
 
-function InitializeInOutPresenceForGroup(groupID) {	
+function InitializeInOutPresenceForGroup(groupID) {
 	var JSONURL = inOutJSONRoot + "/GroupMembers/" + groupID;
 
 	logThis("Loading group data from " + JSONURL);
 
-	$.getJSON(JSONURL, function(data) {			
-        $.each(data, function(index, person) {        	
+	$.getJSON(JSONURL, function(data) {
+        $.each(data, function(index, person) {
         	var adjustedDivName = inOutDivPrefix + person.ID;
 			if (!$(adjustedDivName).length !== 0) {
 				addLargePresenceSection(inOutDivContainer, adjustedDivName);
