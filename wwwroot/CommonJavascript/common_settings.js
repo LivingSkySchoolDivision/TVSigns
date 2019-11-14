@@ -12,7 +12,7 @@ var strendinMonitorJSONRoot = proxyPath + "https://strendinmonitor.lskysd.ca";
 var strendinMonitorGraphRoot = "https://strendinmonitor.lskysd.ca";
 
 
-var inOutJSONRoot = "https://inoutapi.lskysd.ca/api";
+var inOutJSONRoot = "https://inoutapi.lskysd.ca";
 var sharepointJSONPath = "/LSKYDashboardDataCollector/Sharepoint2013/Calendar.aspx?calurl=";
 
 // Path to the LSKYDashboardDataCollector web application
