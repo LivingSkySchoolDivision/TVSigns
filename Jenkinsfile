@@ -17,13 +17,13 @@ pipeline {
         stage('Docker build') {
             steps {
                 sh "docker build --no-cache -t ${PRIVATE_REPO}:latest -t ${PRIVATE_REPO}:${TAG} ."
-                
+
             }
         }
         stage('Docker push') {
             steps {
                 sh "docker push ${PRIVATE_REPO}:${TAG}"
-                sh "docker push ${PRIVATE_REPO}:latest"           
+                sh "docker push ${PRIVATE_REPO}:latest"
             }
         }
     }
