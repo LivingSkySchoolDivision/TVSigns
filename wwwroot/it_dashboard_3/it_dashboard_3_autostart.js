@@ -167,7 +167,6 @@ function InitializeAllLocationBoxes() {
 
     InitializeFacilitySensorBox("Maymont","Maymont",false,100,23,21,[
         { name:'TYCO', id:46 },
-        { name:'ROVER', id:74 },
         { name:'MACMINI', id:111 },
         { name:'IDRAC', id:184 },
         { name:'ESXI', id:185 },
