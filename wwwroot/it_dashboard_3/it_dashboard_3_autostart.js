@@ -247,8 +247,4 @@ function InitializeAllLocationBoxes() {
         { name:'ESXI', id:212 },
         { name:'SCCM', id:213 }
         ]);
-
-    InitializeFacilitySensorBox("CKES","CKES",false,25,12,0,[
-        { name:'TYCO', id:57 },
-        ]);
 }
