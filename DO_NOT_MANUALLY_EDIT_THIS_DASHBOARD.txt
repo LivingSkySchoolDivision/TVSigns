@@ -5,12 +5,4 @@ This dashboard is automatically deployed to it's web server via Jenkins (jenkins
 To edit the contents of the dashboard, you must make changes to the source code using the repository.
 
 Currently, the repo for this can be found here: 
-https://sourcecode.lskysd.ca/Dashboards/TVSigns/
-
-You will need to be a member of the "developers" group to access it. 
-
-Jenkins will automatically deploy the "default" branch to:
-\\dashboard\wwwroot\TVSigns
-
-Jenkins will automatically deploy the "default" branch to:
-\\dashboard\wwwroot\TVSignsTest
+https://github.com/LivingSkySchoolDivision/TVSigns
